@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Alhaddad - Digital Business Card</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f9f9;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .card {
+        max-width: 420px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-top: 40px;
+    }
+    .logo {
+        width: 120px;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+    h1 {
+        margin: 10px 0 5px;
+        font-size: 24px;
+        color: #004d4d;
+    }
+    p {
+        color: #666;
+        margin-bottom: 25px;
+    }
+    a.button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 12px auto;
+        padding: 14px;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 85%;
+        font-weight: bold;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    a.button img {
+        width: 20px;
+        height: 20px;
+    }
+    a.button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    }
+    .call { background: #0078d7; }
+    .whatsapp { background: #25D366; }
+    .email { background: #FF7F50; }
+    .save { background: #004d4d; }
+    .instagram { background: #E1306C; }
+    .snapchat { background: #FFFC00; color: black; }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <img src="logo.png" alt="WalkWellMD Logo" class="logo">
+    
+    <h1>Ali Alhaddad</h1>
+    <p>WalkWellMD</p>
+
+    <a href="tel:+966599124348" class="button call">
+        📞 Call Me
+    </a>
+    <a href="https://wa.me/966599124348" class="button whatsapp">
+        💬 WhatsApp
+    </a>
+    <a href="mailto:help@walkwellmd.com" class="button email">
+        ✉ Email Me
+    </a>
+    <a href="AliAlhaddad.vcf" class="button save" download>
+        💾 Save Contact
+    </a>
+    <a href="https://instagram.com/walkwellmd" class="button instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        Instagram
+    </a>
+    <a href="https://www.snapchat.com/add/walkwellmd?share_id=R-GejNwocF8&locale=en-GB" class="button snapchat">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/Snapchat_logo.svg" alt="Snapchat">
+        Snapchat
+    </a>
+</div>
+
+</body>
+</html>
