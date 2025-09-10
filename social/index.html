@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WalkWellMD — Social</title>
-  <meta name="description" content="All Dr. Ali Alhaddad (WalkWellMD) links in one place: Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
+  <title>Dr.ALI Alhaddad — Social Links</title>
+  <meta name="description" content="All links for Dr.ALI Alhaddad (WalkWellMD): Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
 
   <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="WalkWellMD — Social" />
-  <meta property="og:description" content="All WalkWellMD links in one place." />
+  <meta property="og:title" content="Dr.ALI Alhaddad — Social Links" />
+  <meta property="og:description" content="Quick links: Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://walkwellmd.com/social" />
   <meta property="og:image" content="https://walkwellmd.com/assets/og-social.jpg" />
@@ -49,11 +49,13 @@
     }
     .avatar {
       width: 72px; height: 72px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.06), 0 6px 18px rgba(0,0,0,0.35);
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .title { font-size: 1.375rem; font-weight: 700; letter-spacing: 0.2px; }
-    .subtitle { color: var(--muted); margin-top: 4px; font-size: 0.98rem; }
-    .subtitle small { opacity: 0.9; }
+    .title { font-size: 1.36rem; font-weight: 800; letter-spacing: 0.2px; line-height: 1.2; }
+    .title .ar { font-weight: 700; opacity: .95; margin-left: 8px; }
+    .subtitle { color: var(--muted); margin-top: 6px; font-size: 0.98rem; line-height: 1.35; }
+    .subtitle .ar { display: block; margin-top: 4px; }
 
     .list { display: grid; gap: 12px; padding: 16px 16px 24px; }
     .btn {
@@ -65,25 +67,25 @@
     }
     .btn:hover { transform: translateY(-1px); border-color: rgba(21,181,161,0.45); }
     .btn:active { transform: translateY(0); }
-    .label { font-weight: 600; letter-spacing: .2px; }
+    .label { font-weight: 700; letter-spacing: .2px; }
     .hint { color: var(--muted); font-size: .92rem; }
 
-    .watermark {
-      text-align: center; color: var(--muted); font-size: .86rem; padding: 12px 10px 10px; opacity: .85;
-    }
+    .watermark { text-align: center; color: var(--muted); font-size: .86rem; padding: 10px 10px 12px; opacity: .85; }
 
     /* Simple modal (popup) */
     .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; }
     .modal { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; }
+    .modal.open { pointer-events: auto; }
     .modal.open .modal-backdrop { display: block; }
     .modal.open .sheet { transform: translateY(0); opacity: 1; }
     .sheet {
-      width: 92%; max-width: 520px; pointer-events: auto; opacity: 0; transform: translateY(12px);
+      width: 92%; max-width: 520px; opacity: 0; transform: translateY(12px);
       background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 18px;
-      transition: all .18s ease;
+      transition: all .18s ease; box-shadow: 0 24px 60px rgba(0,0,0,.5);
     }
-    .sheet h3 { margin: 8px 8px 14px; }
-    .x { cursor: pointer; border: 0; background: transparent; color: var(--muted); font-size: 18px; }
+    .sheet header { padding: 6px 6px 8px; grid-template-columns: auto 1fr auto; }
+    .sheet .avatar { width: 52px; height: 52px; border-radius: 14px; }
+    .sheet .x { cursor: pointer; border: 0; background: transparent; color: var(--muted); font-size: 18px; }
 
     /* SVG icon wrappers */
     .ico { width: 28px; height: 28px; display: grid; place-items: center; }
@@ -106,11 +108,17 @@
     <div class="card">
       <header>
         <div class="avatar">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAADtpUlEQVR42uz9aa+l2XUmBj5r7b3f95x7IyIjch6Ylxb2mFQxgT1JrW1J4m2nQzJ+v6gl0wsG7+v//n0K5y0VtTnM9meCsy9+JwT5w3GJ1b9Wz4K6d9cG2cQ1g6lTVVg8Vv0wOc3tnd3d7cKQ1n3/7j9z+fZ4q6vJqf1Ck4o8r8yqQ0sV6e5S2A1a+0zQb8sQy7K8p2u7kqkqJX9Jc0hKf9o8Xo7C0k3Wl1w+z0xgU/8sQk9n6bUWCp7y2r4b8jP4x0o7w8aC8Pzq4eAx3T1vWv2CkJ0kivbO4W4v0hY0y8Q2N2Ww7l2M0xR8qW2iP8Qv2mX+gq8Z8XkCqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQqUQ" alt
+          <img src="/assets/walkwellmd-logo.png" alt="WalkWellMD" onerror="this.onerror=null;this.src='/logo.png';" />
         </div>
         <div>
-          <div class="title">WalkWellMD — Dr. Ali Alhaddad</div>
-          <div class="subtitle">Orthopaedic Foot & Ankle Surgeon · <small>Jeddah, Saudi Arabia</small></div>
+          <div class="title">
+            <span class="en">Dr.ALI Alhaddad</span>
+            <span class="ar" lang="ar" dir="rtl">د.علي الحداد</span>
+          </div>
+          <div class="subtitle">
+            <span class="en">Orthopaedic Foot &amp; Ankle Surgeon · Jeddah, Saudi Arabia</span>
+            <span class="ar" lang="ar" dir="rtl">جراحة العظام و جراحة القدم و الكاحل</span>
+          </div>
         </div>
       </header>
 
@@ -157,11 +165,11 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3.9A10 10 0 0 0 3.2 17.6L2 22l4.5-1.2A10 10 0 1 0 20 3.9zm-8 16.4c-1.7 0-3.2-.5-4.5-1.4l-.3-.2-2.7.7.7-2.6-.3-.3a7.9 7.9 0 1 1 7.1 3.8zm4.3-5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1-.1.2-.6.7-.7.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1a6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.2-.3.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1 .7 2 .8 2.1.1.2 1.4 2.2 3.3 3 .5.2.9.3 1.2.4.5.1 1 0 1.3 0 .4-.1 1.3-.6 1.5-1.1.2-.5.2-1 .1-1.1-.1 0-.2 0-.4-.1z"/></svg>
           </span>
           <span class="label">WhatsApp</span>
-          <span class="hint">Chat with WalkWellMD</span>
+          <span class="hint">Chat now</span>
         </a>
 
         <!-- 6) Email -->
-        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry&body=Hello%20WalkWellMD%2C%0A%0A">
+        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry&body=Hello%20Dr.%20Ali%2C%0A%0A">
           <span class="ico mail" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/></svg>
           </span>
@@ -177,21 +185,57 @@
     </div>
   </main>
 
-  <!-- Popup modal content (same links) -->
+  <!-- Popup modal with avatar + bilingual title and full icons list -->
   <div class="modal" id="modal">
     <div class="modal-backdrop" id="closeBackdrop" aria-hidden="true"></div>
     <div class="sheet">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-        <h3 style="margin:0;font-size:1.05rem;">WalkWellMD — Quick Links</h3>
+      <header>
+        <div class="avatar">
+          <img src="/assets/walkwellmd-logo.png" alt="WalkWellMD" onerror="this.onerror=null;this.src='/logo.png';" />
+        </div>
+        <div>
+          <div class="title">
+            <span class="en">Dr.ALI Alhaddad</span>
+            <span class="ar" lang="ar" dir="rtl">د.علي الحداد</span>
+          </div>
+          <div class="subtitle">
+            <span class="en">Orthopaedic Foot &amp; Ankle Surgeon</span>
+            <span class="ar" lang="ar" dir="rtl">جراحة العظام و جراحة القدم و الكاحل</span>
+          </div>
+        </div>
         <button class="x" id="closeX" aria-label="Close">✕</button>
-      </div>
-      <div class="list" style="padding:12px 6px 4px;">
-        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener"><span class="label">Snapchat</span><span class="hint">@walkwellmd</span></a>
-        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank" rel="noopener"><span class="label">Instagram</span><span class="hint">@walkwellmd</span></a>
-        <a class="btn" href="https://x.com/walkwellmd" target="_blank" rel="noopener"><span class="label">X (Twitter)</span><span class="hint">@walkwellmd</span></a>
-        <a class="btn" href="https://www.tiktok.com/@walkwellmd" target="_blank" rel="noopener"><span class="label">TikTok</span><span class="hint">@walkwellmd</span></a>
-        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener"><span class="label">WhatsApp</span><span class="hint">Chat now</span></a>
-        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry"><span class="label">Email</span><span class="hint">info@walkwellmd.com</span></a>
+      </header>
+      <div class="list" style="padding:12px 6px 10px;">
+        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico snap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5c3 0 5.5 2.4 5.5 5.4 0 1-.2 1.6-.1 1.9.3.7 1.2 1 2 1.4.5.2.7.8.5 1.3-.2.4-.6.6-1 .6-.3 0-.6 0-.9.1-.6.2-.7.6-.6.9.2.5.8.8 1.3 1 .3.1.6.2.8.3.4.2.6.6.5 1-.2.5-.8.8-1.6.9-.4 0-.7.1-1 .3-.7.5-1.4 1.7-3.9 1.7-1 0-1.8-.3-2.4-.7-.2-.1-.5-.2-.7-.2s-.5.1-.7.2c-.6.4-1.4.7-2.4.7-2.5 0-3.2-1.2-3.9-1.7-.3-.2-.6-.3-1-.3-.8-.1-1.4-.4-1.6-.9-.2-.4.1-.8.5-1 .2-.1.5-.2.8-.3.5-.2 1.1-.5 1.3-1 .1-.3 0-.7-.6-.9-.3-.1-.6-.1-.9-.1-.4 0-.8-.2-1-.6-.3-.5 0-1.1.5-1.3.8-.4 1.7-.7 2-1.4.1-.3 0-.9-.1-1.9C6.5 4.9 9 2.5 12 2.5z"/></svg></span>
+          <span class="label">Snapchat</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico ig" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></span>
+          <span class="label">Instagram</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+        <a class="btn" href="https://x.com/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico x" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.9 7.9L23 22h-7.1l-5.6-7.3L3.9 22H1l7.4-8.5L1 2h7.2l5.1 6.7L18.9 2zm-2.5 18h2.2L7.7 4H5.4l11 16z"/></svg></span>
+          <span class="label">X (Twitter)</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+        <a class="btn" href="https://www.tiktok.com/@walkwellmd" target="_blank" rel="noopener">
+          <span class="ico tt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16.5 2c.3 2.2 1.8 3.8 4 4v3.2c-1.4 0-2.8-.4-4-1.2v6.9c0 3.6-2.9 6.1-6.5 6.1S3.5 18.5 3.5 15c0-3.6 2.9-6.5 6.5-6.5.4 0 .8 0 1.2.1v3.6c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.3s1.5 3.1 3.3 3.1 3.3-1.3 3.3-3.1V2h3.2z"/></svg></span>
+          <span class="label">TikTok</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener">
+          <span class="ico wa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 3.9A10 10 0 0 0 3.2 17.6L2 22l4.5-1.2A10 10 0 1 0 20 3.9zm-8 16.4c-1.7 0-3.2-.5-4.5-1.4l-.3-.2-2.7.7.7-2.6-.3-.3a7.9 7.9 0 1 1 7.1 3.8zm4.3-5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1-.1.2-.6.7-.7.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1a6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.2-.3.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1 .7 2 .8 2.1.1.2 1.4 2.2 3.3 3 .5.2.9.3 1.2.4.5.1 1 0 1.3 0 .4-.1 1.3-.6 1.5-1.1.2-.5.2-1 .1-1.1-.1 0-.2 0-.4-.1z"/></svg></span>
+          <span class="label">WhatsApp</span>
+          <span class="hint">Chat now</span>
+        </a>
+        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry&body=Hello%20Dr.%20Ali%2C%0A%0A">
+          <span class="ico mail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/></svg></span>
+          <span class="label">Email</span>
+          <span class="hint">info@walkwellmd.com</span>
+        </a>
       </div>
     </div>
   </div>
