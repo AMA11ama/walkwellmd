@@ -1,102 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Alhaddad - Digital Business Card</title>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WalkWellMD — Social</title>
+  <meta name="description" content="All Dr. Ali Alhaddad (WalkWellMD) links in one place: Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="WalkWellMD — Social" />
+  <meta property="og:description" content="All WalkWellMD links in one place." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://walkwellmd.com/social" />
+  <meta property="og:image" content="https://walkwellmd.com/assets/og-social.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --bg: #0e0f13;          /* near-black */
+      --card: #14161d;       /* deep slate */
+      --muted: #8f9bb3;      /* cool gray */
+      --text: #e9edf3;       /* near-white */
+      --accent: #15b5a1;     /* teal */
+      --accent-2: #7c3aed;   /* violet */
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-        font-family: Arial, sans-serif;
-        background: #f4f9f9;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% 0%, rgba(21,181,161,0.12), transparent 60%),
+                  radial-gradient(1200px 800px at 90% 10%, rgba(124,58,237,0.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      display: grid; place-items: center; padding: 24px;
     }
+    .wrap { width: 100%; max-width: 640px; }
     .card {
-        max-width: 420px;
-        margin: auto;
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-top: 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
     }
-    .logo {
-        width: 120px;
-        height: auto;
-        margin-bottom: 15px;
-        border-radius: 50%;
+    header {
+      padding: 28px 28px 12px;
+      display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center;
     }
-    h1 {
-        margin: 10px 0 5px;
-        font-size: 24px;
-        color: #004d4d;
+    .avatar {
+      width: 72px; height: 72px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
     }
-    p {
-        color: #666;
-        margin-bottom: 25px;
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .title { font-size: 1.375rem; font-weight: 700; letter-spacing: 0.2px; }
+    .subtitle { color: var(--muted); margin-top: 4px; font-size: 0.98rem; }
+    .subtitle small { opacity: 0.9; }
+
+    .list { display: grid; gap: 12px; padding: 16px 16px 24px; }
+    .btn {
+      display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 18px; text-decoration: none; color: var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
     }
-    a.button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin: 12px auto;
-        padding: 14px;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 16px;
-        width: 85%;
-        font-weight: bold;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    .btn:hover { transform: translateY(-1px); border-color: rgba(21,181,161,0.45); }
+    .btn:active { transform: translateY(0); }
+    .label { font-weight: 600; letter-spacing: .2px; }
+    .hint { color: var(--muted); font-size: .92rem; }
+
+    .watermark {
+      text-align: center; color: var(--muted); font-size: .86rem; padding: 12px 10px 10px; opacity: .85;
     }
-    a.button img {
-        width: 20px;
-        height: 20px;
+
+    /* Simple modal (popup) */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; }
+    .modal { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; }
+    .modal.open .modal-backdrop { display: block; }
+    .modal.open .sheet { transform: translateY(0); opacity: 1; }
+    .sheet {
+      width: 92%; max-width: 520px; pointer-events: auto; opacity: 0; transform: translateY(12px);
+      background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 18px;
+      transition: all .18s ease;
     }
-    a.button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    .sheet h3 { margin: 8px 8px 14px; }
+    .x { cursor: pointer; border: 0; background: transparent; color: var(--muted); font-size: 18px; }
+
+    /* SVG icon wrappers */
+    .ico { width: 28px; height: 28px; display: grid; place-items: center; }
+    .ico svg { width: 24px; height: 24px; }
+    .snap svg path { fill: #fffc00; stroke: #000; stroke-width: 1.25; }
+    .ig svg { fill: none; stroke: #fff; stroke-width: 2; }
+    .x svg path { fill: #fff; }
+    .tt svg path { fill: #fff; }
+    .wa svg path { fill: #25D366; }
+    .mail svg path { fill: #38bdf8; }
+
+    @media (max-width: 420px) {
+      .title { font-size: 1.2rem; }
+      .avatar { width: 60px; height: 60px; border-radius: 16px; }
     }
-    .call { background: #0078d7; }
-    .whatsapp { background: #25D366; }
-    .email { background: #FF7F50; }
-    .save { background: #004d4d; }
-    .instagram { background: #E1306C; }
-    .snapchat { background: #FFFC00; color: black; }
-</style>
+  </style>
 </head>
 <body>
+  <main class="wrap">
+    <div class="card">
+      <header>
+        <div class="avatar">
+          <img src="/assets/walkwellmd-logo.png" alt="WalkWellMD" onerror="this.onerror=null;this.src='/logo.png';" />
+        </div>
+        <div>
+          <div class="title">WalkWellMD — Dr. Ali Alhaddad</div>
+          <div class="subtitle">Orthopaedic Foot & Ankle Surgeon · <small>Jeddah, Saudi Arabia</small></div>
+        </div>
+      </header>
 
-<div class="card">
-    <img src="logo.png" alt="WalkWellMD Logo" class="logo">
-    
-    <h1>Ali Alhaddad</h1>
-    <p>WalkWellMD</p>
+      <div class="list">
+        <!-- 1) Snapchat -->
+        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico snap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5c3 0 5.5 2.4 5.5 5.4 0 1-.2 1.6-.1 1.9.3.7 1.2 1 2 1.4.5.2.7.8.5 1.3-.2.4-.6.6-1 .6-.3 0-.6 0-.9.1-.6.2-.7.6-.6.9.2.5.8.8 1.3 1 .3.1.6.2.8.3.4.2.6.6.5 1-.2.5-.8.8-1.6.9-.4 0-.7.1-1 .3-.7.5-1.4 1.7-3.9 1.7-1 0-1.8-.3-2.4-.7-.2-.1-.5-.2-.7-.2s-.5.1-.7.2c-.6.4-1.4.7-2.4.7-2.5 0-3.2-1.2-3.9-1.7-.3-.2-.6-.3-1-.3-.8-.1-1.4-.4-1.6-.9-.2-.4.1-.8.5-1 .2-.1.5-.2.8-.3.5-.2 1.1-.5 1.3-1 .1-.3 0-.7-.6-.9-.3-.1-.6-.1-.9-.1-.4 0-.8-.2-1-.6-.3-.5 0-1.1.5-1.3.8-.4 1.7-.7 2-1.4.1-.3 0-.9-.1-1.9C6.5 4.9 9 2.5 12 2.5z"/></svg>
+          </span>
+          <span class="label">Snapchat</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
 
-    <a href="tel:+966599124348" class="button call">
-        📞 Call Me
-    </a>
-    <a href="https://wa.me/966599124348" class="button whatsapp">
-        💬 WhatsApp
-    </a>
-    <a href="mailto:help@walkwellmd.com" class="button email">
-        ✉ Email Me
-    </a>
-    <a href="AliAlhaddad.vcf" class="button save" download>
-        💾 Save Contact
-    </a>
-    <a href="https://instagram.com/walkwellmd" class="button instagram">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        Instagram
-    </a>
-    <a href="https://www.snapchat.com/add/walkwellmd?share_id=R-GejNwocF8&locale=en-GB" class="button snapchat">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/Snapchat_logo.svg" alt="Snapchat">
-        Snapchat
-    </a>
-</div>
+        <!-- 2) Instagram -->
+        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico ig" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+          </span>
+          <span class="label">Instagram</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
 
+        <!-- 3) X (Twitter) -->
+        <a class="btn" href="https://x.com/walkwellmd" target="_blank" rel="noopener">
+          <span class="ico x" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.9 2H22l-6.9 7.9L23 22h-7.1l-5.6-7.3L3.9 22H1l7.4-8.5L1 2h7.2l5.1 6.7L18.9 2zm-2.5 18h2.2L7.7 4H5.4l11 16z"/></svg>
+          </span>
+          <span class="label">X (Twitter)</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+
+        <!-- 4) TikTok -->
+        <a class="btn" href="https://www.tiktok.com/@walkwellmd" target="_blank" rel="noopener">
+          <span class="ico tt" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 2c.3 2.2 1.8 3.8 4 4v3.2c-1.4 0-2.8-.4-4-1.2v6.9c0 3.6-2.9 6.1-6.5 6.1S3.5 18.5 3.5 15c0-3.6 2.9-6.5 6.5-6.5.4 0 .8 0 1.2.1v3.6c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.3s1.5 3.1 3.3 3.1 3.3-1.3 3.3-3.1V2h3.2z"/></svg>
+          </span>
+          <span class="label">TikTok</span>
+          <span class="hint">@walkwellmd</span>
+        </a>
+
+        <!-- 5) WhatsApp (prefilled) -->
+        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener">
+          <span class="ico wa" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3.9A10 10 0 0 0 3.2 17.6L2 22l4.5-1.2A10 10 0 1 0 20 3.9zm-8 16.4c-1.7 0-3.2-.5-4.5-1.4l-.3-.2-2.7.7.7-2.6-.3-.3a7.9 7.9 0 1 1 7.1 3.8zm4.3-5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1-.1.2-.6.7-.7.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1a6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.2-.3.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1 .7 2 .8 2.1.1.2 1.4 2.2 3.3 3 .5.2.9.3 1.2.4.5.1 1 0 1.3 0 .4-.1 1.3-.6 1.5-1.1.2-.5.2-1 .1-1.1-.1 0-.2 0-.4-.1z"/></svg>
+          </span>
+          <span class="label">WhatsApp</span>
+          <span class="hint">Chat with WalkWellMD</span>
+        </a>
+
+        <!-- 6) Email -->
+        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry&body=Hello%20WalkWellMD%2C%0A%0A">
+          <span class="ico mail" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/></svg>
+          </span>
+          <span class="label">Email</span>
+          <span class="hint">info@walkwellmd.com</span>
+        </a>
+      </div>
+
+      <div class="watermark">© WalkWellMD · English · <span dir="rtl" lang="ar">العربية</span></div>
+      <div class="watermark" style="padding-bottom: 16px;">
+        <button class="x" id="openPopup" aria-label="Open quick links">Open as popup</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup modal content (same links) -->
+  <div class="modal" id="modal">
+    <div class="modal-backdrop" id="closeBackdrop" aria-hidden="true"></div>
+    <div class="sheet">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+        <h3 style="margin:0;font-size:1.05rem;">WalkWellMD — Quick Links</h3>
+        <button class="x" id="closeX" aria-label="Close">✕</button>
+      </div>
+      <div class="list" style="padding:12px 6px 4px;">
+        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener"><span class="label">Snapchat</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank" rel="noopener"><span class="label">Instagram</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://x.com/walkwellmd" target="_blank" rel="noopener"><span class="label">X (Twitter)</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://www.tiktok.com/@walkwellmd" target="_blank" rel="noopener"><span class="label">TikTok</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener"><span class="label">WhatsApp</span><span class="hint">Chat now</span></a>
+        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry"><span class="label">Email</span><span class="hint">info@walkwellmd.com</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const openBtn = document.getElementById('openPopup');
+    const closeBackdrop = document.getElementById('closeBackdrop');
+    const closeX = document.getElementById('closeX');
+
+    const toggle = (on) => { if (on) modal.classList.add('open'); else modal.classList.remove('open'); };
+
+    // Button controls
+    openBtn?.addEventListener('click', () => toggle(true));
+    closeBackdrop?.addEventListener('click', () => toggle(false));
+    closeX?.addEventListener('click', () => toggle(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+
+    // Auto-open when the URL contains ?popup=1 or #popup
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('popup') === '1' || window.location.hash.toLowerCase() === '#popup') {
+      toggle(true);
+    }
+  </script>
 </body>
 </html>
