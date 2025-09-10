@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WalkWellMD — Social</title>
-  <meta name="description" content="All Dr. Ali Alhaddad (WalkWellMD) links in one place: Snapchat, Instagram, X, TikTok, WhatsApp, Call, Email." />
+  <meta name="description" content="All Dr. Ali Alhaddad (WalkWellMD) links in one place: Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
 
   <!-- Open Graph / Social Preview -->
   <meta property="og:title" content="WalkWellMD — Social" />
@@ -69,10 +69,10 @@
     .hint { color: var(--muted); font-size: .92rem; }
 
     .watermark {
-      text-align: center; color: var(--muted); font-size: .86rem; padding: 12px 10px 0; opacity: .85;
+      text-align: center; color: var(--muted); font-size: .86rem; padding: 12px 10px 10px; opacity: .85;
     }
 
-    /* Simple modal (optional "popup" UX) */
+    /* Simple modal (popup) */
     .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; }
     .modal { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; }
     .modal.open .modal-backdrop { display: block; }
@@ -93,7 +93,6 @@
     .x svg path { fill: #fff; }
     .tt svg path { fill: #fff; }
     .wa svg path { fill: #25D366; }
-    .call svg path { fill: #22c55e; }
     .mail svg path { fill: #38bdf8; }
 
     @media (max-width: 420px) {
@@ -107,7 +106,6 @@
     <div class="card">
       <header>
         <div class="avatar">
-          <!-- Replace with your real logo or portrait URL -->
           <img src="https://walkwellmd.com/assets/walkwellmd-avatar.jpg" alt="WalkWellMD" />
         </div>
         <div>
@@ -118,7 +116,7 @@
 
       <div class="list">
         <!-- 1) Snapchat -->
-        <a class="btn" href="https://www.snapchat.com/add/walkwellmd?share_id=R-GejNwocF8&locale=en-GB" target="_blank" rel="noopener">
+        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener">
           <span class="ico snap" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5c3 0 5.5 2.4 5.5 5.4 0 1-.2 1.6-.1 1.9.3.7 1.2 1 2 1.4.5.2.7.8.5 1.3-.2.4-.6.6-1 .6-.3 0-.6 0-.9.1-.6.2-.7.6-.6.9.2.5.8.8 1.3 1 .3.1.6.2.8.3.4.2.6.6.5 1-.2.5-.8.8-1.6.9-.4 0-.7.1-1 .3-.7.5-1.4 1.7-3.9 1.7-1 0-1.8-.3-2.4-.7-.2-.1-.5-.2-.7-.2s-.5.1-.7.2c-.6.4-1.4.7-2.4.7-2.5 0-3.2-1.2-3.9-1.7-.3-.2-.6-.3-1-.3-.8-.1-1.4-.4-1.6-.9-.2-.4.1-.8.5-1 .2-.1.5-.2.8-.3.5-.2 1.1-.5 1.3-1 .1-.3 0-.7-.6-.9-.3-.1-.6-.1-.9-.1-.4 0-.8-.2-1-.6-.3-.5 0-1.1.5-1.3.8-.4 1.7-.7 2-1.4.1-.3 0-.9-.1-1.9C6.5 4.9 9 2.5 12 2.5z"/></svg>
           </span>
@@ -154,8 +152,7 @@
         </a>
 
         <!-- 5) WhatsApp (prefilled) -->
-        <!-- Replace 9665XXXXXXXX with your KSA number. The text is URL-encoded. -->
-        <a class="btn" href="https://wa.me/9665XXXXXXXX?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener">
+        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener">
           <span class="ico wa" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3.9A10 10 0 0 0 3.2 17.6L2 22l4.5-1.2A10 10 0 1 0 20 3.9zm-8 16.4c-1.7 0-3.2-.5-4.5-1.4l-.3-.2-2.7.7.7-2.6-.3-.3a7.9 7.9 0 1 1 7.1 3.8zm4.3-5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1-.1.2-.6.7-.7.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1a6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.2-.3.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1 .7 2 .8 2.1.1.2 1.4 2.2 3.3 3 .5.2.9.3 1.2.4.5.1 1 0 1.3 0 .4-.1 1.3-.6 1.5-1.1.2-.5.2-1 .1-1.1-.1 0-.2 0-.4-.1z"/></svg>
           </span>
@@ -163,18 +160,7 @@
           <span class="hint">Chat with WalkWellMD</span>
         </a>
 
-        <!-- 6) Call -->
-        <!-- Replace with your number -->
-        <a class="btn" href="tel:+9665XXXXXXXX" >
-          <span class="ico call" aria-hidden="true">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 2.6 9 2c.5-.1 1 .2 1.2.7l1 3c.2.5 0 1-.4 1.3l-1.8 1.4a12.7 12.7 0 0 0 5.8 5.8l1.4-1.8c.3-.4.8-.6 1.3-.4l3 1c.5.2.8.7.7 1.2l-.6 2.4c-.1.5-.6.9-1.2 1-2 .2-6.7-.3-11-4.6C3 9.3 2.5 4.6 2.7 2.6c.1-.6.5-1 1-1.1z"/></svg>
-          </span>
-          <span class="label">Call</span>
-          <span class="hint">Click to dial</span>
-        </a>
-
-        <!-- 7) Email -->
-        <!-- Replace with your address -->
+        <!-- 6) Email -->
         <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry&body=Hello%20WalkWellMD%2C%0A%0A">
           <span class="ico mail" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/></svg>
@@ -191,7 +177,7 @@
     </div>
   </main>
 
-  <!-- Optional popup: shows the same links in a modal sheet -->
+  <!-- Popup modal content (same links) -->
   <div class="modal" id="modal">
     <div class="modal-backdrop" id="closeBackdrop" aria-hidden="true"></div>
     <div class="sheet">
@@ -200,10 +186,12 @@
         <button class="x" id="closeX" aria-label="Close">✕</button>
       </div>
       <div class="list" style="padding:12px 6px 4px;">
-        <!-- Repeat of primary actions (compact) -->
-        <a class="btn" href="https://wa.me/9665XXXXXXXX?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener"><span class="label">WhatsApp</span><span class="hint">Chat</span></a>
-        <a class="btn" href="tel:+9665XXXXXXXX"><span class="label">Call</span><span class="hint">Click to dial</span></a>
-        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry"><span class="label">Email</span><span class="hint">Send mail</span></a>
+        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank" rel="noopener"><span class="label">Snapchat</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank" rel="noopener"><span class="label">Instagram</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://x.com/walkwellmd" target="_blank" rel="noopener"><span class="label">X (Twitter)</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://www.tiktok.com/@walkwellmd" target="_blank" rel="noopener"><span class="label">TikTok</span><span class="hint">@walkwellmd</span></a>
+        <a class="btn" href="https://wa.me/966599124348?text=%F0%9F%91%8B%20السلام%20عليكم%20د.%20علي%20-%20أرغب%20في%20حجز%20موعد" target="_blank" rel="noopener"><span class="label">WhatsApp</span><span class="hint">Chat now</span></a>
+        <a class="btn" href="mailto:info@walkwellmd.com?subject=Clinic%20Enquiry"><span class="label">Email</span><span class="hint">info@walkwellmd.com</span></a>
       </div>
     </div>
   </div>
@@ -222,7 +210,7 @@
     closeX?.addEventListener('click', () => toggle(false));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
 
-    // NEW: Auto-open the popup when the URL contains ?popup=1 or #popup
+    // Auto-open when the URL contains ?popup=1 or #popup
     const params = new URLSearchParams(window.location.search);
     if (params.get('popup') === '1' || window.location.hash.toLowerCase() === '#popup') {
       toggle(true);
@@ -230,4 +218,3 @@
   </script>
 </body>
 </html>
-
