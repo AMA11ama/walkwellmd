@@ -1,0 +1,12 @@
+[
+  {
+    "id": "achilles-rupture",
+    "title_en": "Achilles Tendon Rupture – Rehab Program",
+    "title_ar": "برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/achilles_en.html",
+    "url_ar": "/protocols/achilles_ar.html",
+    "tags": ["ankle","rupture","boot"]
+  }
+]
