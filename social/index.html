@@ -3,97 +3,291 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr.ALI Alhaddad — Social Links</title>
-  <meta name="description" content="All links for Dr.ALI Alhaddad (WalkWellMD): Snapchat, Instagram, X, TikTok, WhatsApp, Email." />
-
+  <title>WalkWellMD — Links & Rehab Protocols</title>
+  <!-- Tailwind via CDN (works on GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --bg: #0e0f13;
-      --card: #14161d;
-      --muted: #8f9bb3;
-      --text: #e9edf3;
-      --accent: #15b5a1;
-      --accent-2: #7c3aed;
-      --radius: 24px;
+    /* Simple watermark background for protocols preview */
+    .wm::before{
+      content:"WalkWellMD";
+      position:fixed; inset:0; display:block; pointer-events:none;
+      font-size:10rem; font-weight:700; color:#0f766e22; /* teal w/ transparency */
+      transform:rotate(-22deg);
+      left:50%; top:50%; translate:-50% -50%;
+      letter-spacing:.1em; white-space:nowrap;
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 800px at 10% 0%, rgba(21,181,161,0.12), transparent 60%),
-                  radial-gradient(1200px 800px at 90% 10%, rgba(124,58,237,0.12), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .wrap { width: 100%; max-width: 640px; }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      overflow: hidden;
-      backdrop-filter: blur(6px);
-    }
-    header {
-      padding: 28px 28px 12px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 16px;
-      align-items: center;
-    }
-    .avatar { width: 72px; height: 72px; border-radius: 20px; overflow: hidden; }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .title { font-size: 1.36rem; font-weight: 800; }
-    .subtitle { color: var(--muted); margin-top: 6px; font-size: 0.98rem; }
-    .list { display: grid; gap: 12px; padding: 16px 16px 24px; justify-items: center; }
-    .btn {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      text-decoration: none;
-      color: var(--text);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-      justify-content: center;
-      width: 80%;
-      max-width: 320px;
-    }
-    .btn:hover { transform: translateY(-1px); border-color: rgba(21,181,161,0.45); }
-    .label { font-weight: 700; }
-    .hint { display: none; } /* hides usernames */
-    .ico { width: 28px; height: 28px; display: grid; place-items: center; }
-    .ico svg { width: 24px; height: 24px; }
-    .watermark { text-align: center; color: var(--muted); font-size: .86rem; padding: 10px; opacity: .85; }
+    .glass{backdrop-filter:saturate(140%) blur(8px);}
   </style>
-</head>
-<body>
-  <main class="wrap">
-    <div class="card">
-      <header>
-        <div class="avatar"><img src="/assets/walkwellmd-logo.png" alt="WalkWellMD"></div>
-        <div>
-          <div class="title">Dr.ALI Alhaddad <span class="ar">د.علي الحداد</span></div>
-          <div class="subtitle">Orthopaedic Foot & Ankle Surgeon · Jeddah, Saudi Arabia</div>
-          <div class="bookline"><a href="tel:0127444444" class="booklink">Book / <span class="ar">للحجز و الاستفسار</span> — 0127444444</a></div>
-        </div>
-      </header>
+  <!--
+  ========================= How this works =========================
+  Goal: ONE popup that shows both your Social links and your Post‑Op/Rehab protocols.
 
-      <div class="list">
-        <a class="btn" href="https://www.snapchat.com/add/walkwellmd" target="_blank"><span class="ico">👻</span><span class="label">Snapchat</span></a>
-        <a class="btn" href="https://instagram.com/walkwellmd" target="_blank"><span class="ico">📸</span><span class="label">Instagram</span></a>
-        <a class="btn" href="https://x.com/walkwellmd" target="_blank"><span class="ico">✖️</span><span class="label">X (Twitter)</span></a>
-        <a class="btn" href="https://www.tiktok.com/@walkwellmd8" target="_blank"><span class="ico">🎵</span><span class="label">TikTok</span></a>
-        <a class="btn" href="https://wa.me/966599124348" target="_blank"><span class="ico">💬</span><span class="label">WhatsApp</span></a>
-        <a class="btn" href="mailto:info@walkwellmd.com"><span class="ico">✉️</span><span class="label">Email</span></a>
+  ⚙️ Modular content for protocols
+  - Keep a small JSON file at /protocols/index.json that lists all protocol items.
+  - Each item can point to an HTML or PDF file you add over time — no code changes, just edit JSON.
+
+  🔗 NFC / Profile link
+  - Use a single URL and choose the tab with a query param:
+      https://YOURDOMAIN/popup.html?tab=social
+      https://YOURDOMAIN/popup.html?tab=protocols
+    (Perfect for storing on an NFC tag: set it to the protocols tab.)
+
+  📁 Suggested repo structure
+    /popup.html                <-- this file
+    /assets/icons/...          <-- optional icons
+    /protocols/index.json      <-- list of protocols you maintain
+    /protocols/achilles_en.html
+    /protocols/achilles_ar.html
+    /protocols/rotator_en.pdf  <-- PDFs are fine too
+
+  🧩 index.json schema (example at bottom of this file for quick copy)
+  [
+    {
+      "id":"achilles-rupture",
+      "title_en":"Achilles Tendon Rupture – Rehab Program",
+      "title_ar":"برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+      "lang":"bi",          // "en", "ar", or "bi" (bilingual)
+      "type":"html",         // "html" | "pdf"
+      "url":"/protocols/achilles_en.html",  // file you add
+      "url_ar":"/protocols/achilles_ar.html", // if bilingual
+      "tags":["ankle","rupture","cast","boot"]
+    }
+  ]
+
+  ➕ To add a new protocol later
+  1) Upload a new HTML or PDF into /protocols/ …
+  2) Append an item into /protocols/index.json with its metadata and URL(s).
+  3) Done. The popup auto‑loads the list.
+
+  =================================================================
+  -->
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-900">
+  <div class="fixed inset-0 flex items-center justify-center p-4">
+    <div class="glass bg-white/85 shadow-2xl rounded-3xl w-full max-w-xl border border-slate-200">
+      <!-- Header -->
+      <div class="px-6 pt-6 pb-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-2xl bg-teal-600/90 flex items-center justify-center text-white font-bold">W</div>
+          <div>
+            <h1 class="text-xl font-semibold leading-tight">WalkWellMD</h1>
+            <p class="text-xs text-slate-500 -mt-0.5">Links • Post‑Op & Rehab Protocols</p>
+          </div>
+        </div>
+        <a href="tel:0127444444" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-teal-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+          Book | للحجز
+        </a>
       </div>
 
-      <div class="watermark">© WalkWellMD · English · <span dir="rtl">العربية</span></div>
+      <!-- Tabs -->
+      <div class="px-6">
+        <div class="bg-slate-100 rounded-2xl p-1 grid grid-cols-2 gap-1">
+          <button id="tabSocial" class="tab active px-3 py-2 rounded-xl text-sm font-medium text-slate-700 bg-white shadow">Social</button>
+          <button id="tabProtocols" class="tab px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-white/70">Protocols</button>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <div class="p-6 space-y-6">
+        <!-- Social panel (reuses your existing links style) -->
+        <section id="panelSocial" class="space-y-3">
+          <a href="https://www.snapchat.com/add/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="font-medium">Snapchat</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://www.instagram.com/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="font-medium">Instagram</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://x.com/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="font-medium">X (Twitter)</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://www.tiktok.com/@walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="font-medium">TikTok</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://wa.me/966127444444" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="font-medium">WhatsApp</span>
+            <span class="text-xs text-slate-500">Clinic</span>
+          </a>
+        </section>
+
+        <!-- Protocols panel -->
+        <section id="panelProtocols" class="hidden space-y-4">
+          <div class="flex items-center gap-2">
+            <input id="searchBox" type="search" placeholder="Search | بحث" class="flex-1 px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500"/>
+            <button id="langToggle" class="px-3 py-2 rounded-xl border border-slate-200 text-sm">EN/العربية</button>
+          </div>
+
+          <div id="protocolList" class="grid gap-2"></div>
+
+          <!-- Preview Modal -->
+          <dialog id="previewDlg" class="backdrop:bg-black/40 rounded-2xl p-0 w-[min(100%,850px)]">
+            <div class="wm relative bg-white rounded-2xl overflow-hidden">
+              <div class="flex items-center justify-between p-4 border-b">
+                <h3 id="previewTitle" class="font-semibold text-lg">Preview</h3>
+                <button id="closePreview" class="px-2 py-1 rounded-lg border text-sm">Close</button>
+              </div>
+              <div id="previewBody" class="h-[70vh]">
+                <!-- Filled dynamically with iframe (PDF/HTML) -->
+              </div>
+            </div>
+          </dialog>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-6 pb-6 pt-2 text-xs text-slate-400">© <span id="y"></span> WalkWellMD — Dr. Ali Alhaddad</div>
     </div>
-  </main>
+  </div>
+
+  <script>
+    // ================= Tabs =================
+    const tabSocial = document.getElementById('tabSocial');
+    const tabProtocols = document.getElementById('tabProtocols');
+    const panelSocial = document.getElementById('panelSocial');
+    const panelProtocols = document.getElementById('panelProtocols');
+
+    function setTab(tab){
+      const active = tab === 'protocols' ? tabProtocols : tabSocial;
+      const inactive = tab === 'protocols' ? tabSocial : tabProtocols;
+      active.classList.add('bg-white','shadow','text-slate-700');
+      inactive.classList.remove('bg-white','shadow','text-slate-700');
+      inactive.classList.add('text-slate-600');
+      panelSocial.classList.toggle('hidden', tab === 'protocols');
+      panelProtocols.classList.toggle('hidden', tab !== 'protocols');
+      const url = new URL(window.location);
+      url.searchParams.set('tab', tab);
+      history.replaceState(null, '', url);
+    }
+
+    tabSocial.addEventListener('click',()=>setTab('social'));
+    tabProtocols.addEventListener('click',()=>setTab('protocols'));
+
+    // Initialize from ?tab=protocols
+    const initTab = new URLSearchParams(location.search).get('tab') || 'social';
+    setTab(initTab);
+
+    // ================= Protocols loader =================
+    const listEl = document.getElementById('protocolList');
+    const searchBox = document.getElementById('searchBox');
+    const langToggle = document.getElementById('langToggle');
+    let lang = 'en';
+    langToggle.addEventListener('click',()=>{ lang = lang==='en'?'ar':'en'; render(items); });
+
+    let items = [];
+
+    async function loadIndex(){
+      // Try to load the live index.json from your repo
+      const FALLBACK = [
+        {
+          id:"achilles-rupture",
+          title_en:"Achilles Tendon Rupture – Rehab Program",
+          title_ar:"برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+          lang:"bi",
+          type:"html",
+          url:"/protocols/achilles_en.html",
+          url_ar:"/protocols/achilles_ar.html",
+          tags:["ankle","rupture","boot"]
+        },
+        {
+          id:"ankle-sprain",
+          title_en:"Ankle Sprain — Home Rehab Guide",
+          title_ar:"التواء الكاحل — دليل التأهيل المنزلي",
+          lang:"bi",
+          type:"pdf",
+          url:"/protocols/ankle_sprain_en.pdf",
+          url_ar:"/protocols/ankle_sprain_ar.pdf",
+          tags:["sprain","ligament"]
+        }
+      ];
+      try{
+        const res = await fetch('/protocols/index.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('index.json not found');
+        items = await res.json();
+      }catch(err){
+        console.warn('Using fallback demo items — add /protocols/index.json to override.');
+        items = FALLBACK;
+      }
+      render(items);
+    }
+
+    function render(data){
+      const q = (searchBox.value||'').toLowerCase();
+      listEl.innerHTML = '';
+      data
+       .filter(it=> !q ||
+         (it.title_en && it.title_en.toLowerCase().includes(q)) ||
+         (it.title_ar && it.title_ar.toLowerCase().includes(q)) ||
+         (it.tags||[]).some(t=>t.toLowerCase().includes(q))
+       )
+       .forEach(it=>{
+         const isAR = lang==='ar' && (it.lang==='ar' || it.lang==='bi');
+         const title = isAR ? (it.title_ar||it.title_en) : (it.title_en||it.title_ar);
+         const url = isAR ? (it.url_ar||it.url) : (it.url||it.url_ar);
+         const row = document.createElement('button');
+         row.className = 'w-full text-left py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between';
+         row.innerHTML = `
+           <span class="font-medium ${isAR?'text-right w-full':''}" ${isAR?'dir="rtl"':''}>${title}</span>
+           <span class="text-xs text-slate-500">${it.type.toUpperCase()}</span>
+         `;
+         row.addEventListener('click',()=>openPreview(title,url,it.type));
+         listEl.appendChild(row);
+       });
+    }
+
+    function openPreview(title,url,type){
+      const dlg = document.getElementById('previewDlg');
+      const ttl = document.getElementById('previewTitle');
+      const body = document.getElementById('previewBody');
+      ttl.textContent = title;
+      body.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.className = 'w-full h-full';
+      iframe.loading = 'lazy';
+      body.appendChild(iframe);
+      dlg.showModal();
+    }
+
+    document.getElementById('closePreview').addEventListener('click',()=>{
+      document.getElementById('previewDlg').close();
+    });
+
+    searchBox.addEventListener('input',()=>render(items));
+
+    // Load the index now
+    loadIndex();
+
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ============ Copy-ready sample: /protocols/index.json ============
+  [
+    {
+      "id":"achilles-rupture",
+      "title_en":"Achilles Tendon Rupture – Rehab Program",
+      "title_ar":"برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+      "lang":"bi",
+      "type":"html",
+      "url":"/protocols/achilles_en.html",
+      "url_ar":"/protocols/achilles_ar.html",
+      "tags":["ankle","rupture","boot"]
+    },
+    {
+      "id":"ankle-sprain",
+      "title_en":"Ankle Sprain — Home Rehab Guide",
+      "title_ar":"التواء الكاحل — دليل التأهيل المنزلي",
+      "lang":"bi",
+      "type":"pdf",
+      "url":"/protocols/ankle_sprain_en.pdf",
+      "url_ar":"/protocols/ankle_sprain_ar.pdf",
+      "tags":["sprain","ligament"]
+    }
+  ]
+  -->
 </body>
 </html>
