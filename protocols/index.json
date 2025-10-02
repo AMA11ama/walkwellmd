@@ -20,3 +20,13 @@
     "tags": ["ankle","peroneal","tendon repair","post-op"]
   }
 ]
+{
+  "id": "mortons-neuroma-excision",
+  "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
+  "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
+  "lang": "bi",
+  "type": "html",
+  "url": "/protocols/mortons_en.html",
+  "url_ar": "/protocols/mortons_ar.html",
+  "tags": ["forefoot","neuroma","post-op"]
+}
