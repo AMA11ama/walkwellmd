@@ -18,8 +18,7 @@
     "url": "/protocols/peroneal_en.html",
     "url_ar": "/protocols/peroneal_ar.html",
     "tags": ["ankle","peroneal","tendon repair","post-op"]
-  }
-]
+  },
 {
   "id": "mortons-neuroma-excision",
   "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
@@ -30,3 +29,4 @@
   "url_ar": "/protocols/mortons_ar.html",
   "tags": ["forefoot","neuroma","post-op"]
 }
+]
