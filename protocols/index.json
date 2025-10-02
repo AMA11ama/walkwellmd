@@ -8,5 +8,15 @@
     "url": "/protocols/achilles_en.html",
     "url_ar": "/protocols/achilles_ar.html",
     "tags": ["ankle","rupture","boot"]
+  },
+  {
+    "id": "peroneal-repair",
+    "title_en": "Peroneal Tendon Repair – Rehabilitation Protocol",
+    "title_ar": "إصلاح وتر الشظوي – بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/peroneal_en.html",
+    "url_ar": "/protocols/peroneal_ar.html",
+    "tags": ["ankle","peroneal","tendon repair","post-op"]
   }
 ]
