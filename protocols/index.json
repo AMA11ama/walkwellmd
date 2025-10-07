@@ -29,4 +29,25 @@
   "url_ar": "/protocols/mortons_ar.html",
   "tags": ["forefoot","neuroma","post-op"]
 }
+  {
+    "id": "first-mtp-fusion",
+    "title_en": "First MTP Joint Fusion – Rehabilitation Protocol",
+    "title_ar": "دمج المفصل المشطي السلامي الأول – بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/first_mtp_fusion_en.html",
+    "url_ar": "/protocols/first_mtp_fusion_ar.html",
+    "tags": ["forefoot", "fusion", "first MTP", "hallux", "post-op"]
+  },
+  {
+    "id": "partial-nail-bed-excision",
+    "title_en": "Partial Nail Bed Excision with Cauterization – Post-Operative Protocol",
+    "title_ar": "استئصال جزئي لسرير الظفر مع الكي – بروتوكول ما بعد العملية",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/partial_nail_bed_excision_en.html",
+    "url_ar": "/protocols/partial_nail_bed_excision_ar.html",
+    "tags": ["toenail", "ingrown", "minor surgery", "post-op"]
+  }
 ]
+
