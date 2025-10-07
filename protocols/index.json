@@ -19,7 +19,7 @@
     "url_ar": "/protocols/peroneal_ar.html",
     "tags": ["ankle","peroneal","tendon repair","post-op"]
   },
-{
+  {
   "id": "mortons-neuroma-excision",
   "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
   "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
@@ -28,7 +28,7 @@
   "url": "/protocols/mortons_en.html",
   "url_ar": "/protocols/mortons_ar.html",
   "tags": ["forefoot","neuroma","post-op"]
-},
+  },
   {
     "id": "first-mtp-fusion",
     "title_en": "First MTP Joint Fusion – Rehabilitation Protocol",
@@ -48,6 +48,6 @@
     "url": "/protocols/partial_nail_bed_excision_en.html",
     "url_ar": "/protocols/partial_nail_bed_excision_ar.html",
     "tags": ["toenail", "ingrown", "minor surgery", "post-op"]
-  }
+  },
 ]
 
