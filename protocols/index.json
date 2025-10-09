@@ -49,5 +49,16 @@
     "url_ar": "/protocols/partial_nail_bed_excision_ar.html",
     "tags": ["toenail", "ingrown", "minor surgery", "post-op"]
   },
+  {
+    "id": "orif-5th-metatarsal-base",
+    "title_en": "ORIF – Fifth Metatarsal Base Fracture (Plate & Screws)",
+    "title_ar": "ردّ مفتوح وتثبيت داخلي (ORIF) — كسر قاعدة المشط الخامس",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/orif_5th_metatarsal_en.html",
+    "url_ar": "/protocols/orif_5th_metatarsal_ar.html",
+    "tags": ["foot", "5th metatarsal", "plate", "CAM boot", "fracture", "ORIF"]
+  }
 ]
+
 
