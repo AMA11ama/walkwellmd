@@ -59,15 +59,15 @@
     "url_ar": "/protocols/orif_5th_metatarsal_ar.html",
     "tags": ["foot", "5th metatarsal", "plate", "CAM boot", "fracture", "ORIF"]
   },
-    {
+  {
     "id": "flatfoot-reconstruction",
-    "title_en": "Flatfoot (Pes Planovalgus) Reconstruction – Post‑Operative Rehabilitation Protocol",
+    "title_en": "Flatfoot (Pes Planovalgus) Reconstruction – Post-Operative Rehabilitation Protocol",
     "title_ar": "بروتوكول إعادة التأهيل بعد عملية تصحيح القدم المسطحة",
     "lang": "bi",
     "type": "html",
     "url": "./flatfoot_en.html",
     "url_ar": "./flatfoot_ar.html",
-    "tags": ["foot", "flatfoot", "pes planovalgus", "reconstruction", "post‑op"]
+    "tags": ["foot", "flatfoot", "pes planovalgus", "reconstruction", "post-op"]
   }
 ]
 
