@@ -5,8 +5,8 @@
     "title_ar": "برنامج إعادة التأهيل بعد تمزق وتر أخيل",
     "lang": "bi",
     "type": "html",
-    "url": "/protocols/achilles_en.html",
-    "url_ar": "/protocols/achilles_ar.html",
+    "url": "protocols/achilles_en.html",
+    "url_ar": "protocols/achilles_ar.html",
     "tags": ["ankle","rupture","boot"]
   },
   {
@@ -15,19 +15,19 @@
     "title_ar": "إصلاح وتر الشظوي – بروتوكول إعادة التأهيل",
     "lang": "bi",
     "type": "html",
-    "url": "/protocols/peroneal_en.html",
-    "url_ar": "/protocols/peroneal_ar.html",
+    "url": "protocols/peroneal_en.html",
+    "url_ar": "protocols/peroneal_ar.html",
     "tags": ["ankle","peroneal","tendon repair","post-op"]
   },
   {
-  "id": "mortons-neuroma-excision",
-  "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
-  "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
-  "lang": "bi",
-  "type": "html",
-  "url": "/protocols/mortons_en.html",
-  "url_ar": "/protocols/mortons_ar.html",
-  "tags": ["forefoot","neuroma","post-op"]
+    "id": "mortons-neuroma-excision",
+    "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
+    "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "protocols/mortons_en.html",
+    "url_ar": "protocols/mortons_ar.html",
+    "tags": ["forefoot","neuroma","post-op"]
   },
   {
     "id": "first-mtp-fusion",
@@ -35,8 +35,8 @@
     "title_ar": "دمج المفصل المشطي السلامي الأول – بروتوكول إعادة التأهيل",
     "lang": "bi",
     "type": "html",
-    "url": "/protocols/first_mtp_fusion_en.html",
-    "url_ar": "/protocols/first_mtp_fusion_ar.html",
+    "url": "protocols/first_mtp_fusion_en.html",
+    "url_ar": "protocols/first_mtp_fusion_ar.html",
     "tags": ["forefoot", "fusion", "first MTP", "hallux", "post-op"]
   },
   {
@@ -45,8 +45,8 @@
     "title_ar": "استئصال جزئي لسرير الظفر مع الكي – بروتوكول ما بعد العملية",
     "lang": "bi",
     "type": "html",
-    "url": "/protocols/partial_nail_bed_excision_en.html",
-    "url_ar": "/protocols/partial_nail_bed_excision_ar.html",
+    "url": "protocols/partial_nail_bed_excision_en.html",
+    "url_ar": "protocols/partial_nail_bed_excision_ar.html",
     "tags": ["toenail", "ingrown", "minor surgery", "post-op"]
   },
   {
@@ -55,8 +55,8 @@
     "title_ar": "ردّ مفتوح وتثبيت داخلي (ORIF) — كسر قاعدة المشط الخامس",
     "lang": "bi",
     "type": "html",
-    "url": "/protocols/orif_5th_metatarsal_en.html",
-    "url_ar": "/protocols/orif_5th_metatarsal_ar.html",
+    "url": "protocols/orif_5th_metatarsal_en.html",
+    "url_ar": "protocols/orif_5th_metatarsal_ar.html",
     "tags": ["foot", "5th metatarsal", "plate", "CAM boot", "fracture", "ORIF"]
   },
   {
@@ -65,10 +65,8 @@
     "title_ar": "بروتوكول إعادة التأهيل بعد عملية تصحيح القدم المسطحة",
     "lang": "bi",
     "type": "html",
-    "url": "./flatfoot_en.html",
-    "url_ar": "./flatfoot_ar.html",
+    "url": "protocols/flatfoot_en.html",
+    "url_ar": "protocols/flatfoot_ar.html",
     "tags": ["foot", "flatfoot", "pes planovalgus", "reconstruction", "post-op"]
   }
 ]
-
-
