@@ -1,836 +1,214 @@
-<!DOCTYPE
-html>
-
-<html
-lang="en"
-dir="ltr">
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-
-<meta
-charset="utf-8"
-/>
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1"
-/>
-
-<title>WalkWellMD — Links & Rehab Protocols</title>
-
-<script
-src="https://cdn.tailwindcss.com"></script>
-
-<style>
-
-/* === Brand watermark === */
-
-.wm::before {
-
-content:
-"WalkWellMD";
-
-position:
-fixed;
-
-inset:
-0;
-
-display:
-block;
-
-pointer-events:
-none;
-
-font-size:
-10rem;
-
-font-weight:
-700;
-
-color:
-#0f766e22;
-
-transform:
-rotate(-22deg);
-
-left:
-50%;
-
-top:
-50%;
-
-translate:
--50%
--50%;
-
-letter-spacing:
-.1em;
-
-white-space:
-nowrap;
-
-z-index:
-0;
-
-}
-
-.glass {
-backdrop-filter:
-saturate(140%)
-blur(8px); }
-
-html,
-body {
-
-height:
-auto;
-
-min-height:
-100%;
-
-overflow:
-auto;
-
--webkit-overflow-scrolling:
-touch;
-
-background:
-#f8fafc;
-
-}
-
-.z-card {
-position:
-relative;
-z-index:
-10; }
-
-.tabs {
-position:
-relative;
-z-index:
-20; }
-
-#previewBody {
-max-height:
-70vh;
-overflow:
-auto;
--webkit-overflow-scrolling:
-touch; }
-
-
-
-/* === FIX: make popup larger === */
-
-dialog#previewDlg {
-
-width:
-90vw
-!important;
-
-max-width:
-900px
-!important;
-
-height:
-80vh
-!important;
-
-}
-
-#previewBody
-iframe {
-
-width:
-100%;
-
-height:
-70vh;
-
-border:
-none;
-
-}
-
-</style>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WalkWellMD — Links & Rehab Protocols</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .wm::before{
+      content:"WalkWellMD";
+      position:fixed; inset:0; display:block; pointer-events:none;
+      font-size:10rem; font-weight:700; color:#0f766e22;
+      transform:rotate(-22deg);
+      left:50%; top:50%; translate:-50% -50%;
+      letter-spacing:.1em; white-space:nowrap;
+    }
+    .glass{backdrop-filter:saturate(140%) blur(8px);}
+  </style>
 </head>
-
-<body
-class="bg-slate-50 min-h-screen text-slate-900 wm">
-
-<main
-class="py-6 px-4">
-
-<div
-id="card"
-class="z-card glass bg-white/85 shadow-2xl rounded-3xl w-full max-w-xl border border-slate-200 mx-auto">
-
-<!-- === Header === -->
-
-<div
-class="px-6 pt-6 pb-3 flex items-center justify-between">
-
-<div
-class="flex items-center gap-3">
-
-<img
-src="/assets/walkwellmd-logo.png"
-alt="WalkWellMD Logo"
-class="h-12 w-12 rounded-2xl"
-/>
-
-<div>
-
-<h1
-class="text-lg font-semibold leading-tight">Dr. Ali Alhaddad · د. علي الحداد</h1>
-
-<p
-class="text-xs text-slate-500 -mt-0.5">Links • Post-Op & Rehab Protocols</p>
-
-</div>
-
-</div>
-
-<a
-href="tel:+966127444444"
-class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-teal-700 transition"
-aria-label="Call booking 0127444444">
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-class="h-4 w-4"
-viewBox="0 0 24 24"
-fill="currentColor"><path
-d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36
- 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-
-Book | للحجز
-
-</a>
-
-</div>
-
-
-
-<!-- === Tabs === -->
-
-<div
-class="px-6 tabs">
-
-<div
-class="bg-slate-100 rounded-2xl p-1 grid grid-cols-2 gap-1">
-
-<button
-id="tabSocial"
-class="tab active px-3 py-2 rounded-xl text-sm font-medium text-slate-700 bg-white shadow focus:outline-none">Social</button>
-
-<button
-id="tabProtocols"
-class="tab px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-white/70 focus:outline-none">Protocols</button>
-
-</div>
-
-</div>
-
-
-
-<!-- === Panels === -->
-
-<div
-class="p-6 space-y-6">
-
-<!-- === Social Panel === -->
-
-<section
-id="panelSocial"
-class="space-y-3">
-
-<a
-href="https://www.snapchat.com/add/walkwellmd"
-target="_blank"
-rel="noopener"
-class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-
-<span
-class="flex items-center gap-2 font-medium"><svg
-xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 24 24'
-class='h-4 w-4'><circle
-cx='12'
-cy='12'
-r='10'
-fill='#FFFC00'/><path
-fill='#000'
-d='M12 5.8c2.2 0 3.9 1.6 4.1 3.7.1 1 .6 1.6 1.5 2-.3.5-.9.8-1.6.9-.3.8-.8 2.1-2.7 2.2-.9 0-1.7-.3-2.4-.8-.7.5-1.5.8-2.4.8-1.9 0-2.4-1.4-2.7-2.2-.7-.1-1.3-.4-1.6-.9.9-.4 1.4-1
- 1.5-2C8.1 7.4 9.8 5.8 12 5.8z'/></svg> Snapchat</span>
-
-<span
-class="text-xs text-slate-500">@walkwellmd</span>
-
-</a>
-
-<a
-href="https://www.instagram.com/walkwellmd"
-target="_blank"
-rel="noopener"
-class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-
-<span
-class="flex items-center gap-2 font-medium"><svg
-xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 24 24'
-class='h-4 w-4'><rect
-x='2'
-y='2'
-width='20'
-height='20'
-rx='5'
-fill='#E4405F'/><circle
-cx='12'
-cy='12'
-r='5.5'
-fill='white'/><circle
-cx='18'
-cy='6'
-r='1.5'
-fill='white'/></svg> Instagram</span>
-
-<span
-class="text-xs text-slate-500">@walkwellmd</span>
-
-</a>
-
-<a
-href="https://x.com/walkwellmd"
-target="_blank"
-rel="noopener"
-class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-
-<span
-class="flex items-center gap-2 font-medium"><svg
-xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 24 24'
-class='h-4 w-4'><rect
-width='24'
-height='24'
-rx='5'
-fill='#000000'/><path
-d='M7 6h2l3.3 4.1L16.8 6H19l-4.9 5.6L19 18h-2l-3.8-4.7L9 18H7l5-5.7L7 6z'
-fill='#ffffff'/></svg>
- X (Twitter)</span>
-
-<span
-class="text-xs text-slate-500">@walkwellmd</span>
-
-</a>
-
-<a
-href="https://www.tiktok.com/@walkwellmd8"
-target="_blank"
-rel="noopener"
-class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-
-<span
-class="flex items-center gap-2 font-medium"><svg
-xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 24 24'
-class='h-4 w-4'><rect
-width='24'
-height='24'
-rx='5'
-fill='#000'/><path
-d='M15 5.5c.6 1.3 1.7 2.2 3 2.5v2.1c-1.4-.1-2.7-.6-3.8-1.5v4.8c0 2.4-1.9 4.3-4.3 4.3S5.7 15.9 5.7 13.5s1.9-4.3 4.3-4.3c.3 0 .5 0 .8.1v2.2c-.2-.1-.5-.1-.8-.1-1.2 0-2.1 1-2.1
- 2.1 0 1.2 1 2.1 2.1 2.1s2.1-1 2.1-2.1V5.5h2.9z' 
-fill='#69C9D0'/><path
-d='M15 5.5v2.1c-.6-.3-1.1-.7-1.6-1.2v6.5c0 2.4-1.9 4.3-4.3 4.3-.9 0-1.8-.3-2.5-.8 1 .9 2.4 1.5 3.8 1.5 2.4 0 4.3-1.9 4.3-4.3V5.5h.3z'
-fill='#EE1D52'/></svg>
- TikTok</span>
-
-<span
-class="text-xs text-slate-500">@walkwellmd8</span>
-
-</a>
-
-<a
-href="https://wa.me/966599124348"
-target="_blank"
-rel="noopener"
-class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-
-<span
-class="flex items-center gap-2 font-medium">
-
-<svg
-xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 24 24'
-class='h-4 w-4'>
-
-<circle
-cx='12'
-cy='12'
-r='10'
-fill='#25D366'/>
-
-<path
-d='M17 14.3c-.2.6-1 1-1.6 1.1-.4 0-.9 0-2-.5-1.7-.7-2.8-2.3-3-2.5-.2-.3-.7-1-.7-1.9s.4-1.3.5-1.5c.2-.3.4-.3.6-.3h.4c.2 0 .3 0 .4.3.1.3.5 1 .6 1.1.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.2
- 0 .5.2.3.9 1.5 2.1 2 .9.4 1.2.3 1.4.2.2-.2.9-.7 1.1-.9.1-.1.3-.1.4 0 .1.1.4.9.2 1.6z'
-fill='#fff'/>
-
-</svg>
-
-WhatsApp
-
-</span>
-
-<span
-class="text-xs text-slate-500">Clinic</span>
-
-</a>
-
-</section>
-
-
-
-<!-- === Protocols Panel === -->
-
-<section
-id="panelProtocols"
-class="hidden space-y-4">
-
-<div
-class="flex items-center gap-2">
-
-<input
-id="searchBox"
-type="search"
-placeholder="Search | بحث"
-class="flex-1 px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500"/>
-
-<button
-id="langToggle"
-class="px-3 py-2 rounded-xl border border-slate-200 text-sm">EN/العربية</button>
-
-</div>
-
-<div
-id="protocolList"
-class="grid gap-2"></div>
-
-<dialog
-id="previewDlg"
-class="backdrop:bg-black/40 rounded-2xl p-0 w-[min(100%,850px)]">
-
-<div
-class="relative bg-white rounded-2xl overflow-hidden h-full flex flex-col">
-
-<div
-class="flex items-center justify-between p-4 border-b">
-
-<h3
-id="previewTitle"
-class="font-semibold text-lg">Preview</h3>
-
-<button
-id="closePreview"
-class="px-2 py-1 rounded-lg border text-sm">Close</button>
-
-</div>
-
-<div
-id="previewBody"
-class="flex-1 overflow-auto"></div>
-
-</div>
-
-</dialog>
-
-</section>
-
-</div>
-
-
-
-<!-- === Footer === -->
-
-<div
-class="px-6 pb-6 pt-2 text-xs text-slate-400">©
-<span
-id="y"></span> WalkWellMD
- — Dr. Ali Alhaddad</div>
-
-</div>
-
-</main>
-
-
-
-<!-- === Script === -->
-
-<script>
-
-const
-tabSocial =
-document.getElementById('tabSocial');
-
-const
-tabProtocols =
-document.getElementById('tabProtocols');
-
-const
-panelSocial =
-document.getElementById('panelSocial');
-
-const
-panelProtocols =
-document.getElementById('panelProtocols');
-
-
-
-function
-setTab(tab){
-
-const
-active =
-tab ===
-'protocols' ?
-tabProtocols :
-tabSocial;
-
-const
-inactive =
-tab ===
-'protocols' ?
-tabSocial :
-tabProtocols;
-
-active.classList.add('bg-white','shadow','text-slate-700');
-
-inactive.classList.remove('bg-white','shadow','text-slate-700');
-
-inactive.classList.add('text-slate-600');
-
-panelSocial.classList.toggle('hidden',
-tab ===
-'protocols');
-
-panelProtocols.classList.toggle('hidden',
-tab !==
-'protocols');
-
-const
-url =
-new
-URL(window.location);
-
-url.searchParams.set('tab',
-tab);
-
-history.replaceState(null,
-'',
-url);
-
-const
-card =
-document.getElementById('card');
-
-if(card)
-card.scrollIntoView({block:'start',
-behavior:'instant'});
-
-window.scrollTo({top:0,
-left:0,
-behavior:'instant'});
-
-}
-
-
-
-tabSocial.addEventListener('click',()=>setTab('social'));
-
-tabProtocols.addEventListener('click',()=>setTab('protocols'));
-
-
-
-const
-initTab =
-new
-URLSearchParams(location.search).get('tab')
- || 'social';
-
-setTab(initTab);
-
-
-
-const
-listEl =
-document.getElementById('protocolList');
-
-const
-searchBox =
-document.getElementById('searchBox');
-
-const
-langToggle =
-document.getElementById('langToggle');
-
-let
-lang =
-'en';
-
-langToggle.addEventListener('click',()=>{
-lang =
-lang==='en'?'ar':'en';
-render(items); });
-
-
-
-let
-items = [];
-
-
-
-async
-function
-loadIndex(){
-
-// Fallback demo items so the list never looks empty
-
-const
-FALLBACK = [
-
-{
-
-id:"achilles-rupture",
-
-title_en:"Achilles Tendon Rupture – Rehab Program",
-
-title_ar:"برنامج إعادة التأهيل بعد تمزق وتر أخيل",
-
-lang:"bi",
-
-type:"html",
-
-url:"/protocols/achilles_en.html",
-
-url_ar:"/protocols/achilles_ar.html",
-
-tags:["ankle","rupture","boot"]
-
-}
-
-];
-
-try{
-
-// Try absolute path first
-
-let
-res =
-await
-fetch('/protocols/index.json', {cache:'no-store'});
-
-if(!res.ok)
-throw
-new
-Error('root index.json not found');
-
-items =
-await
-res.json();
-
-}catch(err1){
-
-try{
-
-// Try relative path from /social/
-
-let
-res2 =
-await
-fetch('../protocols/index.json', {cache:'no-store'});
-
-if(!res2.ok)
-throw
-new
-Error('relative index.json not found');
-
-items =
-await
-res2.json();
-
-}catch(err2){
-
-console.warn('Using
- fallback demo items — add /protocols/index.json to override.');
-
-items =
-FALLBACK;
-
-// Also show a friendly message
-
-const
-warn =
-document.createElement('div');
-
-warn.className='text-xs
- text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3';
-
-warn.textContent='Could
- not load /protocols/index.json. Showing demo item. Once you add protocols/index.json, this list will auto-update.';
-
-listEl.before(warn);
-
-}
-
-}
-
-render(items);
-
-}
-
-
-
-function
-render(data){
-
-const
-q = (searchBox.value||'').toLowerCase();
-
-listEl.innerHTML =
-'';
-
-const
-filtered =
-data.filter(it=>
- !q ||
-
-(it.title_en &&
-it.title_en.toLowerCase().includes(q))
- ||
-
-(it.title_ar &&
-it.title_ar.toLowerCase().includes(q))
- ||
-
-(it.tags||[]).some(t=>t.toLowerCase().includes(q))
-
-);
-
-if(filtered.length===0){
-
-const
-empty =
-document.createElement('div');
-
-empty.className='text-sm
- text-slate-500 px-2 py-3';
-
-empty.textContent =
-lang==='ar' ?
-'لا توجد بروتوكولات مطابقة.' :
-'No matching protocols yet.';
-
-listEl.appendChild(empty);
-
-}
-
-filtered.forEach(it=>{
-
-const
-isAR =
-lang==='ar' && (it.lang==='ar'
- || it.lang==='bi');
-
-const
-title =
-isAR ? (it.title_ar||it.title_en)
- : (it.title_en||it.title_ar);
-
-const
-url =
-isAR ? (it.url_ar||it.url)
- : (it.url||it.url_ar);
-
-const
-row =
-document.createElement('button');
-
-row.className =
-'w-full text-left py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between';
-
-row.innerHTML =
-`<span class="font-medium ${isAR?'text-right
- w-full':''}"
-${isAR?'dir="rtl"':''}>${title}</span><span
- class=\"text-xs text-slate-500\">${(it.type||'HTML').toUpperCase()}</span>`;
-
-row.addEventListener('click',()=>openPreview(title,url,it.type));
-
-listEl.appendChild(row);
-
-});
-
-}
-
-
-
-function
-openPreview(title,url,type){
-
-const
-dlg =
-document.getElementById('previewDlg');
-
-document.getElementById('previewTitle').textContent
- = title;
-
-const
-body =
-document.getElementById('previewBody');
-
-body.innerHTML =
-'';
-
-const
-iframe =
-document.createElement('iframe');
-
-iframe.src =
-url;
-
-iframe.className =
-'w-full h-full';
-
-iframe.loading =
-'lazy';
-
-body.appendChild(iframe);
-
-dlg.showModal();
-
-}
-
-
-
-document.getElementById('closePreview').addEventListener('click',()=>{
-
-document.getElementById('previewDlg').close();
-
-});
-
-searchBox.addEventListener('input',()=>render(items));
-
-loadIndex();
-
-document.getElementById('y').textContent
- = new
-Date().getFullYear();
-
-</script>
-
+<body class="bg-slate-50 min-h-screen text-slate-900">
+  <div class="fixed inset-0 flex items-center justify-center p-4">
+    <div class="glass bg-white/85 shadow-2xl rounded-3xl w-full max-w-xl border border-slate-200">
+      <!-- Header -->
+      <div class="px-6 pt-6 pb-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/assets/walkwellmd-logo.png" alt="WalkWellMD Logo" class="h-12 w-12 rounded-2xl" />
+          <div>
+            <h1 class="text-lg font-semibold leading-tight">Dr. Ali Alhaddad · د. علي الحداد</h1>
+            <p class="text-xs text-slate-500 -mt-0.5">Links • Post‑Op & Rehab Protocols</p>
+          </div>
+        </div>
+        <a href="tel:+966127444444" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-teal-700 transition" aria-label="Call booking 0127444444">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+          Book | للحجز
+        </a>
+      </div>
+
+      <!-- Tabs -->
+      <div class="px-6">
+        <div class="bg-slate-100 rounded-2xl p-1 grid grid-cols-2 gap-1">
+          <button id="tabSocial" class="tab active px-3 py-2 rounded-xl text-sm font-medium text-slate-700 bg-white shadow">Social</button>
+          <button id="tabProtocols" class="tab px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-white/70">Protocols</button>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <div class="p-6 space-y-6">
+        <!-- Social panel -->
+        <section id="panelSocial" class="space-y-3">
+          <a href="https://www.snapchat.com/add/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><circle cx='12' cy='12' r='10' fill='#FFFC00'/><path fill='#000' d='M12 5.8c2.2 0 3.9 1.6 4.1 3.7.1 1 .6 1.6 1.5 2-.3.5-.9.8-1.6.9-.3.8-.8 2.1-2.7 2.2-.9 0-1.7-.3-2.4-.8-.7.5-1.5.8-2.4.8-1.9 0-2.4-1.4-2.7-2.2-.7-.1-1.3-.4-1.6-.9.9-.4 1.4-1 1.5-2C8.1 7.4 9.8 5.8 12 5.8z'/></svg> Snapchat</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://www.instagram.com/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><rect x='2' y='2' width='20' height='20' rx='5' fill='#E4405F'/><circle cx='12' cy='12' r='5.5' fill='white'/><circle cx='18' cy='6' r='1.5' fill='white'/></svg> Instagram</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://x.com/walkwellmd" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><rect width='24' height='24' rx='5' fill='#000000'/><path d='M7 6h2l3.3 4.1L16.8 6H19l-4.9 5.6L19 18h-2l-3.8-4.7L9 18H7l5-5.7L7 6z' fill='#ffffff'/></svg> X (Twitter)</span>
+            <span class="text-xs text-slate-500">@walkwellmd</span>
+          </a>
+          <a href="https://www.tiktok.com/@walkwellmd8" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><rect width='24' height='24' rx='5' fill='#000'/><path d='M15 5.5c.6 1.3 1.7 2.2 3 2.5v2.1c-1.4-.1-2.7-.6-3.8-1.5v4.8c0 2.4-1.9 4.3-4.3 4.3S5.7 15.9 5.7 13.5s1.9-4.3 4.3-4.3c.3 0 .5 0 .8.1v2.2c-.2-.1-.5-.1-.8-.1-1.2 0-2.1 1-2.1 2.1 0 1.2 1 2.1 2.1 2.1s2.1-1 2.1-2.1V5.5h2.9z' fill='#69C9D0'/><path d='M15 5.5v2.1c-.6-.3-1.1-.7-1.6-1.2v6.5c0 2.4-1.9 4.3-4.3 4.3-.9 0-1.8-.3-2.5-.8 1 .9 2.4 1.5 3.8 1.5 2.4 0 4.3-1.9 4.3-4.3V5.5h.3z' fill='#EE1D52'/></svg> TikTok</span>
+            <span class="text-xs text-slate-500">@walkwellmd8</span>
+          </a>
+          <a href="https://wa.me/966599124348" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
+            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><circle cx='12' cy='12' r='10' fill='#25D366'/><path d='M17 14.3c-.2.6-1 1-1.6 1.1-.4 0-.9 0-2-.5-1.7-.7-2.8-2.3-3-2.5-.2-.3-.7-1-.7-1.9s.4-1.3.5-1.5c.2-.3.4-.3.6-.3h.4c.2 0 .3 0 .4.3.1.3.5 1 .6 1.1.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.2 0 .5.2.3.9 1.5 2.1 2 .9.4 1.2.3 1.4.2.2-.2.9-.7 1.1-.9.1-.1.3-.1.4 0 .1.1.4.9.2 1.6z' fill='#fff'
+            <span class="text-xs text-slate-500">Clinic</span>
+          </a>
+        </section>
+
+        <!-- Protocols panel -->
+        <section id="panelProtocols" class="hidden space-y-4">
+          <div class="flex items-center gap-2">
+            <input id="searchBox" type="search" placeholder="Search | بحث" class="flex-1 px-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500"/>
+            <button id="langToggle" class="px-3 py-2 rounded-xl border border-slate-200 text-sm">EN/العربية</button>
+          </div>
+          <div id="protocolList" class="grid gap-2"></div>
+          <dialog id="previewDlg" class="backdrop:bg-black/40 rounded-2xl p-0 w-[min(100%,850px)]">
+            <div class="wm relative bg-white rounded-2xl overflow-hidden">
+              <div class="flex items-center justify-between p-4 border-b">
+                <h3 id="previewTitle" class="font-semibold text-lg">Preview</h3>
+                <button id="closePreview" class="px-2 py-1 rounded-lg border text-sm">Close</button>
+              </div>
+              <div id="previewBody" class="h-[70vh]"></div>
+            </div>
+          </dialog>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-6 pb-6 pt-2 text-xs text-slate-400">© <span id="y"></span> WalkWellMD — Dr. Ali Alhaddad</div>
+    </div>
+  </div>
+
+  <script>
+    const tabSocial = document.getElementById('tabSocial');
+    const tabProtocols = document.getElementById('tabProtocols');
+    const panelSocial = document.getElementById('panelSocial');
+    const panelProtocols = document.getElementById('panelProtocols');
+
+    function setTab(tab){
+      const active = tab === 'protocols' ? tabProtocols : tabSocial;
+      const inactive = tab === 'protocols' ? tabSocial : tabProtocols;
+      active.classList.add('bg-white','shadow','text-slate-700');
+      inactive.classList.remove('bg-white','shadow','text-slate-700');
+      inactive.classList.add('text-slate-600');
+      panelSocial.classList.toggle('hidden', tab === 'protocols');
+      panelProtocols.classList.toggle('hidden', tab !== 'protocols');
+      const url = new URL(window.location);
+      url.searchParams.set('tab', tab);
+      history.replaceState(null, '', url);
+    }
+
+    tabSocial.addEventListener('click',()=>setTab('social'));
+    tabProtocols.addEventListener('click',()=>setTab('protocols'));
+
+    const initTab = new URLSearchParams(location.search).get('tab') || 'social';
+    setTab(initTab);
+
+    const listEl = document.getElementById('protocolList');
+    const searchBox = document.getElementById('searchBox');
+    const langToggle = document.getElementById('langToggle');
+    let lang = 'en';
+    langToggle.addEventListener('click',()=>{ lang = lang==='en'?'ar':'en'; render(items); });
+
+    let items = [];
+
+    async function loadIndex(){
+      // Fallback demo items so the list never looks empty
+      const FALLBACK = [
+        {
+          id:"achilles-rupture",
+          title_en:"Achilles Tendon Rupture – Rehab Program",
+          title_ar:"برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+          lang:"bi",
+          type:"html",
+          url:"/protocols/achilles_en.html",
+          url_ar:"/protocols/achilles_ar.html",
+          tags:["ankle","rupture","boot"]
+        }
+      ];
+      try{
+        // Try absolute path first
+        let res = await fetch('/protocols/index.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('root index.json not found');
+        items = await res.json();
+      }catch(err1){
+        try{
+          // Try relative path from /social/
+          let res2 = await fetch('../protocols/index.json', {cache:'no-store'});
+          if(!res2.ok) throw new Error('relative index.json not found');
+          items = await res2.json();
+        }catch(err2){
+          console.warn('Using fallback demo items — add /protocols/index.json to override.');
+          items = FALLBACK;
+          // Also show a friendly message
+          const warn = document.createElement('div');
+          warn.className='text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3';
+          warn.textContent='Could not load /protocols/index.json. Showing demo item. Once you add protocols/index.json, this list will auto-update.';
+          listEl.before(warn);
+        }
+      }
+      render(items);
+    }
+
+    function render(data){
+      const q = (searchBox.value||'').toLowerCase();
+      listEl.innerHTML = '';
+      const filtered = data.filter(it=> !q ||
+        (it.title_en && it.title_en.toLowerCase().includes(q)) ||
+        (it.title_ar && it.title_ar.toLowerCase().includes(q)) ||
+        (it.tags||[]).some(t=>t.toLowerCase().includes(q))
+      );
+      if(filtered.length===0){
+        const empty = document.createElement('div');
+        empty.className='text-sm text-slate-500 px-2 py-3';
+        empty.textContent = lang==='ar' ? 'لا توجد بروتوكولات مطابقة.' : 'No matching protocols yet.';
+        listEl.appendChild(empty);
+      }
+      filtered.forEach(it=>{
+        const isAR = lang==='ar' && (it.lang==='ar' || it.lang==='bi');
+        const title = isAR ? (it.title_ar||it.title_en) : (it.title_en||it.title_ar);
+        const url = isAR ? (it.url_ar||it.url) : (it.url||it.url_ar);
+        const row = document.createElement('button');
+        row.className = 'w-full text-left py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between';
+        row.innerHTML = `<span class="font-medium ${isAR?'text-right w-full':''}" ${isAR?'dir="rtl"':''}>${title}</span><span class=\"text-xs text-slate-500\">${(it.type||'HTML').toUpperCase()}</span>`;
+        row.addEventListener('click',()=>openPreview(title,url,it.type));
+        listEl.appendChild(row);
+      });
+    }
+
+    function openPreview(title,url,type){
+      const dlg = document.getElementById('previewDlg');
+      document.getElementById('previewTitle').textContent = title;
+      const body = document.getElementById('previewBody');
+      body.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.className = 'w-full h-full';
+      iframe.loading = 'lazy';
+      body.appendChild(iframe);
+      dlg.showModal();
+    }
+
+    document.getElementById('closePreview').addEventListener('click',()=>{
+      document.getElementById('previewDlg').close();
+    });
+    searchBox.addEventListener('input',()=>render(items));
+    loadIndex();
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
