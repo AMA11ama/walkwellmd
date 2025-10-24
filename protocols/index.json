@@ -68,5 +68,15 @@
     "url": "/protocols/flatfoot_en.html",
     "url_ar": "/protocols/flatfoot_ar.html",
     "tags": ["foot", "flatfoot", "pes planovalgus", "reconstruction", "post-op"]
+  },
+  {
+    "id": "hallux-valgus-correction",
+    "title_en": "Hallux Valgus Correction – Rehabilitation Protocol",
+    "title_ar": "تصحيح إبهام القدم (هالوكس فالجس) — بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/hallux_valgus_correction_protocol.html",
+    "url_ar": "/protocols/hallux_valgus_correction_protocol.html",
+    "tags": ["forefoot","bunion","hallux valgus","WBAT","heel walking"]
   }
 ]
