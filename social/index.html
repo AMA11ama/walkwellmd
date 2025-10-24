@@ -156,7 +156,8 @@
 
     let items = [];
 
-    async function loadIndex(){
+   async function loadIndex(){
+      // Fallback demo items so the list never looks empty
       const FALLBACK = [
         {
           id:"achilles-rupture",
@@ -170,20 +171,23 @@
         }
       ];
       try{
-        let res = await fetch('/protocols/index.json',{cache:'no-store'});
-        if(!res.ok) throw new Error();
+        // Try absolute path first
+        let res = await fetch('/protocols/index.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('root index.json not found');
         items = await res.json();
-      }catch{
+      }catch(err1){
         try{
-          let res2 = await fetch('../protocols/index.json',{cache:'no-store'});
-          if(!res2.ok) throw new Error();
+          // Try relative path from /social/
+          let res2 = await fetch('../protocols/index.json', {cache:'no-store'});
+          if(!res2.ok) throw new Error('relative index.json not found');
           items = await res2.json();
-        }catch{
-          console.warn('Using fallback demo items');
+        }catch(err2){
+          console.warn('Using fallback demo items — add /protocols/index.json to override.');
           items = FALLBACK;
+          // Also show a friendly message
           const warn = document.createElement('div');
           warn.className='text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3';
-          warn.textContent='Could not load /protocols/index.json. Showing demo item.';
+          warn.textContent='Could not load /protocols/index.json. Showing demo item. Once you add protocols/index.json, this list will auto-update.';
           listEl.before(warn);
         }
       }
@@ -191,19 +195,50 @@
     }
 
     function render(data){
-      const q=(searchBox?.value||'').toLowerCase();
-      listEl.innerHTML='';
-      const filtered=data.filter(it=>!q||(it.title_en&&it.title_en.toLowerCase().includes(q))||(it.title_ar&&it.title_ar.toLowerCase().includes(q))||(it.tags||[]).some(t=>t.toLowerCase().includes(q)));
+      const q = (searchBox.value||'').toLowerCase();
+      listEl.innerHTML = '';
+      const filtered = data.filter(it=> !q ||
+        (it.title_en && it.title_en.toLowerCase().includes(q)) ||
+        (it.title_ar && it.title_ar.toLowerCase().includes(q)) ||
+        (it.tags||[]).some(t=>t.toLowerCase().includes(q))
+      );
       if(filtered.length===0){
-        const empty=document.createElement('div');
+        const empty = document.createElement('div');
         empty.className='text-sm text-slate-500 px-2 py-3';
-        empty.textContent=lang==='ar'?'لا توجد بروتوكولات مطابقة.':'No matching protocols yet.';
+        empty.textContent = lang==='ar' ? 'لا توجد بروتوكولات مطابقة.' : 'No matching protocols yet.';
         listEl.appendChild(empty);
       }
       filtered.forEach(it=>{
-        const isAR=lang==='ar'&&(it.lang==='ar'||it.lang==='bi');
-        const title=isAR?(it.title_ar||it.title_en):(it.title_en||it.title_ar);
-        const url=isAR?(it.url_ar||it.url):(it.url||it.url_ar);
-        const row=document.createElement('button');
-        row.className='w-full text-left py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between';
-        row.innerHTML=`<span class="font-medium ${isAR?'text-right w-full':''}" ${isAR?'dir="rtl"':''}>${title}</span><span class="text-xs text-slate-500">${(it.type||
+        const isAR = lang==='ar' && (it.lang==='ar' || it.lang==='bi');
+        const title = isAR ? (it.title_ar||it.title_en) : (it.title_en||it.title_ar);
+        const url = isAR ? (it.url_ar||it.url) : (it.url||it.url_ar);
+        const row = document.createElement('button');
+        row.className = 'w-full text-left py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between';
+        row.innerHTML = `<span class="font-medium ${isAR?'text-right w-full':''}" ${isAR?'dir="rtl"':''}>${title}</span><span class=\"text-xs text-slate-500\">${(it.type||'HTML').toUpperCase()}</span>`;
+        row.addEventListener('click',()=>openPreview(title,url,it.type));
+        listEl.appendChild(row);
+      });
+    }
+
+    function openPreview(title,url,type){
+      const dlg = document.getElementById('previewDlg');
+      document.getElementById('previewTitle').textContent = title;
+      const body = document.getElementById('previewBody');
+      body.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.className = 'w-full h-full';
+      iframe.loading = 'lazy';
+      body.appendChild(iframe);
+      dlg.showModal();
+    }
+
+    document.getElementById('closePreview').addEventListener('click',()=>{
+      document.getElementById('previewDlg').close();
+    });
+    searchBox.addEventListener('input',()=>render(items));
+    loadIndex();
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
