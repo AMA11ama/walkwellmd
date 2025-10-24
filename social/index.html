@@ -16,9 +16,39 @@
     }
     .glass{backdrop-filter:saturate(140%) blur(8px);}
   </style>
+
+  <!-- ===== MOBILE DESKTOP-MODE SCROLL FIX (safe, minimal) ===== -->
+  <style id="wwmd-mobile-scroll-fix">
+    /* 1) Never hard-lock the page scroll */
+    html, body {
+      height: auto;
+      min-height: 100%;
+      overflow: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+    /* 2) Make the centered card container scrollable in desktop-mode on phones */
+    #wwmdRoot {
+      max-height: 100dvh;           /* dynamic viewport for iOS/Android desktop-mode */
+      overflow: auto !important;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+    }
+    /* 3) Dialog body remains scrollable if content exceeds */
+    #previewDlg {
+      max-height: 100dvh;
+      overflow: hidden;
+    }
+    #previewBody {
+      /* already sized via Tailwind as h-[70vh]; ensure scroll if needed */
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+    }
+  </style>
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-900">
-  <div class="fixed inset-0 flex items-center justify-center p-4">
+  <!-- outer fixed container now has an id so we can safely enable scrolling -->
+  <div id="wwmdRoot" class="fixed inset-0 flex items-center justify-center p-4">
     <div class="glass bg-white/85 shadow-2xl rounded-3xl w-full max-w-xl border border-slate-200">
       <!-- Header -->
       <div class="px-6 pt-6 pb-3 flex items-center justify-between">
@@ -26,7 +56,7 @@
           <img src="/assets/walkwellmd-logo.png" alt="WalkWellMD Logo" class="h-12 w-12 rounded-2xl" />
           <div>
             <h1 class="text-lg font-semibold leading-tight">Dr. Ali Alhaddad · د. علي الحداد</h1>
-            <p class="text-xs text-slate-500 -mt-0.5">Links • Post‑Op & Rehab Protocols</p>
+            <p class="text-xs text-slate-500 -mt-0.5">Links • Post-Op & Rehab Protocols</p>
           </div>
         </div>
         <a href="tel:+966127444444" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-teal-700 transition" aria-label="Call booking 0127444444">
@@ -64,7 +94,13 @@
             <span class="text-xs text-slate-500">@walkwellmd8</span>
           </a>
           <a href="https://wa.me/966599124348" class="block w-full py-3 px-4 rounded-2xl border border-slate-200 hover:border-teal-500 hover:shadow flex items-center justify-between">
-            <span class="flex items-center gap-2 font-medium"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'><circle cx='12' cy='12' r='10' fill='#25D366'/><path d='M17 14.3c-.2.6-1 1-1.6 1.1-.4 0-.9 0-2-.5-1.7-.7-2.8-2.3-3-2.5-.2-.3-.7-1-.7-1.9s.4-1.3.5-1.5c.2-.3.4-.3.6-.3h.4c.2 0 .3 0 .4.3.1.3.5 1 .6 1.1.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.2 0 .5.2.3.9 1.5 2.1 2 .9.4 1.2.3 1.4.2.2-.2.9-.7 1.1-.9.1-.1.3-.1.4 0 .1.1.4.9.2 1.6z' fill='#fff'
+            <span class="flex items-center gap-2 font-medium">
+              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-4 w-4'>
+                <circle cx='12' cy='12' r='10' fill='#25D366'/>
+                <path d='M17 14.3c-.2.6-1 1-1.6 1.1-.4 0-.9 0-2-.5-1.7-.7-2.8-2.3-3-2.5-.2-.3-.7-1-.7-1.9s.4-1.3.5-1.5c.2-.3.4-.3.6-.3h.4c.2 0 .3 0 .4.3.1.3.5 1 .6 1.1.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.2 0 .5.2.3.9 1.5 2.1 2 .9.4 1.2.3 1.4.2.2-.2.9-.7 1.1-.9.1-.1.3-.1.4 0 .1.1.4.9.2 1.6z' fill='#fff'/>
+              </svg>
+              WhatsApp
+            </span>
             <span class="text-xs text-slate-500">Clinic</span>
           </a>
         </section>
@@ -209,6 +245,15 @@
     searchBox.addEventListener('input',()=>render(items));
     loadIndex();
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    /* ===== JS hardening (optional) to avoid backdrop scroll-eating ===== */
+    (function(){
+      const scroller = document.getElementById('wwmdRoot');
+      if(scroller){
+        scroller.addEventListener('touchmove', e => e.stopPropagation(), {passive:true});
+        scroller.addEventListener('wheel',      e => e.stopPropagation(), {passive:true});
+      }
+    })();
   </script>
 </body>
 </html>
