@@ -78,5 +78,15 @@
     "url": "/protocols/hallux_valgus_correction_protocol_en.html",
     "url_ar": "/protocols/hallux_valgus_correction_protocol_ar.html",
     "tags": ["forefoot","bunion","hallux valgus","WBAT","heel walking"]
-  }
+  },
+  {
+  "id": "ankle-fracture-orif",
+  "title_en": "Ankle Fracture — Open Reduction and Internal Fixation (ORIF) – Rehabilitation Protocol",
+  "title_ar": "كسر الكاحل — التثبيت الداخلي المفتوح (ORIF) — بروتوكول إعادة التأهيل",
+  "lang": "bi",
+  "type": "html",
+  "url": "/protocols/Ankle_Fracture_ORIF_EN.html",
+  "url_ar": "/protocols/Ankle_Fracture_ORIF_AR.html",
+  "tags": ["ankle","fracture","ORIF","partial weight-bearing","cast","air boot","physiotherapy","aspirin 100 mg"]
+  {
 ]
