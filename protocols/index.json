@@ -20,14 +20,14 @@
     "tags": ["ankle","peroneal","tendon repair","post-op"]
   },
   {
-  "id": "mortons-neuroma-excision",
-  "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
-  "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
-  "lang": "bi",
-  "type": "html",
-  "url": "/protocols/mortons_en.html",
-  "url_ar": "/protocols/mortons_ar.html",
-  "tags": ["forefoot","neuroma","post-op"]
+    "id": "mortons-neuroma-excision",
+    "title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
+    "title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/mortons_en.html",
+    "url_ar": "/protocols/mortons_ar.html",
+    "tags": ["forefoot","neuroma","post-op"]
   },
   {
     "id": "first-mtp-fusion",
@@ -80,14 +80,13 @@
     "tags": ["forefoot","bunion","hallux valgus","WBAT","heel walking"]
   },
   {
-  "id": "ankle-fracture-orif",
-  "title_en": "Ankle Fracture — Open Reduction and Internal Fixation (ORIF) – Rehabilitation Protocol",
-  "title_ar": "كسر الكاحل — التثبيت الداخلي المفتوح (ORIF) — بروتوكول إعادة التأهيل",
-  "lang": "bi",
-  "type": "html",
-  "url": "/protocols/Ankle_Fracture_ORIF_EN.html",
-  "url_ar": "/protocols/Ankle_Fracture_ORIF_AR.html",
-  "tags": ["ankle","fracture","ORIF","partial weight-bearing","cast","air boot","physiotherapy","aspirin 100 mg"]
+    "id": "ankle-fracture-orif",
+    "title_en": "Ankle Fracture — Open Reduction and Internal Fixation (ORIF) – Rehabilitation Protocol",
+    "title_ar": "كسر الكاحل — التثبيت الداخلي المفتوح (ORIF) — بروتوكول إعادة التأهيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/Ankle_Fracture_ORIF_EN.html",
+    "url_ar": "/protocols/Ankle_Fracture_ORIF_AR.html",
+    "tags": ["ankle","fracture","ORIF","partial weight-bearing","cast","air boot","physiotherapy","aspirin 100 mg"]
   {
 ]
-
