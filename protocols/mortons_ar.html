@@ -4,107 +4,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل | WalkWellMD</title>
 <style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto;line-height:1.75;margin:24px;max-width:900px}
-  .wm{position:fixed;inset:0;pointer-events:none;font-weight:800;font-size:8rem;color:#0f766e22;transform:rotate(-22deg);display:grid;place-items:center}
-  h1{font-size:1.5rem;margin:.2rem 0}
-  h2{font-size:1.15rem;margin:1.1rem 0 .4rem}
-  .muted{color:#6b7280}
-  ul{margin:.4rem 1.1rem .8rem 0}
-  li{margin:.2rem 0}
-  .note{background:#f1f5f9;border-right:4px solid #0f766e;padding:.6rem .8rem;border-radius:.5rem;margin:.9rem 0}
+:root{
+  --brand:#0f766e; --brand-600:#0d9488;
+  --ink:#0f172a; --muted:#475569; --border:#e2e8f0; --bg:#f8fafc; --warn:#fef3c7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,Calibri,"Noto Naskh Arabic UI","Tahoma",sans-serif;line-height:1.6;color:var(--ink);background:var(--bg)}
+.container{max-width:900px;margin:32px auto;padding:0 16px;position:relative}
+.watermark{position:fixed;inset:0;pointer-events:none;display:grid;place-items:center;font-size:10rem;font-weight:800;letter-spacing:.12em;color:#0f766e22;transform:rotate(-22deg)}
+.header{background:var(--brand);color:#fff;border-radius:20px;padding:20px 20px 16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.header .title{margin:0;font-size:1.5rem;line-height:1.2;font-weight:800}
+.header .sub{margin:4px 0 0;color:#e6fffa;font-weight:500;font-size:.95rem}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 6px 18px rgba(2,6,23,.04)}
+.section-title{font-size:1.25rem;font-weight:800;margin:18px 0 6px;padding-bottom:6px;border-bottom:2px solid var(--border)}
+.week-title{font-size:1.15rem;font-weight:800;margin:16px 0 6px}
+.small{color:var(--muted);font-size:.92rem}
+ul{margin:6px 0 12px 1.2rem} li{margin:6px 0}
+.emergency{background:var(--warn);border:1px dashed #f59e0b;border-radius:14px;padding:14px}
+.emergency h3{margin:0 0 6px;font-size:1rem}
+.call-btn{display:inline-block;text-decoration:none;color:#fff;background:var(--brand-600);padding:10px 14px;border-radius:999px;font-weight:700;margin-top:8px}
+.footer{margin:24px 0 40px;font-size:.9rem;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.footer .book{text-decoration:none;color:#fff;background:var(--brand);padding:10px 16px;border-radius:999px;font-weight:700;box-shadow:0 8px 18px rgba(15,118,110,.25)}
 </style>
-
-<div class="wm">WalkWellMD</div>
-
-<h1>استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل</h1>
-<p class="muted">إرشادات عيادية من WalkWellMD</p>
-
-<h2>المراجعات الطبية</h2>
-<ul>
-  <li>اليوم 3: فحص الجرح</li>
-  <li>اليوم 9: فحص الجرح</li>
-  <li>اليوم 15: إزالة الغرز</li>
-  <li>ثم كل أسبوعين حتى اكتمال الشفاء</li>
-</ul>
-
-<h2>العناية المبكرة (الأسبوع 0–2)</h2>
-<ul>
-  <li><strong>التثبيت:</strong> ضماد أو حذاء علاجي بعد العملية. لا تزل الضماد وحافظ عليه جافًا حتى يؤكد الجراح التئام الجرح ويأذن بذلك.</li>
-  <li><strong>رفع القدم:</strong> إبقاء القدم مرفوعة أعلى من مستوى القلب قدر الإمكان لتقليل التورم.</li>
-  <li><strong>تحميل الوزن:</strong> يسمح بالمشي بحذر داخل الحذاء العلاجي مع تجنب الضغط الكامل على مقدمة القدم.</li>
-  <li><strong>الأدوية:</strong>
+<div class="watermark">WalkWellMD</div>
+<div class="container">
+  <header class="header">
+    <h1 class="title">استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل</h1>
+    <p class="sub">WalkWellMD • تعليمات ما بعد العملية للمريض</p>
+  </header>
+  <section class="card emergency" aria-label="حالات طارئة">
+    <h3><strong>هل لديك أعراض مقلقة؟</strong> حرارة، زيادة ألم/تورم، احمرار أو إفرازات من الجرح، ألم في الساق أو ضيق نفس مفاجئ، خدر أو وخز ممتد في أصابع القدم.</h3>
+    <div><a class="call-btn" href="tel:+966127444444">اتصل الآن 0127444444</a></div>
+  </section>
+  <section class="card">
+    <h2 class="section-title">المراجعات الطبية</h2>
+    <ul class="small">
+      <li><strong>اليوم 3:</strong> فحص الجرح</li>
+      <li><strong>اليوم 9:</strong> فحص الجرح</li>
+      <li><strong>اليوم 15:</strong> إزالة الغرز</li>
+      <li>ثم كل أسبوعين حتى اكتمال الشفاء</li>
+    </ul>
+  </section>
+  <section class="card">
+    <h2 class="section-title">العناية المبكرة</h2>
+    <h3 class="week-title">الأسبوع 0–2</h3>
     <ul>
-      <li>مضاد حيوي لمدة 7 أيام — يجب إكمال المدة.</li>
-      <li>تسكين الألم:
+      <li><strong>التثبيت:</strong> ضماد أو حذاء علاجي بعد العملية. لا تزل الضماد ولا تعرّض الجرح للماء حتى يؤكد الجراح التئام الجرح تمامًا.</li>
+      <li><strong>رفع القدم:</strong> إبقاء القدم أعلى من مستوى القلب قدر الإمكان.</li>
+      <li><strong>تحميل الوزن:</strong> امشِ بحذر داخل الحذاء العلاجي؛ <strong>وتجنّب الضغط الكامل على مقدمة القدم</strong>.</li>
+      <li><strong>الأدوية:</strong>
         <ul>
-          <li>أول 72 ساعة: تناول المسكن القوي (ناركوتي) والمسكن الأساسي (غير ناركوتي) بانتظام بغض النظر عن الألم.</li>
-          <li>اليومان 4–6: تناول المسكن غير الناركوتي بانتظام بغض النظر عن الألم.</li>
-          <li>ابتداءً من اليوم السابع: تناول المسكن فقط عند الحاجة.</li>
+          <li>مضاد حيوي لمدة 7 أيام — يجب إكمال المدة.</li>
+          <li>مسكنات الألم: مسكن قوي + مسكن أساسي غير مخدر.
+            <ul>
+              <li><em>أول 72 ساعة:</em> تناول الدوائين بانتظام.</li>
+              <li><em>اليوم 4–6:</em> تناول المسكن غير المخدر بانتظام.</li>
+              <li><em>ابتداءً من اليوم 7:</em> حسب الحاجة فقط.</li>
+            </ul>
+          </li>
         </ul>
       </li>
+      <li><strong>الوقاية من الجلطات:</strong> <u>أسبرين 100 مجم مرة يوميًا لمدة 14 يومًا</u> (إلا إذا وُجّهت بخلاف ذلك).</li>
+      <li><strong>الاحتياطات:</strong> ممنوع القيادة أو الرياضة أو المشي حافيًا أو حمل الأثقال.</li>
     </ul>
-  </li>
-  <li><strong>الوقاية من الجلطات:</strong> أسبرين مرة يوميًا لمدة 14 يومًا إلا إذا وُجّهت بخلاف ذلك.</li>
-  <li><strong>الاحتياطات:</strong> ممنوع القيادة أو الرياضة أو المشي حافيًا أو حمل الأثقال.</li>
-</ul>
-
-<h2>الأسبوع 2–4</h2>
-<ul>
-  <li>الاستمرار في استخدام الحذاء العلاجي حتى موافقة الجراح.</li>
-  <li>السماح بالمشي لمسافات قصيرة مع تجنب الأنشطة عالية التأثير.</li>
-  <li>إزالة الغرز عادةً حول اليوم 15.</li>
-  <li>البدء بتحريك الأصابع بلطف بعد إزالة الغرز.</li>
-</ul>
-
-<h2>الأسبوع 4–6</h2>
-<ul>
-  <li>الانتقال تدريجيًا إلى حذاء داعم ذو مقدمة واسعة.</li>
-  <li>بدء العلاج الطبيعي:
+    <h3 class="week-title">الأسبوع 2–4</h3>
     <ul>
-      <li>تدليك الندبة بعد التئام الجرح تمامًا.</li>
-      <li>تمارين تمديد لطيفة للأصابع.</li>
-      <li>تدريب المشي لتصحيح العرج.</li>
+      <li>الاستمرار باستخدام الحذاء العلاجي حتى موافقة الجراح.</li>
+      <li>يُسمح بالمشي لمسافات قصيرة؛ وتجنّب الأنشطة عالية التأثير.</li>
+      <li>تتم إزالة الغرز عادةً في اليوم 15 تقريبًا.</li>
+      <li>يمكن البدء بتحريك الأصابع بلطف بعد إزالة الغرز.</li>
     </ul>
-  </li>
-  <li>الاستمرار في تجنب الجري والقفز والأحذية الضيقة.</li>
-</ul>
-
-<h2>الأسبوع 6–10</h2>
-<ul>
-  <li>التركيز في العلاج الطبيعي على:
+    <h3 class="week-title">الأسبوع 4–6</h3>
     <ul>
-      <li>تقوية عضلات القدم.</li>
-      <li>تمارين التوازن والإحساس العميق.</li>
+      <li>الانتقال تدريجيًا إلى حذاء داعم ذو مقدمة واسعة.</li>
+      <li>بدء العلاج الطبيعي:
+        <ul>
+          <li>تدليك الندبة (بعد التئام الجرح تمامًا).</li>
+          <li>تمارين تمديد لطيفة للأصابع.</li>
+          <li>تدريب المشي لتصحيح العرج.</li>
+        </ul>
+      </li>
+      <li>تجنّب الجري والقفز والأحذية الضيقة.</li>
     </ul>
-  </li>
-  <li>زيادة مسافات المشي تدريجيًا حسب التحمل؛ يفترض أن يكون الألم بسيطًا.</li>
-</ul>
-
-<h2>بعد 3 أشهر</h2>
-<ul>
-  <li>العودة التدريجية لجميع الأنشطة اليومية.</li>
-  <li>العودة للرياضة بعد موافقة الجراح (عادةً خلال 3–4 أشهر).</li>
-  <li>طويل الأمد: تجنب الأحذية الضيقة وذات الكعب العالي لتقليل خطر عودة المشكلة.</li>
-</ul>
-
-<h2>علامات الخطر — اتصل بنا فورًا</h2>
-<ul>
-  <li>حرارة &gt; 38°م</li>
-  <li>ألم أو تورم متزايد لا يخف بالراحة أو الدواء</li>
-  <li>احمرار أو صديد أو رائحة غير طبيعية من الجرح</li>
-  <li>ألم أو تورم في الساق أو ضيق نفس مفاجئ</li>
-  <li>خدر أو وخز ممتد في أصابع القدم</li>
-</ul>
-
-<div class="note"><strong>الإجراء:</strong> اتصل بعيادتنا على <strong>0127444444</strong> لحجز موعد مع طبيبك في أقرب وقت ممكن، أو اذهب إلى قسم الطوارئ.</div>
-
-<h2>التورم ورفع القدم</h2>
-<ul>
-  <li>التورم طبيعي بعد العملية وقد يستمر لعدة أشهر.</li>
-  <li>ارفع القدم دائمًا أعلى من مستوى القلب أثناء الراحة.</li>
-  <li>استخدم كمادات الثلج 15–20 دقيقة في كل مرة لعدة مرات يوميًا، خصوصًا بعد النشاط.</li>
-  <li>قد يزداد التورم في نهاية اليوم — الراحة ورفع القدم يساعدان على تقليله.</li>
-</ul>
-
-<p class="muted">للحجز والاستفسار: <strong>0127444444</strong></p>
+    <h3 class="week-title">الأسبوع 6–10</h3>
+    <ul>
+      <li>الاستمرار بالعلاج الطبيعي مع التركيز على تقوية عضلات القدم وتمارين التوازن والإحساس العميق.</li>
+      <li>زيادة مسافة المشي تدريجيًا حسب القدرة.</li>
+      <li>يُفترض أن يكون الألم بسيطًا جدًا في هذه المرحلة.</li>
+    </ul>
+    <h3 class="week-title">بعد 3 أشهر</h3>
+    <ul>
+      <li>العودة التدريجية لجميع الأنشطة اليومية.</li>
+      <li>العودة للرياضة عادةً بعد 3–4 أشهر بموافقة الجراح.</li>
+      <li>على المدى الطويل: تجنّب الكعب العالي والأحذية الضيقة لتقليل خطر عودة المشكلة.</li>
+    </ul>
+  </section>
+  <section class="card">
+    <h2 class="section-title">التورّم ورفع القدم</h2>
+    <ul>
+      <li>التورّم طبيعي بعد العملية وقد يستمر لعدة أشهر.</li>
+      <li>ارفع القدم أعلى من مستوى القلب عند الراحة.</li>
+      <li>استخدم كمّادات الثلج لمدة 15–20 دقيقة عدة مرات يوميًا، خصوصًا بعد النشاط.</li>
+      <li>قد يزداد التورّم في نهاية اليوم — الراحة ورفع القدم يساعدان على تقليله.</li>
+    </ul>
+  </section>
+  <footer class="footer">
+    <div>© WalkWellMD — د. علي الحداد</div>
+    <a class="book" href="tel:+966127444444" aria-label="للحجز 0127444444">للحجز 0127444444</a>
+  </footer>
+</div>
 </html>
