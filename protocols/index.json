@@ -88,5 +88,15 @@
     "url": "/protocols/Ankle_Fracture_ORIF_EN.html",
     "url_ar": "/protocols/Ankle_Fracture_ORIF_AR.html",
     "tags": ["ankle","fracture","ORIF","partial weight-bearing","cast","air boot","physiotherapy","aspirin 100 mg"]
-  }
+  },
+  {
+  "id": "lateral-ligament-reconstruction-ankle",
+  "title_en": "Lateral Ligament Reconstruction — Ankle (Post-Op Rehab Protocol)",
+  "title_ar": "إعادة بناء الأربطة الجانبية للكاحل — بروتوكول إعادة التأهيل بعد الجراحة",
+  "lang": "bi",
+  "type": "html",
+  "url": "/protocols/lateral_ligament_reconstruction_ankle_en.html",
+  "url_ar": "/protocols/lateral_ligament_reconstruction_ankle_ar.html",
+  "tags": ["ankle","ligament","reconstruction","cast","boot","NWB","physiotherapy"]
+}
 ]
