@@ -1,114 +1,171 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hallux Valgus Correction – Rehabilitation Protocol | WalkWellMD</title>
 <style>
-  :root{color-scheme:light;}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto;line-height:1.6;margin:24px;max-width:900px;color:#0f172a}
-  .wm{position:fixed;inset:0;pointer-events:none;font-weight:700;font-size:8rem;color:#0f766e22;transform:rotate(-22deg);display:grid;place-items:center}
-  h1{font-size:1.6rem;margin:.2rem 0}
-  h2{font-size:1.15rem;margin:1.1rem 0 .4rem}
-  .muted{color:#475569}
-  ul{margin:.4rem 0 .8rem 1.1rem}
-  li{margin:.15rem 0}
-  .note{background:#f1f5f9;border-left:4px solid #0f766e;padding:.7rem .9rem;border-radius:.6rem;margin:.9rem 0}
-  .cta{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;background:#ecfeff;border:1px solid #67e8f9;padding:.9rem 1rem;border-radius:12px;margin:1rem 0}
-  .cta strong{color:#0e7490}
-  .cta a{display:inline-flex;align-items:center;gap:.5rem;background:#0f766e;color:#fff;text-decoration:none;padding:.45rem .75rem;border-radius:999px}
-  .cta svg{width:16px;height:16px}
-  .foot{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;color:#64748b;font-size:.9rem}
-  .pill{display:inline-block;background:#e2f6f3;border:1px solid #99f6e4;color:#115e59;padding:.25rem .55rem;border-radius:999px;font-size:.8rem;margin-left:.4rem}
+:root{
+  --brand:#0f766e; /* teal-700 */
+  --brand-600:#0d9488; /* teal-600 */
+  --ink:#0f172a; /* slate-900 */
+  --muted:#475569; /* slate-600 */
+  --border:#e2e8f0; /* slate-200 */
+  --bg:#f8fafc; /* slate-50 */
+  --warn:#fef3c7; /* amber-100 */
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,Calibri,"Noto Naskh Arabic UI","Tahoma",sans-serif;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--bg);
+}
+.container{
+  max-width:900px;
+  margin:32px auto;
+  padding:0 16px;
+  position:relative;
+}
+.watermark{
+  position:fixed; inset:0; pointer-events:none;
+  display:grid; place-items:center;
+  font-size:10rem; font-weight:800; letter-spacing:.12em;
+  color:#0f766e22; transform:rotate(-22deg);
+}
+.header{
+  background:var(--brand);
+  color:#fff;
+  border-radius:20px;
+  padding:20px 20px 16px 20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.header .title{margin:0;font-size:1.5rem;line-height:1.2;font-weight:800}
+.header .sub{margin:4px 0 0;color:#e6fffa;font-weight:500;font-size:.95rem}
+.card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:16px; padding:16px 18px; margin:14px 0;
+  box-shadow:0 6px 18px rgba(2,6,23,.04);
+}
+.section-title{
+  font-size:1.25rem; font-weight:800; margin:18px 0 6px;
+  padding-bottom:6px; border-bottom:2px solid var(--border);
+}
+.week-title{font-size:1.15rem;font-weight:800;margin:16px 0 6px}
+.small{color:var(--muted); font-size:.92rem}
+ul{margin:6px 0 12px 1.2rem}
+li{margin:6px 0}
+.note{background:#f1f5f9;border-left:4px solid var(--brand);padding:10px 12px;border-radius:8px;margin:14px 0}
+.emergency{background:var(--warn);border:1px dashed #f59e0b;border-radius:14px;padding:14px}
+.emergency h3{margin:0 0 6px;font-size:1rem}
+.call-btn{
+  display:inline-block;text-decoration:none;color:#fff;background:var(--brand-600);
+  padding:10px 14px;border-radius:999px;font-weight:700;margin-top:8px
+}
+.footer{
+  margin:24px 0 40px;font-size:.9rem;color:var(--muted);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.footer .book{
+  text-decoration:none;color:#fff;background:var(--brand);
+  padding:10px 16px;border-radius:999px;font-weight:700;
+  box-shadow:0 8px 18px rgba(15,118,110,.25);
+}
 </style>
 
-<div class="wm">WalkWellMD</div>
+<div class="watermark">WalkWellMD</div>
 
-<header>
-  <h1>Hallux Valgus Correction — Rehabilitation Protocol</h1>
-  <p class="muted">WalkWellMD · Dr. Ali Alhaddad <span class="pill">Clinic instruction sheet</span></p>
-</header>
+<div class="container">
+  <header class="header">
+    <h1 class="title">Hallux Valgus (Bunion) Correction – Rehabilitation Protocol</h1>
+    <p class="sub">WalkWellMD • Post-operative patient instructions</p>
+  </header>
 
-<div class="cta" role="note" aria-label="Emergency and booking actions">
-  <strong>Urgent concerns?</strong>
-  <span>If you develop fever, severe pain/swelling, calf pain, shortness of breath, wound discharge, or numb/blue toes:</span>
-  <a href="tel:+966127444444" aria-label="Call booking 0127444444">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-    Book | 0127444444
-  </a>
-  <span>or go to the nearest Emergency Department.</span>
-</div>
+  <section class="card emergency" aria-label="Urgent concerns">
+    <h3><strong>Urgent concerns?</strong> Fever, worsening pain/swelling, wound redness or discharge, calf pain, shortness of breath, numbness/discoloration of toes.</h3>
+    <div><a class="call-btn" href="tel:+966127444444">Tap to call 0127444444</a></div>
+  </section>
 
-<p class="note"><strong>Weight-bearing:</strong> <em>Heel WBAT immediately</em> in a post-operative shoe. Avoid pressure on the forefoot/big toe.</p>
+  <section class="card">
+    <h2 class="section-title">Follow-up visits</h2>
+    <ul class="small">
+      <li><strong>Day 3:</strong> wound check</li>
+      <li><strong>Day 9:</strong> wound check and X-rays</li>
+      <li><strong>Day 15:</strong> suture removal</li>
+      <li>Then every 2 weeks until full bone healing confirmed</li>
+    </ul>
+  </section>
 
-<h2>Follow-up Visits</h2>
-<ul>
-  <li><strong>Day 3</strong>: wound check</li>
-  <li><strong>Day 9</strong>: wound check and X-rays</li>
-  <li><strong>Day 15</strong>: suture removal</li>
-  <li>Then every 2 weeks until full bone healing is confirmed</li>
-</ul>
+  <section class="card">
+    <h2 class="section-title">Early Care</h2>
 
-<h2>Early Care (Weeks 0–2)</h2>
-<ul>
-  <li><strong>Immobilization:</strong> Bulky dressing or post-operative shoe. Keep clean/dry; do not remove until the surgeon confirms wound healing.</li>
-  <li><strong>Elevation:</strong> Foot above heart level as much as possible.</li>
-  <li><strong>Weight-bearing:</strong> Walk on your <strong>heel only</strong> using your post-op shoe; use crutches for support if needed.</li>
-  <li><strong>Medication:</strong>
+    <h3 class="week-title">Weeks 0–2</h3>
     <ul>
-      <li>Antibiotics for 7 days — complete the full course.</li>
-      <li>Pain control:
+      <li><strong>Immobilization:</strong> Bulky dressing or post-operative shoe. Keep clean/dry until your surgeon confirms wound healing.</li>
+      <li><strong>Elevation:</strong> Keep the foot above heart level as much as possible.</li>
+      <li><strong>Weight-bearing:</strong> <u>Heel-only WBAT immediately</u> in the post-op shoe. Avoid pressure on the forefoot/big toe. Use crutches if needed.</li>
+      <li><strong>Medication:</strong>
         <ul>
-          <li>First 72 hours: take prescribed narcotic + regular non-narcotic regularly.</li>
-          <li>Days 4–6: take the non-narcotic regularly.</li>
-          <li>From day 7: take pain medication as needed only.</li>
+          <li>Antibiotics for 7 days — complete the course.</li>
+          <li>Pain control: narcotic + non-narcotic.
+            <ul>
+              <li><em>First 72 h:</em> take both regularly.</li>
+              <li><em>Days 4–6:</em> take the non-narcotic regularly.</li>
+              <li><em>From day 7:</em> as needed only.</li>
+            </ul>
+          </li>
         </ul>
       </li>
+      <li><strong>Blood clot prevention:</strong> <u>Aspirin 100 mg once daily for 14 days</u> (unless instructed otherwise).</li>
+      <li><strong>Precautions:</strong> No driving, sports, barefoot walking, or pressure on the forefoot.</li>
     </ul>
-  </li>
-  <li><strong>Blood clot prevention:</strong> Aspirin once daily for 14 days unless instructed otherwise.</li>
-  <li><strong>Precautions:</strong> No driving, no sports, no barefoot walking, and no pressure on the forefoot.</li>
-</ul>
 
-<h2>Weeks 2–6</h2>
-<ul>
-  <li>Continue <strong>heel-only walking</strong> using the post-op shoe.</li>
-  <li>Sutures removed around day 15. Dressing changes in clinic only.</li>
-  <li>Begin gentle ankle/toe motion (<em>exclude the operated big toe</em>).</li>
-  <li>Continue elevation and ice as needed for swelling.</li>
-</ul>
+    <h3 class="week-title">Weeks 2–6</h3>
+    <ul>
+      <li>Continue <em>heel-only</em> walking in the post-op shoe.</li>
+      <li>Sutures usually removed at day 15.</li>
+      <li>Dressing changes in clinic only.</li>
+      <li>Begin gentle ankle and lesser toe motion (limit big toe motion if painful).</li>
+      <li>Continue elevation and ice for swelling.</li>
+    </ul>
 
-<h2>Weeks 6–8</h2>
-<ul>
-  <li>X-rays to assess bone healing.</li>
-  <li>If healing is satisfactory: gradually transition to <strong>full weight-bearing</strong> in a <strong>stiff-soled or rocker-bottom shoe</strong>.</li>
-  <li>Begin gentle gait training with physiotherapy.</li>
-  <li>Avoid running, jumping, or excessive big-toe bending.</li>
-</ul>
+    <h3 class="week-title">Weeks 6–8</h3>
+    <ul>
+      <li>X-rays to assess bone healing and alignment.</li>
+      <li>If satisfactory, gradually transition to <strong>full weight-bearing</strong> in a stiff-soled/rocker-bottom shoe.</li>
+      <li>Start gentle gait training in physiotherapy to restore normal walking pattern.</li>
+      <li>Avoid running, jumping, or activities that bend the big toe excessively.</li>
+    </ul>
 
-<h2>Weeks 8–12</h2>
-<ul>
-  <li>Continue physiotherapy for ankle and forefoot flexibility (avoid stressing the surgical site).</li>
-  <li>Focus on balance, strength, and normal gait.</li>
-  <li>Return to desk work and most daily activities.</li>
-  <li>Avoid high heels or tight shoes.</li>
-</ul>
+    <h3 class="week-title">Weeks 8–12</h3>
+    <ul>
+      <li>Continue physiotherapy for ankle/forefoot flexibility (protect the surgical site as advised).</li>
+      <li>Emphasize balance, strength, and proper gait.</li>
+      <li>Return to desk work and most daily activities.</li>
+      <li>Avoid high heels or tight shoes.</li>
+    </ul>
 
-<h2>Months 3–6</h2>
-<ul>
-  <li>Gradual return to full activity as comfort allows.</li>
-  <li>Most patients resume normal walking and light sports (cycling, swimming) by 3–4 months.</li>
-  <li>Full recovery typically by 4–6 months.</li>
-</ul>
+    <h3 class="week-title">Months 3–6</h3>
+    <ul>
+      <li>Gradual return to full activity as comfort allows.</li>
+      <li>Most patients return to normal walking and light sports (cycling, swimming) by 3–4 months.</li>
+      <li>Full recovery typically by 4–6 months.</li>
+    </ul>
+  </section>
 
-<h2>Swelling & Elevation</h2>
-<ul>
-  <li>Swelling is normal and may last several months.</li>
-  <li>Keep foot elevated above heart level when resting.</li>
-  <li>Ice packs 15–20 minutes several times daily, especially after activity.</li>
-  <li>Swelling often increases at day’s end — rest and elevate.</li>
-</ul>
+  <section class="card">
+    <h2 class="section-title">Swelling & Elevation</h2>
+    <ul>
+      <li>Swelling is common after surgery and may last for several months.</li>
+      <li>Keep the foot elevated above heart level when resting.</li>
+      <li>Use ice packs 15–20 minutes several times daily, especially after activity.</li>
+      <li>Swelling often increases at the end of the day — rest and elevate.</li>
+    </ul>
+  </section>
 
-<footer class="foot">
-  © <script>document.write(new Date().getFullYear())</script> WalkWellMD — Dr. Ali Alhaddad · <a href="tel:+966127444444" style="color:#0f766e">0127444444</a>
-</footer>
+  <footer class="footer">
+    <div>© WalkWellMD — Dr. Ali Alhaddad</div>
+    <a class="book" href="tel:+966127444444" aria-label="Call booking 0127444444">Book | للحجز 0127444444</a>
+  </footer>
+</div>
 </html>
