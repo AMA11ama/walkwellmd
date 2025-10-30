@@ -1,102 +1,185 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>First MTP Joint Fusion – Rehabilitation Protocol | WalkWellMD</title>
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--brand:#0f766e;}
-  html,body{margin:0}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;color:var(--ink);padding:24px;max-width:900px;margin:auto;background:#f8fafc}
-  .page{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;position:relative;overflow:hidden}
-  .wm{position:fixed;inset:0;pointer-events:none;display:grid;place-items:center;
-      font-weight:800;font-size:8rem;color:#0f766e22;transform:rotate(-22deg);letter-spacing:.08em}
-  h1{font-size:1.5rem;margin:.2rem 0}
-  h2{font-size:1.12rem;margin:1.1rem 0 .4rem}
-  .muted{color:var(--muted)}
-  ul{margin:.4rem 0 .8rem 1.2rem}
-  li{margin:.18rem 0}
-  .note{background:#f1f5f9;border-left:4px solid var(--brand);padding:.65rem .8rem;border-radius:.5rem;margin:.9rem 0}
-  .footer{margin-top:1.2rem;font-size:.92rem;color:var(--muted)}
-  .tel{color:#0f766e;text-decoration:none;font-weight:600}
+:root{
+  --brand:#0f766e; /* teal-700 */
+  --brand-600:#0d9488; /* teal-600 */
+  --ink:#0f172a; /* slate-900 */
+  --muted:#475569; /* slate-600 */
+  --border:#e2e8f0; /* slate-200 */
+  --bg:#f8fafc; /* slate-50 */
+  --warn:#fef3c7; /* amber-100 */
+  --danger:#fee2e2; /* rose-100 */
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,Calibri,"Noto Naskh Arabic UI","Tahoma",sans-serif;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--bg);
+}
+.container{
+  max-width:900px;
+  margin:32px auto;
+  padding:0 16px;
+  position:relative;
+}
+.watermark{
+  position:fixed; inset:0; pointer-events:none;
+  display:grid; place-items:center;
+  font-size:10rem; font-weight:800; letter-spacing:.12em;
+  color:#0f766e22; transform:rotate(-22deg);
+}
+.header{
+  background:var(--brand);
+  color:#fff;
+  border-radius:20px;
+  padding:20px 20px 16px 20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.header .title{
+  margin:0;
+  font-size:1.5rem;
+  line-height:1.2;
+  font-weight:800;
+}
+.header .sub{margin:4px 0 0;color:#e6fffa;font-weight:500;font-size:.95rem}
+.card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:16px; padding:16px 18px; margin:14px 0;
+  box-shadow:0 6px 18px rgba(2,6,23,.04);
+}
+.section-title{
+  font-size:1.25rem; font-weight:800; margin:18px 0 6px;
+  padding-bottom:6px; border-bottom:2px solid var(--border);
+}
+.week-title{
+  font-size:1.15rem; font-weight:800; margin:16px 0 6px;
+}
+.small{color:var(--muted); font-size:.92rem}
+ul{margin:6px 0 12px 1.2rem}
+li{margin:6px 0}
+.note{
+  background:#f1f5f9; border-left:4px solid var(--brand);
+  padding:10px 12px; border-radius:8px; margin:14px 0;
+}
+.emergency{
+  background:var(--warn); border:1px dashed #f59e0b; border-radius:14px; padding:14px;
+}
+.emergency h3{margin:0 0 6px; font-size:1rem}
+.call-btn{
+  display:inline-block; text-decoration:none; color:#fff; background:var(--brand-600);
+  padding:10px 14px; border-radius:999px; font-weight:700; margin-top:8px
+}
+.footer{
+  margin:24px 0 40px; font-size:.9rem; color:var(--muted);
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.footer .book{
+  text-decoration:none; color:#fff; background:var(--brand);
+  padding:10px 16px; border-radius:999px; font-weight:700;
+  box-shadow:0 8px 18px rgba(15,118,110,.25);
+}
+hr.sep{border:0;border-top:1px solid var(--border); margin:18px 0}
 </style>
 
-<div class="wm">WalkWellMD</div>
-<div class="page">
-  <h1>First MTP Joint Fusion – Rehabilitation Protocol</h1>
-  <p class="muted">By WalkWellMD (clinic instruction sheet)</p>
+<div class="watermark">WalkWellMD</div>
 
-  <h2>Follow-up Visits</h2>
-  <ul>
-    <li>Day 3: wound check</li>
-    <li>Day 9: wound check and X-rays</li>
-    <li>Day 15: suture removal</li>
-    <li>Then every 2 weeks until full bone healing confirmed</li>
-  </ul>
+<div class="container">
+  <header class="header">
+    <h1 class="title">First MTP Joint Fusion – Rehabilitation Protocol</h1>
+    <p class="sub">WalkWellMD • Post‑operative patient instructions</p>
+  </header>
 
-  <h2>Early Care (Weeks 0–2)</h2>
-  <ul>
-    <li><strong>Immobilization:</strong> Bulky dressing or post-operative shoe. Do not remove it and keep it dry (no water on the surgical site until your surgeon confirms full wound healing).</li>
-    <li><strong>Elevation:</strong> Foot above heart level as much as possible to reduce swelling.</li>
-    <li><strong>Weight-bearing:</strong> Heel-only walking in the post-op shoe. No weight on the forefoot or big toe. Use crutches as needed.</li>
-    <li><strong>Medication:</strong>
-      <ul>
-        <li>Antibiotics for 7 days – complete the full course.</li>
-        <li>Pain management:
-          <ul>
-            <li>First 72 hours: take the <em>narcotic</em> and <em>non-narcotic</em> regularly, regardless of pain.</li>
-            <li>Days 4–6: take the non-narcotic regularly.</li>
-            <li>From day 7 onward: take pain medication only if needed.</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><strong>Blood clot prevention:</strong> Aspirin once daily for 14 days unless instructed otherwise.</li>
-    <li><strong>Precautions:</strong> No driving, no sports, no barefoot walking, and no pressure on the forefoot.</li>
-  </ul>
+  <section class="card emergency" aria-label="Urgent concerns">
+    <h3><strong>Urgent concerns?</strong> Fever, worsening pain/swelling, wound redness or discharge, calf pain, shortness of breath, numbness/discoloration of toes.</h3>
+    <div><a class="call-btn" href="tel:+966127444444">Tap to call 0127444444</a></div>
+  </section>
 
-  <h2>Weeks 2–6</h2>
-  <ul>
-    <li>Continue <strong>heel-only</strong> walking in the post-op shoe.</li>
-    <li>Dressing is changed in clinic; do not remove it yourself.</li>
-    <li>Sutures are usually removed at day 15.</li>
-    <li>Gentle movement of the ankle and the <em>other</em> toes (not the fused big toe).</li>
-    <li>Continue elevation and ice as needed for swelling.</li>
-  </ul>
+  <section class="card">
+    <h2 class="section-title">Follow‑up visits</h2>
+    <ul class="small">
+      <li><strong>Day 3:</strong> wound check</li>
+      <li><strong>Day 9:</strong> wound check and X‑rays</li>
+      <li><strong>Day 15:</strong> suture removal</li>
+      <li>Then every 2 weeks until full bone healing is confirmed</li>
+    </ul>
+  </section>
 
-  <h2>Weeks 6–8</h2>
-  <ul>
-    <li>X-rays to assess bone healing.</li>
-    <li>If early fusion is seen, gradually transition to full weight-bearing in a stiff-soled or rocker-bottom shoe, avoiding excessive push-off.</li>
-    <li>Begin gentle gait training in physiotherapy to restore a normal pattern.</li>
-    <li>No running, jumping, or activities that bend the big toe.</li>
-  </ul>
+  <section class="card">
+    <h2 class="section-title">Early Care</h2>
 
-  <h2>Weeks 8–12</h2>
-  <ul>
-    <li>Physiotherapy for ankle/forefoot flexibility (excluding the fused joint).</li>
-    <li>Emphasize balance, strength, and walking mechanics.</li>
-    <li>Return to desk work and most daily activities as comfort allows.</li>
-    <li>Avoid high heels or tight shoes.</li>
-  </ul>
+    <h3 class="week-title">Weeks 0–2</h3>
+    <ul>
+      <li><strong>Immobilization:</strong> Bulky dressing or post‑operative shoe. Do not remove or get wet until your surgeon confirms the wound is fully healed.</li>
+      <li><strong>Elevation:</strong> Keep the foot above heart level as much as possible.</li>
+      <li><strong>Weight‑bearing:</strong> Walk on your <em>heel only</em> in the post‑op shoe. <strong>No weight</strong> on the forefoot/big toe. Use crutches as needed.</li>
+      <li><strong>Medication:</strong>
+        <ul>
+          <li>Antibiotics for 7 days — complete the full course.</li>
+          <li>Pain control: one narcotic + one non‑narcotic.
+            <ul>
+              <li><em>First 72 h:</em> take both regularly.</li>
+              <li><em>Days 4–6:</em> take the non‑narcotic regularly.</li>
+              <li><em>From day 7:</em> only as needed.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Blood clot prevention:</strong> <u>Aspirin 100 mg once daily for 14 days</u> (unless instructed otherwise).</li>
+      <li><strong>Precautions:</strong> No driving, sports, barefoot walking, or pressure on the forefoot.</li>
+    </ul>
 
-  <h2>Months 3–6</h2>
-  <ul>
-    <li>Gradual return to full activity.</li>
-    <li>Most patients resume normal walking and light sports (cycling, swimming) by 3–4 months.</li>
-    <li>Full fusion is usually achieved by 4–6 months.</li>
-  </ul>
+    <h3 class="week-title">Weeks 2–6</h3>
+    <ul>
+      <li>Continue <em>heel‑only</em> walking in the post‑op shoe.</li>
+      <li>Dressing changes in clinic only.</li>
+      <li>Sutures usually removed at day 15.</li>
+      <li>Begin gentle ankle and lesser toe motion (not the fused big toe).</li>
+      <li>Continue elevation and ice for swelling.</li>
+    </ul>
 
-  <div class="note"><strong>Red Flags — call us immediately:</strong> Fever &gt; 38°C; worsening pain or swelling not relieved by rest/medication; wound redness, pus, or foul odor; calf pain/swelling or sudden shortness of breath; numbness or discoloration in the toes. <br><br>
-  <strong>Action:</strong> Contact our clinic at <a class="tel" href="tel:+966127444444">0127444444</a> to schedule an appointment with your doctor as soon as possible, or go to the emergency department.</div>
+    <h3 class="week-title">Weeks 6–8</h3>
+    <ul>
+      <li>X‑rays to assess bone healing.</li>
+      <li>If early fusion is seen, gradually transition to <strong>full weight‑bearing</strong> in a stiff‑soled/rocker‑bottom shoe, avoiding excessive push‑off.</li>
+      <li>Start gentle gait training in physiotherapy.</li>
+      <li>Avoid running, jumping, or any activity that bends the big toe.</li>
+    </ul>
 
-  <h2>Swelling & Elevation</h2>
-  <ul>
-    <li>Swelling is normal after surgery and may last for several months.</li>
-    <li>Elevate above heart level when resting.</li>
-    <li>Ice 15–20 minutes several times daily, especially after activity.</li>
-    <li>Swelling often increases at the end of the day — rest and elevate.</li>
-  </ul>
+    <h3 class="week-title">Weeks 8–12</h3>
+    <ul>
+      <li>Continue physiotherapy for ankle/forefoot flexibility (excluding the fused joint).</li>
+      <li>Emphasize balance, strength, and normal gait mechanics.</li>
+      <li>Return to desk work and most daily activities.</li>
+      <li>Avoid high heels or tight shoes.</li>
+    </ul>
 
-  <p class="footer">For booking & inquiries: <a class="tel" href="tel:+966127444444">0127444444</a></p>
+    <h3 class="week-title">Months 3–6</h3>
+    <ul>
+      <li>Gradual return to full activity as comfort allows.</li>
+      <li>Most patients resume normal walking and light sports (cycling, swimming) by 3–4 months.</li>
+      <li>Full fusion typically achieved by 4–6 months.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Swelling & Elevation</h2>
+    <ul>
+      <li>Swelling is normal after surgery and may last for several months.</li>
+      <li>Keep the foot elevated above heart level when resting.</li>
+      <li>Use ice packs for 15–20 minutes at a time, several times daily, especially after activity.</li>
+      <li>Swelling often increases at the end of the day — rest and elevate.</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div>© WalkWellMD — Dr. Ali Alhaddad</div>
+    <a class="book" href="tel:+966127444444" aria-label="Call booking 0127444444">Book | للحجز 0127444444</a>
+  </footer>
 </div>
 </html>
