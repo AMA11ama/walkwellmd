@@ -98,5 +98,15 @@
   "url": "/protocols/lateral_ligament_reconstruction_ankle_en.html",
   "url_ar": "/protocols/lateral_ligament_reconstruction_ankle_ar.html",
   "tags": ["ankle","ligament","reconstruction","cast","boot","NWB","physiotherapy"]
+},
+  {
+  "id": "accessory-navicular-tibialis-posterior-rehab",
+  "title_en": "Accessory Navicular Excision with Tibialis Posterior Reinsertion – Rehabilitation Protocol",
+  "title_ar": "بروتوكول إعادة التأهيل بعد استئصال العظم الإضافي (الزورقي) مع إعادة تثبيت وتر الظنبوب الخلفي",
+  "lang": "bi",
+  "type": "html",
+  "url": "/protocols/accessory_navicular_rehab_en.html",
+  "url_ar": "/protocols/accessory_navicular_rehab_ar.html",
+  "tags": ["foot", "ankle", "accessory navicular", "tibialis posterior", "post-op", "rehab"]
 }
 ]
