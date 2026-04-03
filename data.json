@@ -1,0 +1,56 @@
+{
+  "protocols": [
+    {
+      "id": "achilles-rupture",
+      "title_en": "Achilles Tendon Rupture",
+      "title_ar": "تمزق وتر أخيل",
+      "url": "protocols/achilles-rupture.html",
+      "icon": "🦴"
+    },
+    {
+      "id": "peroneal-repair",
+      "title_en": "Peroneal Tendon Repair",
+      "title_ar": "إصلاح وتر الشظوي",
+      "url": "protocols/peroneal-repair.html",
+      "icon": "🦶"
+    },
+    {
+      "id": "mortons-neuroma",
+      "title_en": "Morton’s Neuroma Excision",
+      "title_ar": "استئصال ورم مورتون العصبي",
+      "url": "protocols/mortons-neuroma.html",
+      "icon": "⚡"
+    },
+    {
+      "id": "first-mtp-fusion",
+      "title_en": "First MTP Joint Fusion",
+      "title_ar": "دمج المفصل المشطي السلامي الأول",
+      "url": "protocols/first-mtp-fusion.html",
+      "icon": "🔗"
+    },
+    {
+      "id": "bunion-mis",
+      "title_en": "Bunion MIS",
+      "title_ar": "جراحة الوكعة طفيفة التوغل",
+      "url": "protocols/bunion-mis.html",
+      "icon": "🧪"
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-bunions",
+      "title_en": "Understanding Bunions",
+      "title_ar": "فهم حالة الوكعة",
+      "url": "education/bunions.html",
+      "icon": "📚"
+    },
+    {
+      "id": "edu-ankle-sprain",
+      "title_en": "Ankle Sprain Care",
+      "title_ar": "علاج التواء الكاحل",
+      "url": "education/ankle-sprain.html",
+      "icon": "🩹"
+    }
+  ],
+  "xrays": []
+}
