@@ -3,55 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partial Nail Bed Excision | WalkWellMD</title>
+    <title>Nail Bed Excision | WalkWellMD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <nav class="nav-header"><a href="../index.html" style="color:white; text-decoration:none;">← Dashboard / الرئيسية</a></nav>
-    <div class="content-wrapper">
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
         
         <!-- ENGLISH SECTION -->
-        <div class="protocol-card">
+        <div class="protocol-card" id="english-version">
             <span class="lang-label">English</span>
-            <h1>Partial Nail Bed Excision Post-Op</h1>
-            <p><strong>First Follow-up:</strong> 3 days post-op for dressing change.</p>
+            <h1>Partial Nail Bed Excision</h1>
+            
+            <p><strong>Initial Follow-up:</strong> 3 days post-op for dressing change.</p>
             <p><strong>Weight Bearing:</strong> Immediate weight-bearing as tolerated (WBAT) in a wide-fitting shoe or open-toed sandal.</p>
             
             <div class="emergency-box">
-                🚨 RED FLAGS: Contact us immediately (0127444444) if you notice excessive bleeding that soaks through the bandage or signs of spreading redness.
+                🚨 RED FLAGS: Contact us immediately (0127444444) if you notice excessive bleeding soaking the bandage or spreading redness/pus.
             </div>
 
             <h3>Rehabilitation Phases</h3>
             <ul>
-                <li><strong>Days 0-3:</strong> Keep the original bulky dressing clean and dry. Elevate the foot when sitting to reduce throbbing.</li>
-                <li><strong>Days 3-14:</strong> After the first clinic visit, daily salt-water soaks are usually started. Apply a simple non-stick dressing (Inadine or similar) until the wound is dry.</li>
-                <li><strong>Weeks 2+:</strong> Most patients return to normal footwear. Avoid tight shoes until the area is completely comfortable.</li>
+                <li><strong>Days 0-3:</strong> Keep original bulky dressing clean and dry. Elevate foot when sitting to reduce throbbing pain.</li>
+                <li><strong>Days 3-14:</strong> Start daily salt-water soaks after the first clinic visit. Apply a simple non-stick dressing (e.g., Inadine) until the wound is dry.</li>
+                <li><strong>Weeks 2+:</strong> Return to normal footwear. Avoid tight shoes until the toe is completely comfortable.</li>
             </ul>
         </div>
 
         <!-- ARABIC SECTION -->
-        <div class="protocol-card" dir="rtl">
+        <div class="protocol-card" id="arabic-version" dir="rtl">
             <span class="lang-label">العربية</span>
-            <h1>بروتوكول ما بعد عملية استئصال جزئي لسرير الظفر</h1>
-            <p><strong>المتابعة الأولى:</strong> بعد ٣ أيام من العملية لتغيير الغيارات.</p>
+            <h1>استئصال جزئي لسرير الظفر</h1>
+            
+            <p><strong>المتابعة الأولية:</strong> ٣ أيام بعد العملية لتغيير الغيارات.</p>
             <p><strong>تحميل الوزن:</strong> تحميل الوزن فوراً حسب القدرة (WBAT) باستخدام حذاء واسع أو صندل مفتوح.</p>
             
             <div class="emergency-box">
-                🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا لاحظت نزيفاً مفرطاً يتسرب من الغيارات أو انتشاراً في احمرار الجلد.
+                🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا لاحظت نزيفاً مفرطاً يتسرب من الغيارات أو احمراراً منتشراً أو صديداً.
             </div>
 
             <h3>مراحل التأهيل</h3>
             <ul>
                 <li><strong>اليوم ٠-٣:</strong> حافظ على الغيارات الأصلية نظيفة وجافة. ارفع القدم عند الجلوس لتقليل النبض والألم.</li>
-                <li><strong>اليوم ٣-١٤:</strong> بعد الزيارة الأولى للعيادة، يُبدأ عادةً بنقع القدم في ماء دافئ وملح يومياً. استخدم غيارات بسيطة غير لاصقة حتى يجف الجرح.</li>
-                <li><strong>الأسبوع ٢+:</strong> يعود معظم المرضى لارتداء الأحذية العادية. تجنب الأحذية الضيقة حتى ترتاح المنطقة تماماً.</li>
+                <li><strong>اليوم ٣-١٤:</strong> البدء بنقع القدم في ماء دافئ وملح يومياً بعد الزيارة الأولى للعيادة. استخدم غيارات بسيطة غير لاصقة حتى يجف الجرح.</li>
+                <li><strong>الأسبوع ٢+:</strong> العودة لارتداء الأحذية العادية. تجنب الأحذية الضيقة حتى ترتاح المنطقة تماماً.</li>
             </ul>
+        </div>
+
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
         </div>
 
     </div>
 
-    <!-- Sticky Call Button -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
 </body>
 </html>
