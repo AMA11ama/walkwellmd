@@ -25,7 +25,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     line-height: 1.6;
-    padding-bottom: 100px; /* Space for the persistent action bar */
+    padding-bottom: 110px; /* Space for the persistent action bar */
 }
 
 /* Biomechanical Motion Simulation (Background Gradient) */
@@ -52,6 +52,7 @@ body::before {
     top: 0;
     z-index: 100;
     backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .surgeon-brand { display: flex; flex-direction: column; }
@@ -99,9 +100,10 @@ body::before {
     flex-direction: column;
 }
 
-.glass-card:active {
-    transform: scale(0.97);
+.glass-card:hover, .glass-card:active {
     background: rgba(255, 255, 255, 0.08);
+    border-color: var(--emerald);
+    transform: translateY(-5px);
 }
 
 /* Dashboard Grid Layout */
@@ -148,6 +150,7 @@ body::before {
     object-fit: cover;
     border: 2px solid var(--emerald);
     box-shadow: 0 0 25px var(--emerald-glow);
+    background: var(--slate);
 }
 
 /* Persistent Bilingual Switcher (Follows User) */
@@ -207,19 +210,4 @@ body::before {
     letter-spacing: 1.5px;
 }
 
-.bar-item i { display: block; margin-bottom: 6px; font-size: 1.2rem; }
-
-/* Protocol Styling */
-.protocol-card { margin-bottom: 30px; }
-.protocol-card h1 { color: var(--emerald); font-family: "Playfair Display", serif; }
-.emergency-box {
-    border-left: 4px solid var(--emerald);
-    background: rgba(255, 255, 255, 0.03);
-    padding: 25px;
-    border-radius: 4px 16px 16px 4px;
-    margin: 25px 0;
-}
-
-[dir="rtl"] { text-align: right; }
-[dir="rtl"] .profile-card { text-align: right; }
-[dir="rtl"] .emergency-box { border-left: none; border-right: 4px solid var(--emerald); border-radius: 16px 4px 4px 16px; }
+.bar-item i { display: block; margin-bottom: 6px; font-size: 1
