@@ -4,80 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WalkWellMD | Dr. ALHADDAD</title>
-    <style>
-        :root { --primary: #4CB493; --teal: #02445A; --bg: #f8f9fa; --red: #d9534f; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: var(--bg); color: #333; line-height: 1.6; }
-        
-        /* Header */
-        .header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--teal); }
-        .logo { font-size: 28px; font-weight: bold; letter-spacing: 1px; }
-        .subtitle { font-size: 16px; opacity: 0.9; margin-top: 5px; }
-
-        /* Main Dashboard */
-        .container { max-width: 500px; margin: -30px auto 100px; padding: 0 15px; }
-        .card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        
-        /* Buttons */
-        .btn { display: flex; align-items: center; justify-content: center; background: white; border: 2px solid var(--primary); color: var(--teal); 
-               padding: 15px; margin-bottom: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: var(--primary); color: white; }
-        .btn-primary { background: var(--primary); color: white; border: none; }
-        
-        /* Emergency Box */
-        .emergency { border: 2px solid var(--red); color: var(--red); padding: 15px; border-radius: 10px; font-size: 14px; text-align: center; font-weight: bold; }
-        
-        /* Floating Call Button */
-        .fab { position: fixed; bottom: 20px; right: 20px; background: var(--teal); color: white; width: 60px; height: 60px; 
-               border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-size: 24px; z-index: 1000; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header class="header">
-        <div class="logo">WalkWellMD</div>
-        <div class="subtitle">Orthopedic Excellence | Dr. ALHADDAD</div>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <h3 style="margin-top:0; color:var(--teal);">🏥 Patient Care</h3>
-            <div id="protocol-list">
-                <p style="font-size:12px; color:#666;">Loading recovery protocols...</p>
-            </div>
+    <header class="nav-header">WalkWellMD</header>
+    <div class="content-wrapper">
+        <div class="protocol-card" style="text-align: center;">
+            <h2 style="color:var(--deep-teal);">Patient Care</h2>
+            <div id="protocol-list"><p>Loading recovery plans...</p></div>
         </div>
-
-        <div class="card">
-            <h3 style="margin-top:0; color:var(--teal);">🌐 Connect & Review</h3>
-            <a href="https://search.google.com/local/writereview?placeid=ChIJv3KH0jjQwxURJSJMiSHc2MQ" class="btn btn-primary">⭐ Leave a Google Review</a>
-            <a href="https://instagram.com/walkwellmd" class="btn">📸 Instagram</a>
-            <a href="https://youtube.com/@walkwellmd" class="btn">🎥 Educational Videos</a>
-        </div>
-
-        <div class="emergency">
-            🚨 POST-OP EMERGENCY:<br>Contact us immediately if you have calf pain or shortness of breath.
+        <div class="protocol-card" style="text-align: center;">
+            <h3 style="color:var(--deep-teal);">Reviews & Social</h3>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJv3KH0jjQwxURJSJMiSHc2MQ" class="btn-primary" style="display:block; padding:15px; margin-bottom:10px; text-decoration:none; border-radius:10px; background:var(--primary-green); color:white;">⭐ Leave a Google Review</a>
+            <a href="https://instagram.com/walkwellmd" style="display:block; padding:15px; text-decoration:none; border-radius:10px; border:2px solid var(--primary-green); color:var(--deep-teal);">📸 Instagram</a>
         </div>
     </div>
-
-    <a href="tel:0127444444" class="fab">📞</a>
-
+    <a href="tel:0127444444" class="fab-call">📞</a>
     <script>
-        // This script automatically builds your protocol buttons from your JSON
-        fetch('protocols/index.json')
-            .then(response => response.json())
-            .then(data => {
-                const list = document.getElementById('protocol-list');
-                list.innerHTML = ''; // Clear loading text
+        async function loadProtocols() {
+            const list = document.getElementById('protocol-list');
+            try {
+                const response = await fetch('./protocols/index.json');
+                const data = await response.json();
+                list.innerHTML = '';
                 data.forEach(item => {
                     const a = document.createElement('a');
                     a.href = item.url;
-                    a.className = 'btn';
-                    a.innerText = "📋 " + item.title_en;
+                    a.style = "display:block; padding:15px; margin-bottom:10px; background:var(--primary-green); color:white; text-decoration:none; border-radius:10px; font-weight:bold;";
+                    a.innerText = "📋 " + item.title_en + " / " + item.title_ar;
                     list.appendChild(a);
                 });
-            })
-            .catch(err => {
-                document.getElementById('protocol-list').innerHTML = '<p style="color:red">Please check protocols/index.json</p>';
-            });
+            } catch (e) { list.innerHTML = "<p style='color:red;'>Error loading protocols. Check protocols/index.json</p>"; }
+        }
+        window.onload = loadProtocols;
     </script>
 </body>
 </html>
