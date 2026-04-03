@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition Name | WalkWellMD</title>
+    <!-- Link to global styles - note the double dots to go up one folder -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Placeholder for Global Header (Dynamic) -->
+    <header id="global-header"></header>
+
+    <div class="content-wrapper">
+        
+        <!-- ENGLISH SECTION -->
+        <div class="protocol-card" id="english-version">
+            <span class="lang-label">Patient Education</span>
+            <h1>[Condition Name in English]</h1>
+            
+            <p>[Brief overview of the condition and its impact on the foot or ankle].</p>
+            
+            <div class="emergency-box" style="border-left-color: var(--gold); background: rgba(212, 175, 55, 0.05);">
+                💡 CLINICAL NOTE: [Key takeaway or conservative management tip].
+            </div>
+
+            <h3>Common Symptoms</h3>
+            <ul>
+                <li>[Symptom 1]</li>
+                <li>[Symptom 2]</li>
+                <li>[Symptom 3]</li>
+            </ul>
+
+            <h3>Management Options</h3>
+            <p>Dr. ALHADDAD typically recommends exploring non-surgical options first:</p>
+            <ul>
+                <li><strong>Activity Modification:</strong> [Instructions].</li>
+                <li><strong>Footwear:</strong> [Shoe recommendations].</li>
+                <li><strong>Orthotics:</strong> [Brace or insert details].</li>
+            </ul>
+        </div>
+
+        <!-- ARABIC SECTION -->
+        <div class="protocol-card" id="arabic-version" dir="rtl">
+            <span class="lang-label">تثقيف المرضى</span>
+            <h1>[اسم الحالة بالعربي]</h1>
+            
+            <p>[نبذة مختصرة عن الحالة وتأثيرها على القدم أو الكاحل].</p>
+            
+            <div class="emergency-box" style="border-right-color: var(--gold); background: rgba(212, 175, 55, 0.05);">
+                💡 ملاحظة طبية: [نصيحة طبية أو معلومة جوهرية عن العلاج التحفظي].
+            </div>
+
+            <h3>الأعراض الشائعة</h3>
+            <ul>
+                <li>[العرض ١]</li>
+                <li>[العرض ٢]</li>
+                <li>[العرض ٣]</li>
+            </ul>
+
+            <h3>خيارات العلاج</h3>
+            <p>يوصي الدكتور الحداد عادةً باستكشاف الخيارات غير الجراحية أولاً:</p>
+            <ul>
+                <li><strong>تعديل النشاط:</strong> [تعليمات النشاط].</li>
+                <li><strong>الأحذية:</strong> [توصيات الأحذية].</li>
+                <li><strong>الفرشات الطبية:</strong> [تفاصيل الدعامات أو الفرشات].</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Placeholder for Global Action Bar & Lang Toggle (Dynamic) -->
+    <div id="global-action-bar"></div>
+
+    <!-- Global Engine - Handles Branding, Language, and Action Bar -->
+    <script src="../app.js"></script>
+    <script>
+        /**
+         * Page-Specific Language Logic
+         * Shows/Hides sections based on the global language state in app.js
+         */
+        function applyPageLanguage() {
+            const lang = localStorage.getItem('wwmd_lang') || 'en';
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            if (lang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', applyPageLanguage);
+    </script>
+</body>
+</html>
