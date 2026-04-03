@@ -4,30 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achilles Rupture | WalkWellMD</title>
+    <!-- Gulaalicha (Style) addunyaa hundaaf tokko ta'e -->
     <link rel="stylesheet" href="../style.css">
 </head>
-<body id="body-tag">
+<body>
 
-    <header class="nav-header">
-        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
-        <span id="header-title">WalkWellMD</span>
-        <div class="lang-switcher">
-            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
-        </div>
-    </header>
+    <!-- Mata-duree dynamic kan app.js irraa dhufu -->
+    <header id="global-header"></header>
 
-    <div class="content-wrapper" style="margin-top:20px;">
+    <div class="content-wrapper">
         
-        <!-- ENGLISH SECTION -->
+        <!-- QOOQA INGILIIZII -->
         <div class="protocol-card" id="english-version">
-            <span class="lang-label">English</span>
+            <span class="lang-label">Surgical Protocol</span>
             <h1>Achilles Tendon Rupture</h1>
             
             <p><strong>Initial Follow-up:</strong> 3 days post-op.</p>
             <p><strong>Weight Bearing:</strong> Strict Non-Weight Bearing (NWB) in a backslab or cast for the first 2 weeks.</p>
             
             <div class="emergency-box">
-                🚨 RED FLAGS: Contact us immediately (0127444444) if you experience calf pain, shortness of breath, or chest pain.
+                🚨 RED FLAGS: Contact us immediately if you experience severe calf pain, shortness of breath, or chest pain.
             </div>
 
             <h3>Rehabilitation Phases</h3>
@@ -39,16 +35,16 @@
             </ul>
         </div>
 
-        <!-- ARABIC SECTION -->
+        <!-- QOOQA ARABII -->
         <div class="protocol-card" id="arabic-version" dir="rtl">
-            <span class="lang-label">العربية</span>
+            <span class="lang-label">بروتوكول الجراحة</span>
             <h1>برنامج تأهيل تمزق وتر أخيل</h1>
             
             <p><strong>المتابعة الأولية:</strong> ٣ أيام بعد العملية.</p>
             <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن تماماً (NWB) باستخدام الجبيرة لمدة أسبوعين.</p>
             
             <div class="emergency-box">
-                🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا شعرت بألم في بطة الساق، ضيق تنفس، أو ألم في الصدر.
+                🚨 علامات الخطر: اتصل بنا فوراً إذا شعرت بألم في بطة الساق، ضيق تنفس، أو ألم في الصدر.
             </div>
 
             <h3>مراحل التأهيل</h3>
@@ -60,46 +56,23 @@
             </ul>
         </div>
 
-        <div class="footer-booking" id="footer-text">
-            WalkWellMD © 2024 | Dr. ALHADDAD
-        </div>
-
     </div>
 
-    <!-- Persistent Bottom Action Bar -->
-    <div class="bottom-bar">
-        <a href="tel:0127444444" class="bar-btn btn-call">
-            <span id="call-text">Call</span> 📞
-        </a>
-        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-            WhatsApp 💬
-        </a>
-        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
-            <span id="review-text-short">Review</span> ⭐
-        </a>
-    </div>
+    <!-- Sarara gochaa fi jijjiirraa qooqaa dynamic -->
+    <div id="global-action-bar"></div>
 
+    <!-- Injiinicha (Engine) addunyaa hundaaf tokko ta'e -->
+    <script src="../app.js"></script>
     <script>
-        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
-
-        const translations = {
-            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
-            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
-        };
-
-        function updatePageLanguage() {
-            const t = translations[currentLang];
-            const body = document.getElementById('body-tag');
+        /**
+         * Qooqa fuulichaa jijjiiruuf
+         */
+        function applyPageLanguage() {
+            const lang = localStorage.getItem('wwmd_lang') || 'en';
             const enSection = document.getElementById('english-version');
             const arSection = document.getElementById('arabic-version');
 
-            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.getElementById('lang-toggle-text').innerText = t.toggle;
-            document.getElementById('call-text').innerText = t.call;
-            document.getElementById('review-text-short').innerText = t.review;
-            document.getElementById('back-link').innerText = t.back;
-
-            if (currentLang === 'ar') {
+            if (lang === 'ar') {
                 enSection.style.display = 'none';
                 arSection.style.display = 'block';
             } else {
@@ -107,14 +80,7 @@
                 arSection.style.display = 'none';
             }
         }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            localStorage.setItem('wwmd_lang', currentLang);
-            updatePageLanguage();
-        }
-
-        window.onload = updatePageLanguage;
+        window.addEventListener('DOMContentLoaded', applyPageLanguage);
     </script>
 </body>
 </html>
