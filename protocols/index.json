@@ -1,44 +1,79 @@
 [
-  {
-    "id": "achilles-rupture",
-    "title_en": "Achilles Tendon Rupture",
-    "title_ar": "تمزق وتر أخيل",
-    "url": "protocols/achilles-rupture.html"
-  },
-  {
-    "id": "peroneal-repair",
-    "title_en": "Peroneal Tendon Repair",
-    "title_ar": "إصلاح وتر الشظوي",
-    "url": "protocols/peroneal-repair.html"
-  },
-  {
-    "id": "mortons-neuroma-excision",
-    "title_en": "Morton’s Neuroma Excision",
-    "title_ar": "استئصال ورم مورتون العصبي",
-    "url": "protocols/mortons-neuroma.html"
-  },
-  {
-    "id": "first-mtp-fusion",
-    "title_en": "First MTP Joint Fusion",
-    "title_ar": "دمج المفصل المشطي السلامي",
-    "url": "protocols/first-mtp-fusion.html"
-  },
-  {
-    "id": "hallux-valgus-correction",
-    "title_en": "Hallux Valgus (Bunion) Correction",
-    "title_ar": "تصحيح إبهام القدم (الوكعة)",
-    "url": "protocols/hallux-valgus.html"
-  },
-  {
-    "id": "ankle-fracture-orif",
-    "title_en": "Ankle Fracture ORIF",
-    "title_ar": "تثبيت كسر الكاحل",
-    "url": "protocols/ankle-fracture-orif.html"
-  },
-  {
-    "id": "flatfoot-reconstruction",
-    "title_en": "Flatfoot Reconstruction",
-    "title_ar": "تصحيح القدم المسطحة",
-    "url": "protocols/flatfoot-reconstruction.html"
-  }
+{
+"id": "achilles-rupture",
+"title_en": "Achilles Tendon Rupture – Rehab Program",
+"title_ar": "برنامج إعادة التأهيل بعد تمزق وتر أخيل",
+"url": "protocols/achilles-rupture.html",
+"tags": ["ankle", "rupture", "boot"]
+},
+{
+"id": "peroneal-repair",
+"title_en": "Peroneal Tendon Repair – Rehabilitation Protocol",
+"title_ar": "إصلاح وتر الشظوي – بروتوكول إعادة التأهيل",
+"url": "protocols/peroneal-repair.html",
+"tags": ["ankle", "peroneal", "tendon repair", "post-op"]
+},
+{
+"id": "mortons-neuroma-excision",
+"title_en": "Morton’s Neuroma Excision – Rehabilitation Protocol",
+"title_ar": "استئصال ورم مورتون العصبي – بروتوكول إعادة التأهيل",
+"url": "protocols/mortons-neuroma.html",
+"tags": ["forefoot", "neuroma", "post-op"]
+},
+{
+"id": "first-mtp-fusion",
+"title_en": "First MTP Joint Fusion – Rehabilitation Protocol",
+"title_ar": "دمج المفصل المشطي السلامي الأول – بروتوكول إعادة التأهيل",
+"url": "protocols/first-mtp-fusion.html",
+"tags": ["forefoot", "fusion", "first MTP", "hallux", "post-op"]
+},
+{
+"id": "partial-nail-bed-excision",
+"title_en": "Partial Nail Bed Excision with Cauterization – Post-Operative Protocol",
+"title_ar": "استئصال جزئي لسرير الظفر مع الكي – بروتوكول ما بعد العملية",
+"url": "protocols/partial-nail-bed-excision.html",
+"tags": ["toenail", "ingrown", "minor surgery", "post-op"]
+},
+{
+"id": "orif-5th-metatarsal-base",
+"title_en": "ORIF – Fifth Metatarsal Base Fracture (Plate & Screws)",
+"title_ar": "ردّ مفتوح وتثبيت داخلي (ORIF) — كسر قاعدة المشط الخامس",
+"url": "protocols/orif-5th-metatarsal.html",
+"tags": ["foot", "5th metatarsal", "plate", "CAM boot", "fracture", "ORIF"]
+},
+{
+"id": "flatfoot-reconstruction",
+"title_en": "Flatfoot (Pes Planovalgus) Reconstruction – Post-Operative Rehabilitation Protocol",
+"title_ar": "بروتوكول إعادة التأهيل بعد عملية تصحيح القدم المسطحة",
+"url": "protocols/flatfoot-reconstruction.html",
+"tags": ["foot", "flatfoot", "pes planovalgus", "reconstruction", "post-op"]
+},
+{
+"id": "hallux-valgus-correction",
+"title_en": "Hallux Valgus Correction – Rehabilitation Protocol",
+"title_ar": "تصحيح إبهام القدم (الوكعة) — بروتوكول إعادة التأهيل",
+"url": "protocols/hallux-valgus.html",
+"tags": ["forefoot", "bunion", "hallux valgus", "WBAT", "heel walking"]
+},
+{
+"id": "ankle-fracture-orif",
+"title_en": "Ankle Fracture — Open Reduction and Internal Fixation (ORIF) – Rehabilitation Protocol",
+"title_ar": "كسر الكاحل — التثبيت الداخلي المفتوح (ORIF) — بروتوكول إعادة التأهيل",
+"url": "protocols/ankle-fracture-orif.html",
+"tags": ["ankle", "fracture", "ORIF", "partial weight-bearing", "cast", "air boot", "physiotherapy", "aspirin 100 mg"]
+},
+{
+"id": "lateral-ligament-reconstruction-ankle",
+"title_en": "Lateral Ligament Reconstruction — Ankle (Post-Op Rehab Protocol)",
+"title_ar": "إعادة بناء الأربطة الجانبية للكاحل — بروتوكول إعادة التأهيل بعد الجراحة",
+"url": "protocols/lateral-ligament-reconstruction.html",
+"tags": ["ankle", "ligament", "reconstruction", "cast", "boot", "NWB", "physiotherapy"]
+},
+{
+"id": "accessory-navicular-tibialis-posterior-rehab",
+"title_en": "Accessory Navicular Excision with Tibialis Posterior Reinsertion – Rehabilitation Protocol",
+"title_ar": "بروتوكول إعادة التأهيل بعد استئصال العظم الإضافي (الزورقي) مع إعادة تثبيت وتر الظنبوب الخلفي",
+"url": "protocols/accessory-navicular.html",
+"tags": ["foot", "ankle", "accessory navicular", "tibialis posterior", "post-op", "rehab"]
+}
 ]
