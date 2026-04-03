@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achilles Tendon Rupture | WalkWellMD</title>
+    <title>Achilles Rupture | WalkWellMD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body id="body-tag">
 
-    <nav class="nav-header">
-        <a href="../index.html">← WalkWellMD Dashboard / الرئيسية</a>
-    </nav>
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-top:20px;">
         
         <!-- ENGLISH SECTION -->
         <div class="protocol-card" id="english-version">
             <span class="lang-label">English</span>
-            <h1>Achilles Tendon Rupture Rehab</h1>
+            <h1>Achilles Tendon Rupture</h1>
             
-            <p><strong>Initial Follow-up:</strong> 3 days post-op (Wound check & review).</p>
-            <p><strong>Weight Bearing:</strong> Strict Non-Weight Bearing (NWB) in a backslab or cast for the first 2 weeks. Use crutches or a knee scooter.</p>
+            <p><strong>Initial Follow-up:</strong> 3 days post-op.</p>
+            <p><strong>Weight Bearing:</strong> Strict Non-Weight Bearing (NWB) in a backslab or cast for the first 2 weeks.</p>
             
             <div class="emergency-box">
-                🚨 RED FLAGS: Contact us immediately (0127444444) if you experience calf pain, sudden shortness of breath, or chest pain.
+                🚨 RED FLAGS: Contact us immediately (0127444444) if you experience calf pain, shortness of breath, or chest pain.
             </div>
 
-            <h3>Rehab Phases</h3>
+            <h3>Rehabilitation Phases</h3>
             <ul>
-                <li><strong>Weeks 0-2 (Protection):</strong> Below-knee backslab. Strict NWB. Aspirin 100mg daily. Keep dressing dry. Strict elevation for 72 hours.</li>
-                <li><strong>Weeks 2-6 (Protected Loading):</strong> Stitches removed. Transition to VACOcast or walking boot with 3 wedges (equinus position). Start progressive weight-bearing as tolerated.</li>
-                <li><strong>Weeks 6-12 (Functional Recovery):</strong> Gradually reduce wedges (one every 2 weeks). Start physiotherapy focusing on range of motion (up to neutral only) and gait training.</li>
-                <li><strong>Weeks 12-24 (Strengthening):</strong> Transition to normal shoes with a 1cm heel insert. Start eccentric strengthening. No running or jumping until cleared by Dr. ALHADDAD.</li>
+                <li><strong>Weeks 0-2:</strong> Below-knee backslab. Strict NWB. Aspirin 100mg daily. Strict elevation for 72 hours.</li>
+                <li><strong>Weeks 2-6:</strong> Stitches removed. Transition to walking boot with wedges (equinus). Start protected weight-bearing.</li>
+                <li><strong>Weeks 6-12:</strong> Gradually reduce wedges. Start physiotherapy focusing on range of motion (dorsiflexion to neutral only).</li>
+                <li><strong>Weeks 12+:</strong> Transition to normal shoes with a heel insert. Start strengthening exercises.</li>
             </ul>
         </div>
 
@@ -40,30 +44,77 @@
             <span class="lang-label">العربية</span>
             <h1>برنامج تأهيل تمزق وتر أخيل</h1>
             
-            <p><strong>المتابعة الأولية:</strong> ٣ أيام بعد العملية (فحص الجرح والمراجعة).</p>
-            <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن تماماً (NWB) باستخدام الجبيرة خلال أول أسبوعين. استخدم العكازات أو سكوتر الركبة.</p>
+            <p><strong>المتابعة الأولية:</strong> ٣ أيام بعد العملية.</p>
+            <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن تماماً (NWB) باستخدام الجبيرة لمدة أسبوعين.</p>
             
             <div class="emergency-box">
-                🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا شعرت بألم في بطة الساق، ضيق مفاجئ في التنفس، أو ألم في الصدر.
+                🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا شعرت بألم في بطة الساق، ضيق تنفس، أو ألم في الصدر.
             </div>
 
             <h3>مراحل التأهيل</h3>
             <ul>
-                <li><strong>الأسبوع ٠-٢ (الحماية):</strong> جبيرة تحت الركبة. ممنوع تحميل الوزن. أسبرين ١٠٠ ملجم يومياً. حافظ على جفاف الغيارات. ارفع القدم تماماً لمدة ٧٢ ساعة.</li>
-                <li><strong>الأسبوع ٢-٦ (بدء التحميل):</strong> إزالة الغرز. الانتقال إلى حذاء VACOcast أو حذاء المشي الطبي مع ٣ كعوب. بدء تحميل الوزن التدريجي حسب القدرة.</li>
-                <li><strong>الأسبوع ٦-١٢ (التعافي الوظيفي):</strong> تقليل الكعوب تدريجياً (كعب واحد كل أسبوعين). بدء العلاج الطبيعي لتحريك الكاحل (حتى الوضع الطبيعي فقط).</li>
-                <li><strong>الأسبوع ١٢-٢٤ (التقوية):</strong> الانتقال إلى الأحذية العادية مع كعب داخلي ١ سم. بدء تمارين التقوية والتوازن. ممنوع الجري أو القفز حتى يسمح الطبيب.</li>
+                <li><strong>الأسبوع ٠-٢:</strong> جبيرة تحت الركبة. ممنوع تحميل الوزن. أسبرين ١٠٠ ملجم يومياً. ارفع القدم تماماً لمدة ٧٢ ساعة.</li>
+                <li><strong>الأسبوع ٢-٦:</strong> إزالة الغرز. الانتقال إلى حذاء المشي الطبي مع كعوب. بدء تحميل الوزن التدريجي.</li>
+                <li><strong>الأسبوع ٦-١٢:</strong> تقليل الكعوب تدريجياً. بدء العلاج الطبيعي لتحريك الكاحل (حتى الوضع الطبيعي فقط).</li>
+                <li><strong>الأسبوع ١٢+:</strong> الانتقال إلى الأحذية العادية مع كعب داخلي. بدء تمارين التقوية والتوازن.</li>
             </ul>
         </div>
 
-        <div class="footer-booking">
+        <div class="footer-booking" id="footer-text">
             WalkWellMD © 2024 | Dr. ALHADDAD
         </div>
 
     </div>
 
-    <!-- Sticky Call Button -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
 </body>
 </html>
