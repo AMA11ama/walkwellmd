@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankle Sprain Care | WalkWellMD</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
+        
+        <!-- ENGLISH SECTION -->
+        <div class="protocol-card" id="english-version">
+            <span class="lang-label">Patient Education</span>
+            <h1>Ankle Sprain Care & Recovery</h1>
+            
+            <p>An ankle sprain occurs when the ligaments that support the ankle stretch or tear. This is most commonly caused by an "inversion" injury (twisting the foot inward).</p>
+            
+            <h3>Understanding the Grades</h3>
+            <ul>
+                <li><strong>Grade I:</strong> Mild stretching of the ligament. Mild swelling and tenderness.</li>
+                <li><strong>Grade II:</strong> Partial tearing. Moderate pain, swelling, and bruising. Difficulty walking.</li>
+                <li><strong>Grade III:</strong> Complete tear. Severe swelling and instability. Inability to bear weight.</li>
+            </ul>
+
+            <div class="emergency-box" style="border-color: var(--primary-green); background: #f0f9f6; color: var(--deep-teal);">
+                💡 THE R.I.C.E. PROTOCOL (First 48 Hours):
+                <br>• <strong>Rest:</strong> Avoid activities that cause pain.
+                <br>• <strong>Ice:</strong> 15-20 mins every 2-3 hours.
+                <br>• <strong>Compression:</strong> Use an elastic bandage to control swelling.
+                <br>• <strong>Elevation:</strong> Keep the ankle above the level of your heart.
+            </div>
+
+            <h3>When to see Dr. ALHADDAD?</h3>
+            <p>Seek medical attention if you experience:</p>
+            <ul>
+                <li>Inability to take 4 steps immediately after the injury.</li>
+                <li>Significant bone tenderness or deformity.</li>
+                <li>Numbness in the foot or toes.</li>
+                <li>Swelling that does not improve after 3 days of R.I.C.E.</li>
+            </ul>
+        </div>
+
+        <!-- ARABIC SECTION -->
+        <div class="protocol-card" id="arabic-version" dir="rtl">
+            <span class="lang-label">تثقيف المرضى</span>
+            <h1>علاج وإعادة تأهيل التواء الكاحل</h1>
+            
+            <p>يحدث التواء الكاحل عندما تتمدد أو تتمزق الأربطة التي تدعم الكاحل. السبب الأكثر شيوعاً هو التواء القدم للداخل بشكل مفاجئ.</p>
+            
+            <h3>فهم درجات الالتواء</h3>
+            <ul>
+                <li><strong>الدرجة الأولى:</strong> تمدد بسيط في الأربطة. تورم وألم خفيف.</li>
+                <li><strong>الدرجة الثانية:</strong> تمزق جزئي. ألم متوسط، تورم، وظهور كدمات. صعوبة في المشي.</li>
+                <li><strong>الدرجة الثالثة:</strong> تمزق كامل. تورم شديد وعدم استقرار في المفصل. عدم القدرة على المشي.</li>
+            </ul>
+
+            <div class="emergency-box" style="border-color: var(--primary-green); background: #f0f9f6; color: var(--deep-teal);">
+                💡 بروتوكول العلاج المنزلي (أول ٤٨ ساعة):
+                <br>• <strong>الراحة:</strong> تجنب الأنشطة التي تسبب الألم.
+                <br>• <strong>الكمادات الباردة:</strong> ١٥-٢٠ دقيقة كل ٢-٣ ساعات.
+                <br>• <strong>الضغط:</strong> استخدم مشد مرن للتحكم في التورم.
+                <br>• <strong>الرفع:</strong> ارفع الكاحل فوق مستوى القلب.
+            </div>
+
+            <h3>متى يجب زيارة الدكتور الحداد؟</h3>
+            <p>راجع الطبيب فوراً إذا لاحظت:</p>
+            <ul>
+                <li>عدم القدرة على المشي ٤ خطوات فور وقوع الإصابة.</li>
+                <li>ألم شديد في العظام أو وجود تشوه واضح.</li>
+                <li>تنميل في القدم أو الأصابع.</li>
+                <li>تورم لا يتحسن بعد ٣ أيام من العلاج المنزلي.</li>
+            </ul>
+        </div>
+
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
+    </div>
+
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
+</body>
+</html>
