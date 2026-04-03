@@ -1,4 +1,19 @@
 {
+"branding": {
+"surgeon_en": "Dr. ALHADDAD",
+"surgeon_ar": "د. علي الحداد",
+"profession_en": "Consultant Orthopedic Surgeon",
+"profession_ar": "استشاري جراحة العظام",
+"hospital_en": "Dr. Sulaiman Al Habib",
+"hospital_ar": "مجموعة د. سليمان الحبيب",
+"location_en": "Jeddah - Al Faiha",
+"location_ar": "جدة - الفيحاء",
+"phone": "0127444444",
+"whatsapp": "966599124348",
+"reviewUrl": "https://g.page/r/CSnV8ayiP6q5EBI/review",
+"logo": "hospital-logo.png",
+"headshot": "aa-headshot.jpg"
+},
 "protocols": [
 {
 "id": "achilles-rupture",
@@ -64,7 +79,7 @@
 "icon": "🩹"
 },
 {
-"id": "lateral-ligament-reconstruction",
+"id": "lateral-ligament",
 "title_en": "Lateral Ligament Reconstruction",
 "title_ar": "إعادة بناء الأربطة الجانبية",
 "url": "protocols/lateral-ligament-reconstruction.html",
