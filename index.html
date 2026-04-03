@@ -10,8 +10,8 @@
     <header class="nav-header">WalkWellMD</header>
     <div class="content-wrapper">
         <div class="protocol-card" style="text-align: center;">
-            <h2 style="color:var(--deep-teal);">Patient Care</h2>
-            <div id="protocol-list"><p>Loading recovery plans...</p></div>
+            <h2 style="color:var(--deep-teal);">Patient Care / رعاية المرضى</h2>
+            <div id="protocol-list"><p>Loading protocols...</p></div>
         </div>
         <div class="protocol-card" style="text-align: center;">
             <h3 style="color:var(--deep-teal);">Reviews & Social</h3>
@@ -31,10 +31,11 @@
                     const a = document.createElement('a');
                     a.href = item.url;
                     a.style = "display:block; padding:15px; margin-bottom:10px; background:var(--primary-green); color:white; text-decoration:none; border-radius:10px; font-weight:bold;";
+                    // This line combines both languages on the button
                     a.innerText = "📋 " + item.title_en + " / " + item.title_ar;
                     list.appendChild(a);
                 });
-            } catch (e) { list.innerHTML = "<p style='color:red;'>Error loading protocols. Check protocols/index.json</p>"; }
+            } catch (e) { list.innerHTML = "<p style='color:red;'>Error: protocols/index.json not found.</p>"; }
         }
         window.onload = loadProtocols;
     </script>
