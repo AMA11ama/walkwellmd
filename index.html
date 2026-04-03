@@ -5,39 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WalkWellMD | Dr. ALHADDAD</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .container { 
+            max-width: 500px; 
+            margin: 20px auto; 
+            padding: 0 15px; 
+        }
+        .card { 
+            background: white; 
+            border-radius: 15px; 
+            padding: 25px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            margin-bottom: 20px; 
+            text-align: center; 
+        }
+        .btn { 
+            display: block; 
+            background: var(--primary-green); 
+            color: white; 
+            padding: 15px; 
+            margin-bottom: 12px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: transform 0.2s ease;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        .btn-secondary { 
+            background: var(--deep-teal); 
+        }
+        #protocol-list { 
+            min-height: 50px; 
+        }
+        .error-msg { 
+            color: var(--emergency-red); 
+            font-size: 14px; 
+            margin-top: 10px; 
+        }
+        .loading-spinner {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
+
     <header class="nav-header">WalkWellMD</header>
-    <div class="content-wrapper">
-        <div class="protocol-card" style="text-align: center;">
-            <h2 style="color:var(--deep-teal);">Patient Care / رعاية المرضى</h2>
-            <div id="protocol-list"><p>Loading protocols...</p></div>
+
+    <div class="container">
+        
+        <!-- PROTOCOL SECTION -->
+        <div class="card">
+            <h2 style="color:var(--deep-teal); margin-bottom: 20px;">Patient Care</h2>
+            <div id="protocol-list">
+                <span class="loading-spinner">Loading recovery plans...</span>
+            </div>
         </div>
-        <div class="protocol-card" style="text-align: center;">
-            <h3 style="color:var(--deep-teal);">Reviews & Social</h3>
-            <a href="https://search.google.com/local/writereview?placeid=ChIJv3KH0jjQwxURJSJMiSHc2MQ" class="btn-primary" style="display:block; padding:15px; margin-bottom:10px; text-decoration:none; border-radius:10px; background:var(--primary-green); color:white;">⭐ Leave a Google Review</a>
-            <a href="https://instagram.com/walkwellmd" style="display:block; padding:15px; text-decoration:none; border-radius:10px; border:2px solid var(--primary-green); color:var(--deep-teal);">📸 Instagram</a>
+
+        <!-- REVIEWS & SOCIAL SECTION -->
+        <div class="card">
+            <h3 style="color:var(--deep-teal); margin-bottom: 20px;">Support & Feedback</h3>
+            
+            <!-- Pointing to the new Bilingual Bridge Page -->
+            <a href="feedback.html" class="btn">⭐ Leave a Google Review</a>
+            
+            <a href="https://instagram.com/walkwellmd" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-secondary">
+                📸 Instagram
+            </a>
         </div>
+
+        <div class="footer-booking">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
     </div>
+
+    <!-- Floating Action Button for Emergency/Contact -->
     <a href="tel:0127444444" class="fab-call">📞</a>
+
     <script>
+        // Path to your metadata file
+        const protocolPath = './protocols/index.json';
+
         async function loadProtocols() {
             const list = document.getElementById('protocol-list');
             try {
-                const response = await fetch('./protocols/index.json');
+                const response = await fetch(protocolPath);
+                if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+                
                 const data = await response.json();
                 list.innerHTML = '';
+
+                if (!data || data.length === 0) {
+                    list.innerHTML = '<p>No protocols available at this time.</p>';
+                    return;
+                }
+
                 data.forEach(item => {
                     const a = document.createElement('a');
                     a.href = item.url;
-                    a.style = "display:block; padding:15px; margin-bottom:10px; background:var(--primary-green); color:white; text-decoration:none; border-radius:10px; font-weight:bold;";
-                    // This line combines both languages on the button
+                    a.className = 'btn';
+                    // Displaying bilingual titles for clarity
                     a.innerText = "📋 " + item.title_en + " / " + item.title_ar;
                     list.appendChild(a);
                 });
-            } catch (e) { list.innerHTML = "<p style='color:red;'>Error: protocols/index.json not found.</p>"; }
+
+            } catch (error) {
+                console.error('Error loading protocols:', error);
+                list.innerHTML = '<p class="error-msg">Unable to load recovery plans.<br>Please contact the clinic directly.</p>';
+            }
         }
+
+        // Initialize on load
         window.onload = loadProtocols;
     </script>
+
 </body>
 </html>
