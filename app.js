@@ -1,101 +1,73 @@
 /**
- * WalkWellMD Global Configuration & UI Engine
- * PRO-TIP: Edit this file to update branding or contact info globally.
+ * WalkWellMD Global Configuration & UI Engine (V2)
+ * Fetches branding and identity from data.json to ensure a single-point of update.
  */
 
-const WWMD_CONFIG = {
-    surgeon: {
-        en: "Dr. ALHADDAD",
-        ar: "د. علي الحداد"
-    },
-    profession: {
-        en: "Consultant Orthopedic Surgeon",
-        ar: "استشاري جراحة العظام"
-    },
-    hospital: {
-        en: "Dr. Sulaiman Al Habib",
-        ar: "مجموعة د. سليمان الحبيب"
-    },
-    location: {
-        en: "Jeddah - Al Faiha",
-        ar: "جدة - الفيحاء"
-    },
-    contact: {
-        phone: "0127444444",
-        whatsapp: "966599124348",
-        reviewUrl: "https://g.page/r/CSnV8ayiP6q5EBI/review"
-    },
-    assets: {
-        logo: "image_14f64b.png",
-        headshot: "AA headshot.jpg"
-    }
-};
-
-// State Management: Persistence for language choice
 let currentLang = localStorage.getItem('wwmd_lang') || 'en';
 
 /**
- * Global Component Injector
- * Injects the Luxury Header and Action Bar into placeholders
+ * Fetch Config and Inject UI Components
  */
-async function injectGlobalUI() {
-    const headerPlaceholder = document.getElementById('global-header');
-    const actionBarPlaceholder = document.getElementById('global-action-bar');
-    const body = document.body;
+async function initializeGlobalUI() {
+    try {
+        // 1. Fetch the central library
+        const response = await fetch('/data.json');
+        const data = await response.json();
+        const config = data.branding;
 
-    // Set document direction based on language
-    body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        // 2. Set Page Direction
+        document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
-    if (headerPlaceholder) {
-        headerPlaceholder.innerHTML = `
-            <div class="header">
-                <div class="surgeon-brand">
-                    <div class="surgeon-name">${WWMD_CONFIG.surgeon[currentLang]}</div>
-                    <div class="hospital-brand">
-                        <img src="${WWMD_CONFIG.assets.logo}" alt="Hospital Logo" class="hospital-logo">
-                        <div class="hospital-info">
-                            ${WWMD_CONFIG.hospital[currentLang]}<br>
-                            ${WWMD_CONFIG.location[currentLang]}
+        // 3. Inject Header
+        const header = document.getElementById('global-header');
+        if (header) {
+            header.innerHTML = `
+                <div class="header">
+                    <div class="surgeon-brand">
+                        <div class="surgeon-name">${config['surgeon_' + currentLang]}</div>
+                        <div class="hospital-brand">
+                            <img src="/${config.logo}" alt="Hospital Logo" class="hospital-logo" onerror="this.style.display='none'">
+                            <div class="hospital-info">
+                                ${config['hospital_' + currentLang]}<br>
+                                ${config['location_' + currentLang]}
+                            </div>
                         </div>
                     </div>
+                    <div style="font-size: 1.5rem; color: var(--emerald); cursor:pointer;" onclick="window.location.href='/index.html'">☰</div>
                 </div>
-                <div style="font-size: 1.5rem; color: var(--emerald); cursor:pointer;" onclick="window.location.href='/index.html'">☰</div>
-            </div>
-        `;
-    }
+            `;
+        }
 
-    if (actionBarPlaceholder) {
-        actionBarPlaceholder.innerHTML = `
-            <!-- Floating Language Toggle -->
-            <div class="floating-lang">
-                <button class="lang-switch ${currentLang === 'en' ? 'active' : ''}" onclick="setGlobalLanguage('en')">EN</button>
-                <button class="lang-switch ${currentLang === 'ar' ? 'active' : ''}" onclick="setGlobalLanguage('ar')">العربية</button>
-            </div>
-            
-            <!-- Standardized Action Bar -->
-            <nav class="action-bar">
-                <a href="tel:${WWMD_CONFIG.contact.phone}" class="bar-btn bar-item">
-                    <i>📞</i><span>${currentLang === 'en' ? 'Call' : 'اتصال'}</span>
-                </a>
-                <a href="https://wa.me/${WWMD_CONFIG.contact.whatsapp}" class="bar-item" style="background: var(--emerald); color: var(--charcoal);">
-                    <i>💬</i><span>WhatsApp</span>
-                </a>
-                <a href="${WWMD_CONFIG.contact.reviewUrl}" class="bar-item">
-                    <i>⭐</i><span>${currentLang === 'en' ? 'Review' : 'تقييم'}</span>
-                </a>
-            </nav>
-        `;
+        // 4. Inject Action Bar & Language Toggle
+        const bar = document.getElementById('global-action-bar');
+        if (bar) {
+            bar.innerHTML = `
+                <div class="floating-lang">
+                    <button class="lang-switch ${currentLang === 'en' ? 'active' : ''}" onclick="setGlobalLanguage('en')">EN</button>
+                    <button class="lang-switch ${currentLang === 'ar' ? 'active' : ''}" onclick="setGlobalLanguage('ar')">العربية</button>
+                </div>
+                <nav class="action-bar">
+                    <a href="tel:${config.phone}" class="bar-item"><i>📞</i><span>${currentLang === 'en' ? 'Call' : 'اتصال'}</span></a>
+                    <a href="https://wa.me/${config.whatsapp}" class="bar-item" style="background: var(--emerald); color: var(--charcoal);"><i>💬</i><span>WhatsApp</span></a>
+                    <a href="${config.reviewUrl}" class="bar-item"><i>⭐</i><span>${currentLang === 'en' ? 'Review' : 'تقييم'}</span></a>
+                </nav>
+            `;
+        }
+
+        // 5. Update Profile Card if on Dashboard
+        const profileName = document.getElementById('ui-prof-title');
+        const profileImg = document.querySelector('.profile-img');
+        if (profileName) profileName.innerText = config['surgeon_' + currentLang];
+        if (profileImg) profileImg.src = '/' + config.headshot;
+
+    } catch (error) {
+        console.error("WWMD Engine Error:", error);
     }
 }
 
-/**
- * Language State Controller
- */
 function setGlobalLanguage(lang) {
     localStorage.setItem('wwmd_lang', lang);
-    // Reload to apply changes across dynamic components
     window.location.reload();
 }
 
-// Initialize UI on load
-window.addEventListener('DOMContentLoaded', injectGlobalUI);
+window.addEventListener('DOMContentLoaded', initializeGlobalUI);
