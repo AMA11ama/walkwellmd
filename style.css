@@ -1,233 +1,225 @@
-/* WalkWellMD Global Design System - Optimized for Tabs & Bilingual Toggle */
+/* WalkWellMD Luxury Design System - "Clinical Luxury" Edition */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+
 :root {
-    --primary-green: #4CB493;
-    --deep-teal: #02445A;
-    --emergency-red: #D9534F;
-    --light-bg: #F8F9FA;
-    --white: #FFFFFF;
-    --tab-inactive: #e9ecef;
+    --emerald: #4CB493;
+    --emerald-glow: rgba(76, 180, 147, 0.3);
+    --charcoal: #0F1113;
+    --slate: #1A1D21;
+    --gold: #D4AF37;
+    --white: #F8F9FA;
+    --glass: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--charcoal);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--light-bg);
-    color: #333;
+    overflow-x: hidden;
     line-height: 1.6;
-    -webkit-tap-highlight-color: transparent;
-    /* Extra padding at bottom to prevent bottom-bar from covering content */
-    padding-bottom: 90px; 
+    padding-bottom: 100px; /* Space for the persistent action bar */
 }
 
-/* Header Navigation */
-.nav-header {
-    background-color: var(--primary-green);
-    color: white;
-    padding: 18px 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.3rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* Biomechanical Motion Simulation (Background Gradient) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 30%, #1c2a26 0%, var(--charcoal) 70%);
+    opacity: 0.8;
+}
+
+/* Dynamic Header Styles */
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(15,17,19,0.95), transparent);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+}
+
+.surgeon-brand { display: flex; flex-direction: column; }
+
+.surgeon-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--white);
+}
+
+.hospital-brand {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 10px;
+    margin-top: 8px;
 }
 
-/* Language Toggle Button (Top Corner) */
-.lang-switcher {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+.hospital-logo {
+    height: 35px;
+    width: auto;
+    border-radius: 4px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
 }
 
-[dir="rtl"] .lang-switcher {
-    right: auto;
-    left: 15px;
-}
-
-.lang-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.lang-btn:hover {
-    background: white;
-    color: var(--primary-green);
-}
-
-/* Container */
-.content-wrapper {
-    max-width: 500px; /* Constrained for mobile-first feel */
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Tab Navigation System */
-.tabs-nav {
-    display: flex;
-    background: var(--tab-inactive);
-    padding: 5px;
-    border-radius: 14px;
-    margin: 20px 0;
-    gap: 5px;
-}
-
-.tab-link {
-    flex: 1;
-    padding: 12px 5px;
-    border: none;
-    border-radius: 10px;
-    background: none;
-    color: var(--deep-teal);
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.tab-link.active {
-    background: var(--primary-green);
-    color: white;
-    box-shadow: 0 4px 10px rgba(76, 180, 147, 0.2);
-}
-
-/* List Buttons (Protocols & Education) */
-.list-btn {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    text-decoration: none;
-    color: var(--deep-teal);
+.hospital-info {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--emerald);
     font-weight: 600;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    border: 1px solid #efefef;
+}
+
+/* Glassmorphism Components */
+.glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: white;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    transition: 0.2s;
+    flex-direction: column;
 }
 
-.list-btn:active {
+.glass-card:active {
     transform: scale(0.97);
-    background-color: #fcfcfc;
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* Bottom Action Bar */
-.bottom-bar {
+/* Dashboard Grid Layout */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero { text-align: center; padding: 50px 20px; }
+.hero h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--emerald);
+    margin-bottom: 12px;
+}
+.hero h1 { font-size: 2.2rem; font-weight: 300; margin: 0; }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .main-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Professional Profile Card */
+.profile-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    text-align: left;
+    background: linear-gradient(135deg, rgba(76, 180, 147, 0.08), transparent);
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--emerald);
+    box-shadow: 0 0 25px var(--emerald-glow);
+}
+
+/* Persistent Bilingual Switcher (Follows User) */
+.floating-lang {
+    position: fixed;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 6px;
+    border-radius: 40px;
+    display: flex;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.lang-switch {
+    padding: 8px 24px;
+    border-radius: 30px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-switch.active {
+    background: var(--emerald);
+    color: var(--charcoal);
+}
+
+/* Global Action Bar */
+.action-bar {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    display: flex;
-    padding: 15px;
-    gap: 10px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
-    z-index: 1001;
-}
-
-.bar-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    font-size: 0.95rem;
-    transition: 0.2s;
-}
-
-.btn-call { background-color: var(--primary-green); }
-.btn-whatsapp { background-color: #25D366; }
-.btn-review { background-color: var(--deep-teal); }
-
-/* The Protocol Card (For Sub-pages) */
-.protocol-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    position: relative;
-    overflow: hidden;
-}
-
-.protocol-card::after {
-    content: "WalkWellMD";
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.05;
-    font-size: 3rem;
-    font-weight: bold;
-    transform: rotate(-15deg);
-    pointer-events: none;
-}
-
-/* Emergency Box */
-.emergency-box {
-    border: 2px solid var(--emergency-red);
-    background-color: #FFF5F5;
-    color: var(--emergency-red);
-    padding: 18px;
-    border-radius: 12px;
-    margin: 20px 0;
-    font-weight: bold;
-}
-
-/* RTL Helpers */
-[dir="rtl"] {
-    text-align: right;
-}
-
-[dir="rtl"] ul {
-    padding-left: 0;
-    padding-right: 20px;
-}
-
-h1, h2 { color: var(--deep-teal); margin-top: 0; }
-
-.footer-booking {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.85rem;
-    color: #888;
-}
-
-/* Floating Action Button - Kept for secondary pages only */
-.fab-call {
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
-    background-color: var(--deep-teal);
-    color: white;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 22px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(15,17,19,0.98);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid var(--glass-border);
     z-index: 999;
 }
 
-[dir="rtl"] .fab-call { right: auto; left: 25px; }
+.bar-item {
+    padding: 18px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.bar-item i { display: block; margin-bottom: 6px; font-size: 1.2rem; }
+
+/* Protocol Styling */
+.protocol-card { margin-bottom: 30px; }
+.protocol-card h1 { color: var(--emerald); font-family: "Playfair Display", serif; }
+.emergency-box {
+    border-left: 4px solid var(--emerald);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 4px 16px 16px 4px;
+    margin: 25px 0;
+}
+
+[dir="rtl"] { text-align: right; }
+[dir="rtl"] .profile-card { text-align: right; }
+[dir="rtl"] .emergency-box { border-left: none; border-right: 4px solid var(--emerald); border-radius: 16px 4px 4px 16px; }
