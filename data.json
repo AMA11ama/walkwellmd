@@ -1,56 +1,98 @@
 {
-  "protocols": [
-    {
-      "id": "achilles-rupture",
-      "title_en": "Achilles Tendon Rupture",
-      "title_ar": "تمزق وتر أخيل",
-      "url": "protocols/achilles-rupture.html",
-      "icon": "🦴"
-    },
-    {
-      "id": "peroneal-repair",
-      "title_en": "Peroneal Tendon Repair",
-      "title_ar": "إصلاح وتر الشظوي",
-      "url": "protocols/peroneal-repair.html",
-      "icon": "🦶"
-    },
-    {
-      "id": "mortons-neuroma",
-      "title_en": "Morton’s Neuroma Excision",
-      "title_ar": "استئصال ورم مورتون العصبي",
-      "url": "protocols/mortons-neuroma.html",
-      "icon": "⚡"
-    },
-    {
-      "id": "first-mtp-fusion",
-      "title_en": "First MTP Joint Fusion",
-      "title_ar": "دمج المفصل المشطي السلامي الأول",
-      "url": "protocols/first-mtp-fusion.html",
-      "icon": "🔗"
-    },
-    {
-      "id": "bunion-mis",
-      "title_en": "Bunion MIS",
-      "title_ar": "جراحة الوكعة طفيفة التوغل",
-      "url": "protocols/bunion-mis.html",
-      "icon": "🧪"
-    }
-  ],
-  "education": [
-    {
-      "id": "edu-bunions",
-      "title_en": "Understanding Bunions",
-      "title_ar": "فهم حالة الوكعة",
-      "url": "education/bunions.html",
-      "icon": "📚"
-    },
-    {
-      "id": "edu-ankle-sprain",
-      "title_en": "Ankle Sprain Care",
-      "title_ar": "علاج التواء الكاحل",
-      "url": "education/ankle-sprain.html",
-      "icon": "🩹"
-    }
-  ],
-  "xrays": []
+"protocols": [
+{
+"id": "achilles-rupture",
+"title_en": "Achilles Tendon Rupture",
+"title_ar": "تمزق وتر أخيل",
+"url": "protocols/achilles-rupture.html",
+"icon": "🦴"
+},
+{
+"id": "peroneal-repair",
+"title_en": "Peroneal Tendon Repair",
+"title_ar": "إصلاح وتر الشظوي",
+"url": "protocols/peroneal-repair.html",
+"icon": "🦶"
+},
+{
+"id": "mortons-neuroma",
+"title_en": "Morton’s Neuroma Excision",
+"title_ar": "استئصال ورم مورتون العصبي",
+"url": "protocols/mortons-neuroma.html",
+"icon": "⚡"
+},
+{
+"id": "first-mtp-fusion",
+"title_en": "First MTP Joint Fusion",
+"title_ar": "دمج المفصل المشطي السلامي الأول",
+"url": "protocols/first-mtp-fusion.html",
+"icon": "🔗"
+},
+{
+"id": "partial-nail-bed-excision",
+"title_en": "Partial Nail Bed Excision",
+"title_ar": "استئصال جزئي لسرير الظفر",
+"url": "protocols/partial-nail-bed-excision.html",
+"icon": "✂️"
+},
+{
+"id": "orif-5th-metatarsal",
+"title_en": "ORIF – 5th Metatarsal Base",
+"title_ar": "تثبيت كسر المشط الخامس",
+"url": "protocols/orif-5th-metatarsal.html",
+"icon": "🔩"
+},
+{
+"id": "flatfoot-reconstruction",
+"title_en": "Flatfoot Reconstruction",
+"title_ar": "تصحيح القدم المسطحة",
+"url": "protocols/flatfoot-reconstruction.html",
+"icon": "👣"
+},
+{
+"id": "hallux-valgus",
+"title_en": "Hallux Valgus Correction",
+"title_ar": "تصحيح إبهام القدم (الوكعة)",
+"url": "protocols/hallux-valgus.html",
+"icon": "📐"
+},
+{
+"id": "ankle-fracture-orif",
+"title_en": "Ankle Fracture ORIF",
+"title_ar": "تثبيت كسر الكاحل",
+"url": "protocols/ankle-fracture-orif.html",
+"icon": "🩹"
+},
+{
+"id": "lateral-ligament-reconstruction",
+"title_en": "Lateral Ligament Reconstruction",
+"title_ar": "إعادة بناء الأربطة الجانبية",
+"url": "protocols/lateral-ligament-reconstruction.html",
+"icon": "🎗️"
+},
+{
+"id": "accessory-navicular",
+"title_en": "Accessory Navicular Excision",
+"title_ar": "استئصال العظم الزورقي الإضافي",
+"url": "protocols/accessory-navicular.html",
+"icon": "🏥"
+}
+],
+"education": [
+{
+"id": "edu-bunions",
+"title_en": "Understanding Bunions",
+"title_ar": "فهم حالة الوكعة",
+"url": "education/bunions.html",
+"icon": "📚"
+},
+{
+"id": "edu-ankle-sprain",
+"title_en": "Ankle Sprain Care",
+"title_ar": "علاج التواء الكاحل",
+"url": "education/ankle-sprain.html",
+"icon": "🩹"
+}
+],
+"xrays": []
 }
