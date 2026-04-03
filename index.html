@@ -3,127 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WalkWellMD | Dr. ALHADDAD</title>
+    <title>WalkWellMD | Dr. Ali Alhaddad</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .container { 
-            max-width: 500px; 
-            margin: 20px auto; 
-            padding: 0 15px; 
-        }
-        .card { 
-            background: white; 
-            border-radius: 15px; 
-            padding: 25px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-            margin-bottom: 20px; 
-            text-align: center; 
-        }
-        .btn { 
-            display: block; 
-            background: var(--primary-green); 
-            color: white; 
-            padding: 15px; 
-            margin-bottom: 12px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: transform 0.2s ease;
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        .btn-secondary { 
-            background: var(--deep-teal); 
-        }
-        #protocol-list { 
-            min-height: 50px; 
-        }
-        .error-msg { 
-            color: var(--emergency-red); 
-            font-size: 14px; 
-            margin-top: 10px; 
-        }
-        .loading-spinner {
-            color: #999;
-            font-style: italic;
-        }
-    </style>
 </head>
-<body>
+<body id="body-tag">
 
-    <header class="nav-header">WalkWellMD</header>
+    <!-- Header with Integrated Language Toggle -->
+    <header class="nav-header">
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
 
-    <div class="container">
+    <div class="content-wrapper">
         
-        <!-- PROTOCOL SECTION -->
-        <div class="card">
-            <h2 style="color:var(--deep-teal); margin-bottom: 20px;">Patient Care</h2>
-            <div id="protocol-list">
-                <span class="loading-spinner">Loading recovery plans...</span>
-            </div>
+        <!-- Tab Navigation System -->
+        <div class="tabs-nav">
+            <button class="tab-link active" onclick="switchTab('protocols', this)" id="tab-protocols">Post-Op</button>
+            <button class="tab-link" onclick="switchTab('education', this)" id="tab-education">Education</button>
+            <button class="tab-link" onclick="switchTab('social', this)" id="tab-social">Contact</button>
         </div>
 
-        <!-- REVIEWS & SOCIAL SECTION -->
-        <div class="card">
-            <h3 style="color:var(--deep-teal); margin-bottom: 20px;">Support & Feedback</h3>
-            
-            <!-- Pointing to the new Bilingual Bridge Page -->
-            <a href="feedback.html" class="btn">⭐ Leave a Google Review</a>
-            
-            <a href="https://instagram.com/walkwellmd" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-secondary">
-                📸 Instagram
-            </a>
+        <!-- Dynamic Content Area -->
+        <div id="content-area">
+            <!-- Content injected via JavaScript -->
         </div>
 
-        <div class="footer-booking">
-            WalkWellMD © 2024 | Dr. ALHADDAD
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. Ali Alhaddad
         </div>
 
     </div>
 
-    <!-- Floating Action Button for Emergency/Contact -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <!-- Direct One-Click Review Button -->
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
     <script>
-        // Path to your metadata file
-        const protocolPath = './protocols/index.json';
+        // State Management
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+        let activeTab = 'protocols';
+        let allData = [];
 
-        async function loadProtocols() {
-            const list = document.getElementById('protocol-list');
+        // Dictionary for Bilingual UI
+        const translations = {
+            en: {
+                title: "WalkWellMD",
+                toggle: "العربية",
+                tabProtocols: "Post-Op",
+                tabEducation: "Education",
+                tabSocial: "Contact",
+                call: "Call",
+                reviewShort: "Review",
+                footer: "WalkWellMD © 2024 | Dr. Ali Alhaddad",
+                loading: "Loading recovery plans...",
+                reviewBtn: "⭐ Write a Google Review",
+                instaBtn: "📸 Follow on Instagram",
+                noContent: "No items found in this category."
+            },
+            ar: {
+                title: "ووك ويل MD",
+                toggle: "English",
+                tabProtocols: "بعد الجراحة",
+                tabEducation: "تثقيف المرضى",
+                tabSocial: "التواصل",
+                call: "اتصال",
+                reviewShort: "تقييم",
+                footer: "WalkWellMD © ٢٠٢٤ | د. علي الحداد",
+                loading: "جاري تحميل الخطط العلاجية...",
+                reviewBtn: "⭐ أضف تقييماً على جوجل",
+                instaBtn: "📸 تابعنا على انستقرام",
+                noContent: "لا يوجد محتوى في هذا القسم حالياً."
+            }
+        };
+
+        // Initialize and Update UI Strings
+        function updateUI() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            
+            // Set Page Direction
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Update UI Text Elements
+            document.getElementById('header-title').innerText = t.title;
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('tab-protocols').innerText = t.tabProtocols;
+            document.getElementById('tab-education').innerText = t.tabEducation;
+            document.getElementById('tab-social').innerText = t.tabSocial;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.reviewShort;
+            document.getElementById('footer-text').innerText = t.footer;
+            
+            renderContent();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updateUI();
+        }
+
+        function switchTab(tab, element) {
+            activeTab = tab;
+            // Update Tab Styling
+            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            renderContent();
+        }
+
+        async function fetchData() {
+            const area = document.getElementById('content-area');
+            area.innerHTML = `<p style="text-align:center; padding:20px;">${translations[currentLang].loading}</p>`;
+            
             try {
-                const response = await fetch(protocolPath);
-                if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
-                
-                const data = await response.json();
-                list.innerHTML = '';
-
-                if (!data || data.length === 0) {
-                    list.innerHTML = '<p>No protocols available at this time.</p>';
-                    return;
-                }
-
-                data.forEach(item => {
-                    const a = document.createElement('a');
-                    a.href = item.url;
-                    a.className = 'btn';
-                    // Displaying bilingual titles for clarity
-                    a.innerText = "📋 " + item.title_en + " / " + item.title_ar;
-                    list.appendChild(a);
-                });
-
+                // Fetching metadata from protocols/index.json
+                const response = await fetch('./protocols/index.json');
+                allData = await response.json();
+                updateUI();
             } catch (error) {
-                console.error('Error loading protocols:', error);
-                list.innerHTML = '<p class="error-msg">Unable to load recovery plans.<br>Please contact the clinic directly.</p>';
+                console.error("Data Load Error:", error);
+                area.innerHTML = `<p style="color:red; text-align:center;">Error loading content. Please refresh.</p>`;
             }
         }
 
-        // Initialize on load
-        window.onload = loadProtocols;
-    </script>
+        function renderContent() {
+            const area = document.getElementById('content-area');
+            const t = translations[currentLang];
+            area.innerHTML = '';
 
+            // Handle Social Tab (Static Buttons)
+            if (activeTab === 'social') {
+                area.innerHTML = `
+                    <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="list-btn" target="_blank" rel="noopener noreferrer" style="background:var(--primary-green); color:white; border:none;">${t.reviewBtn}</a>
+                    <a href="https://instagram.com/walkwellmd" class="list-btn" target="_blank" rel="noopener noreferrer">${t.instaBtn}</a>
+                `;
+                return;
+            }
+
+            // Filter Logic: 
+            // 'education' tab shows items with "education" tag.
+            // 'protocols' tab shows everything else (post-op).
+            const filtered = allData.filter(item => {
+                const isEducation = item.tags && item.tags.includes('education');
+                return activeTab === 'education' ? isEducation : !isEducation;
+            });
+
+            if (filtered.length === 0) {
+                area.innerHTML = `<p style="text-align:center; padding:40px; color:#999;">${t.noContent}</p>`;
+                return;
+            }
+
+            // Generate Content Buttons
+            filtered.forEach(item => {
+                const btn = document.createElement('a');
+                btn.className = 'list-btn';
+                btn.href = item.url;
+                // Switch button text based on active language
+                btn.innerText = "📋 " + (currentLang === 'en' ? item.title_en : item.title_ar);
+                area.appendChild(btn);
+            });
+        }
+
+        // Run fetch on initial load
+        window.onload = fetchData;
+    </script>
 </body>
 </html>
