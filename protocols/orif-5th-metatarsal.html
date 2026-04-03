@@ -6,15 +6,24 @@
     <title>ORIF 5th Metatarsal | WalkWellMD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <nav class="nav-header"><a href="../index.html" style="color:white; text-decoration:none;">← Dashboard / الرئيسية</a></nav>
-    <div class="content-wrapper">
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
         
         <!-- ENGLISH SECTION -->
-        <div class="protocol-card">
+        <div class="protocol-card" id="english-version">
             <span class="lang-label">English</span>
             <h1>ORIF – 5th Metatarsal Base Fracture</h1>
-            <p><strong>First Follow-up:</strong> 3 days post-op.</p>
+            
+            <p><strong>Initial Follow-up:</strong> 3 days post-op.</p>
             <p><strong>Weight Bearing:</strong> Non-weight bearing (NWB) or touch-toe weight bearing in a CAM boot (Air boot) for the first 2 weeks. Use crutches or a knee scooter.</p>
             
             <div class="emergency-box">
@@ -23,16 +32,17 @@
 
             <h3>Rehabilitation Phases</h3>
             <ul>
-                <li><strong>Weeks 0-2:</strong> Keep the dressing dry. Wear the CAM boot at all times. Aspirin 100mg daily. Strict elevation (above heart level) for 48-72 hours.</li>
+                <li><strong>Weeks 0-2:</strong> Keep original dressing dry. Wear the CAM boot at all times. Aspirin 100mg daily. Strict elevation (above heart level) for 48-72 hours.</li>
                 <li><strong>Weeks 2-6:</strong> Stitches removed. Gradually transition to partial weight-bearing as tolerated in the CAM boot. Start gentle ankle range of motion (up and down only).</li>
                 <li><strong>Weeks 6-10:</strong> Wean out of the boot into supportive sneakers. Physiotherapy starts focusing on strengthening and balance (proprioception).</li>
             </ul>
         </div>
 
         <!-- ARABIC SECTION -->
-        <div class="protocol-card" dir="rtl">
+        <div class="protocol-card" id="arabic-version" dir="rtl">
             <span class="lang-label">العربية</span>
             <h1>ردّ مفتوح وتثبيت داخلي (ORIF) — كسر قاعدة المشط الخامس</h1>
+            
             <p><strong>المتابعة الأولى:</strong> بعد ٣ أيام من العملية.</p>
             <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن (NWB) أو لمس الأرض فقط باستخدام حذاء المشي الطبي (CAM boot) لمدة أسبوعين. استخدم العكازات أو سكوتر الركبة.</p>
             
@@ -48,10 +58,61 @@
             </ul>
         </div>
 
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
     </div>
 
-    <!-- Sticky Call Button -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
 </body>
 </html>
