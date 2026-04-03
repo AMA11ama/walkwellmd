@@ -6,16 +6,25 @@
     <title>Ankle Fracture ORIF | WalkWellMD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <nav class="nav-header"><a href="../index.html" style="color:white; text-decoration:none;">← Dashboard / الرئيسية</a></nav>
-    <div class="content-wrapper">
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
         
         <!-- ENGLISH SECTION -->
-        <div class="protocol-card">
+        <div class="protocol-card" id="english-version">
             <span class="lang-label">English</span>
-            <h1>Ankle Fracture ORIF Rehab</h1>
-            <p><strong>First Follow-up:</strong> 3 days post-op for wound check.</p>
-            <p><strong>Weight Bearing:</strong> Strict Non-Weight Bearing (NWB) for the first 2 weeks. Use crutches or a knee scooter.</p>
+            <h1>Ankle Fracture ORIF</h1>
+            
+            <p><strong>Initial Follow-up:</strong> 3 days post-op for wound check.</p>
+            <p><strong>Weight Bearing:</strong> <u>Strict Non-Weight Bearing (NWB)</u> for the first 2 weeks. Use crutches, a walker, or a knee scooter.</p>
             
             <div class="emergency-box">
                 🚨 RED FLAGS: Contact us immediately (0127444444) if you experience severe calf pain, shortness of breath, or if your toes become cold, blue, or numb.
@@ -24,17 +33,18 @@
             <h3>Rehabilitation Phases</h3>
             <ul>
                 <li><strong>Weeks 0-2:</strong> Below-knee backslab or cast. Strict elevation (foot above heart level) to reduce swelling. Aspirin 100mg daily. Keep the cast dry.</li>
-                <li><strong>Weeks 2-6:</strong> Stitches removed. Transition to a walking boot (CAM boot). Start partial weight-bearing (PWB) as tolerated or remain NWB depending on fracture stability. Start gentle ankle range of motion (up/down).</li>
+                <li><strong>Weeks 2-6:</strong> Stitches removed. Transition to a walking boot (CAM boot). Start partial weight-bearing (PWB) as tolerated or remain NWB depending on fracture stability. Start gentle ankle range of motion (up and down).</li>
                 <li><strong>Weeks 6-12:</strong> Progress to full weight-bearing in the boot. Physiotherapy starts focusing on gait training, strengthening, and balance.</li>
             </ul>
         </div>
 
         <!-- ARABIC SECTION -->
-        <div class="protocol-card" dir="rtl">
+        <div class="protocol-card" id="arabic-version" dir="rtl">
             <span class="lang-label">العربية</span>
             <h1>تأهيل تثبيت كسر الكاحل (ORIF)</h1>
+            
             <p><strong>المتابعة الأولى:</strong> بعد ٣ أيام من العملية لفحص الجرح.</p>
-            <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن تماماً (NWB) خلال أول أسبوعين. استخدم العكازات أو سكوتر الركبة.</p>
+            <p><strong>تحميل الوزن:</strong> <u>ممنوع تحميل الوزن تماماً (NWB)</u> خلال أول أسبوعين. استخدم العكازات أو سكوتر الركبة.</p>
             
             <div class="emergency-box">
                 🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا شعرت بألم شديد في بطة الساق، ضيق تنفس، أو إذا أصبحت أصابع القدم باردة، زرقاء، أو فاقدة للإحساس.
@@ -43,15 +53,66 @@
             <h3>مراحل التأهيل</h3>
             <ul>
                 <li><strong>الأسبوع ٠-٢:</strong> جبيرة تحت الركبة. ارفع القدم تماماً (فوق مستوى القلب) لتقليل التورم. أسبرين ١٠٠ ملجم يومياً. حافظ على جفاف الجبيرة.</li>
-                <li><strong>الأسبوع ٢-٦:</strong> إزالة الغرز. الانتقال إلى حذاء المشي الطبي (Boot). بدء تحميل الوزن الجزئي (PWB) حسب القدرة أو الاستمرار في عدم التحميل حسب استقرار الكسر. بدء تمارين بسيطة لحركة الكاحل.</li>
+                <li><strong>الأسبوع ٢-٦:</strong> إزالة الغرز. الانتقال إلى حذاء المشي الطبي (Boot). بدء تحميل الوزن الجزئي (PWB) حسب القدرة أو الاستمرار في عدم التحميل حسب استقرار الكسر. بدء تمارين بسيطة لحركة الكاحل (للأعلى وللأسفل).</li>
                 <li><strong>الأسبوع ٦-١٢:</strong> التقدم إلى تحميل الوزن الكامل داخل الحذاء الطبي. بدء العلاج الطبيعي للتركيز على المشي، التقوية، والتوازن.</li>
             </ul>
         </div>
 
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
     </div>
 
-    <!-- Sticky Call Button -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
 </body>
 </html>
