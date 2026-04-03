@@ -6,19 +6,28 @@
     <title>Flatfoot Reconstruction | WalkWellMD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <nav class="nav-header"><a href="../index.html" style="color:white; text-decoration:none;">← Dashboard / الرئيسية</a></nav>
-    <div class="content-wrapper">
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
         
         <!-- ENGLISH SECTION -->
-        <div class="protocol-card">
+        <div class="protocol-card" id="english-version">
             <span class="lang-label">English</span>
-            <h1>Flatfoot Reconstruction Rehab</h1>
-            <p><strong>First Follow-up:</strong> 3 days post-op.</p>
-            <p><strong>Weight Bearing:</strong> Strict Non-weight bearing (NWB) for 6 weeks. Use crutches, a walker, or a knee scooter.</p>
+            <h1>Flatfoot Reconstruction</h1>
+            
+            <p><strong>Initial Follow-up:</strong> 3 days post-op.</p>
+            <p><strong>Weight Bearing:</strong> <u>Strict Non-Weight Bearing (NWB)</u> for 6 weeks. Use crutches, a walker, or a knee scooter.</p>
             
             <div class="emergency-box">
-                🚨 RED FLAGS: Contact us immediately (0127444444) if you experience severe calf pain, chest pain, shortness of breath, or excessive swelling.
+                🚨 RED FLAGS: Contact us immediately (0127444444) if you experience severe calf pain, shortness of breath, chest pain, or excessive swelling.
             </div>
 
             <h3>Rehabilitation Phases</h3>
@@ -31,11 +40,12 @@
         </div>
 
         <!-- ARABIC SECTION -->
-        <div class="protocol-card" dir="rtl">
+        <div class="protocol-card" id="arabic-version" dir="rtl">
             <span class="lang-label">العربية</span>
             <h1>تأهيل عملية تصحيح القدم المسطحة</h1>
-            <p><strong>المتابعة الأولى:</strong> بعد ٣ أيام من العملية.</p>
-            <p><strong>تحميل الوزن:</strong> ممنوع تحميل الوزن تماماً (NWB) لمدة ٦ أسابيع. استخدم العكازات أو سكوتر الركبة.</p>
+            
+            <p><strong>المتابعة الأولية:</strong> بعد ٣ أيام من العملية.</p>
+            <p><strong>تحميل الوزن:</strong> <u>ممنوع تحميل الوزن تماماً (NWB)</u> لمدة ٦ أسابيع. استخدم العكازات أو سكوتر الركبة.</p>
             
             <div class="emergency-box">
                 🚨 علامات الخطر: اتصل بنا فوراً (0127444444) إذا شعرت بألم شديد في بطة الساق، ألم في الصدر، ضيق تنفس، أو تورم مفرط.
@@ -50,10 +60,61 @@
             </ul>
         </div>
 
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
     </div>
 
-    <!-- Sticky Call Button -->
-    <a href="tel:0127444444" class="fab-call">📞</a>
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
 
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
 </body>
 </html>
