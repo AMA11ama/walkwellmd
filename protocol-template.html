@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surgery Name | WalkWellMD</title>
+    <!-- Link to global styles - note the double dots to go up one folder -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Placeholder for Global Header (Dynamic) -->
+    <header id="global-header"></header>
+
+    <div class="content-wrapper">
+        
+        <!-- ENGLISH SECTION -->
+        <div class="protocol-card" id="english-version">
+            <span class="lang-label">Surgical Protocol</span>
+            <h1>[Surgery Name in English]</h1>
+            
+            <p><strong>Initial Follow-up:</strong> 3 days post-op.</p>
+            <p><strong>Weight Bearing:</strong> [Weight bearing instructions].</p>
+            
+            <div class="emergency-box">
+                🚨 RED FLAGS: Contact us immediately if you experience severe calf pain, shortness of breath, or excessive swelling.
+            </div>
+
+            <h3>Rehabilitation Phases</h3>
+            <ul>
+                <li><strong>Weeks 0-2:</strong> [Phase 1 instructions].</li>
+                <li><strong>Weeks 2-6:</strong> [Phase 2 instructions].</li>
+                <li><strong>Weeks 6-12:</strong> [Phase 3 instructions].</li>
+            </ul>
+        </div>
+
+        <!-- ARABIC SECTION -->
+        <div class="protocol-card" id="arabic-version" dir="rtl">
+            <span class="lang-label">بروتوكول الجراحة</span>
+            <h1>[اسم الجراحة بالعربي]</h1>
+            
+            <p><strong>المتابعة الأولية:</strong> ٣ أيام بعد العملية.</p>
+            <p><strong>تحميل الوزن:</strong> [تعليمات تحميل الوزن].</p>
+            
+            <div class="emergency-box">
+                🚨 علامات الخطر: اتصل بنا فوراً إذا شعرت بألم في بطة الساق، ضيق تنفس، أو تورم مفرط.
+            </div>
+
+            <h3>مراحل التأهيل</h3>
+            <ul>
+                <li><strong>الأسبوع ٠-٢:</strong> [تعليمات المرحلة الأولى].</li>
+                <li><strong>الأسبوع ٢-٦:</strong> [تعليمات المرحلة الثانية].</li>
+                <li><strong>الأسبوع ٦-١٢:</strong> [تعليمات المرحلة الثالثة].</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Placeholder for Global Action Bar & Lang Toggle (Dynamic) -->
+    <div id="global-action-bar"></div>
+
+    <!-- Global Engine - Handles Branding, Language, and Action Bar -->
+    <script src="../app.js"></script>
+    <script>
+        /**
+         * Page-Specific Language Logic
+         * Shows/Hides sections based on the global language state in app.js
+         */
+        function applyPageLanguage() {
+            const lang = localStorage.getItem('wwmd_lang') || 'en';
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            if (lang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', applyPageLanguage);
+    </script>
+</body>
+</html>
