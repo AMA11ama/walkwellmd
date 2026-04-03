@@ -3,181 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WalkWellMD | Dr. Ali Alhaddad</title>
+    <title>WalkWellMD | Dr. ALHADDAD</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="body-tag">
+<body>
 
-    <!-- Header with Integrated Language Toggle -->
-    <header class="nav-header">
-        <span id="header-title">WalkWellMD</span>
-        <div class="lang-switcher">
-            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
-        </div>
-    </header>
+    <!-- Placeholder for Global Header (Injected by app.js) -->
+    <header id="global-header"></header>
 
     <div class="content-wrapper">
         
-        <!-- Tab Navigation System -->
-        <div class="tabs-nav">
-            <button class="tab-link active" onclick="switchTab('protocols', this)" id="tab-protocols">Post-Op</button>
-            <button class="tab-link" onclick="switchTab('education', this)" id="tab-education">Education</button>
-            <button class="tab-link" onclick="switchTab('social', this)" id="tab-social">Contact</button>
-        </div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2 id="ui-hero-sub">Excellence in Motion</h2>
+            <h1 id="ui-hero-main">Orthopedic Foot & Ankle</h1>
+        </section>
 
-        <!-- Dynamic Content Area -->
-        <div id="content-area">
-            <!-- Content injected via JavaScript -->
-        </div>
+        <main class="main-grid">
+            
+            <!-- Surgeon Profile (Primary Card) -->
+            <div class="glass-card profile-card">
+                <img src="AA headshot.jpg" alt="Dr. ALHADDAD" class="profile-img">
+                <div class="profile-bio">
+                    <h2 id="ui-prof-title">Surgeon Profile</h2>
+                    <p id="ui-prof-desc">Consultant Orthopedic Surgeon specializing in advanced Foot and Ankle reconstruction and minimally invasive surgery.</p>
+                </div>
+            </div>
 
-        <div class="footer-booking" id="footer-text">
-            WalkWellMD © 2024 | Dr. Ali Alhaddad
-        </div>
+            <!-- Dynamic Category: Surgical Protocols -->
+            <div class="section-label" id="label-protocols" style="grid-column: 1/-1; margin-top:30px; color:var(--emerald); font-weight:bold; letter-spacing:2px; font-size:0.8rem;">SURGICAL PROTOCOLS</div>
+            <div id="protocol-list" class="main-grid" style="grid-column: 1/-1;">
+                <!-- Dynamically filled from data.json -->
+            </div>
 
+            <!-- Dynamic Category: Patient Education -->
+            <div class="section-label" id="label-education" style="grid-column: 1/-1; margin-top:40px; color:var(--emerald); font-weight:bold; letter-spacing:2px; font-size:0.8rem;">PATIENT EDUCATION</div>
+            <div id="education-list" class="main-grid" style="grid-column: 1/-1;">
+                <!-- Dynamically filled from data.json -->
+            </div>
+
+        </main>
     </div>
 
-    <!-- Persistent Bottom Action Bar -->
-    <div class="bottom-bar">
-        <a href="tel:0127444444" class="bar-btn btn-call">
-            <span id="call-text">Call</span> 📞
-        </a>
-        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-            WhatsApp 💬
-        </a>
-        <!-- Direct One-Click Review Button -->
-        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
-            <span id="review-text-short">Review</span> ⭐
-        </a>
-    </div>
+    <!-- Placeholder for Global Action Bar & Lang Toggle (Injected by app.js) -->
+    <div id="global-action-bar"></div>
 
+    <!-- Scripts -->
+    <script src="app.js"></script>
     <script>
-        // State Management
-        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
-        let activeTab = 'protocols';
-        let allData = [];
-
-        // Dictionary for Bilingual UI
-        const translations = {
-            en: {
-                title: "WalkWellMD",
-                toggle: "العربية",
-                tabProtocols: "Post-Op",
-                tabEducation: "Education",
-                tabSocial: "Contact",
-                call: "Call",
-                reviewShort: "Review",
-                footer: "WalkWellMD © 2024 | Dr. Ali Alhaddad",
-                loading: "Loading recovery plans...",
-                reviewBtn: "⭐ Write a Google Review",
-                instaBtn: "📸 Follow on Instagram",
-                noContent: "No items found in this category."
-            },
-            ar: {
-                title: "ووك ويل MD",
-                toggle: "English",
-                tabProtocols: "بعد الجراحة",
-                tabEducation: "تثقيف المرضى",
-                tabSocial: "التواصل",
-                call: "اتصال",
-                reviewShort: "تقييم",
-                footer: "WalkWellMD © ٢٠٢٤ | د. علي الحداد",
-                loading: "جاري تحميل الخطط العلاجية...",
-                reviewBtn: "⭐ أضف تقييماً على جوجل",
-                instaBtn: "📸 تابعنا على انستقرام",
-                noContent: "لا يوجد محتوى في هذا القسم حالياً."
-            }
-        };
-
-        // Initialize and Update UI Strings
-        function updateUI() {
-            const t = translations[currentLang];
-            const body = document.getElementById('body-tag');
-            
-            // Set Page Direction
-            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            
-            // Update UI Text Elements
-            document.getElementById('header-title').innerText = t.title;
-            document.getElementById('lang-toggle-text').innerText = t.toggle;
-            document.getElementById('tab-protocols').innerText = t.tabProtocols;
-            document.getElementById('tab-education').innerText = t.tabEducation;
-            document.getElementById('tab-social').innerText = t.tabSocial;
-            document.getElementById('call-text').innerText = t.call;
-            document.getElementById('review-text-short').innerText = t.reviewShort;
-            document.getElementById('footer-text').innerText = t.footer;
-            
-            renderContent();
-        }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            localStorage.setItem('wwmd_lang', currentLang);
-            updateUI();
-        }
-
-        function switchTab(tab, element) {
-            activeTab = tab;
-            // Update Tab Styling
-            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-            renderContent();
-        }
-
-        async function fetchData() {
-            const area = document.getElementById('content-area');
-            area.innerHTML = `<p style="text-align:center; padding:20px;">${translations[currentLang].loading}</p>`;
-            
+        /**
+         * Dashboard Renderer
+         * Fetches data.json and builds the cards based on current language
+         */
+        async function renderDashboard() {
             try {
-                // Fetching metadata from protocols/index.json
-                const response = await fetch('./protocols/index.json');
-                allData = await response.json();
-                updateUI();
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const lang = localStorage.getItem('wwmd_lang') || 'en';
+
+                const protoContainer = document.getElementById('protocol-list');
+                const eduContainer = document.getElementById('education-list');
+
+                // Render Surgical Protocols
+                data.protocols.forEach(item => {
+                    protoContainer.innerHTML += `
+                        <a href="${item.url}" class="glass-card">
+                            <div style="font-size: 2rem; margin-bottom: 15px;">${item.icon}</div>
+                            <h3>${lang === 'en' ? item.title_en : item.title_ar}</h3>
+                            <p>${lang === 'en' ? 'View Protocol' : 'عرض البروتوكول'}</p>
+                        </a>
+                    `;
+                });
+
+                // Render Education Content
+                data.education.forEach(item => {
+                    eduContainer.innerHTML += `
+                        <a href="${item.url}" class="glass-card">
+                            <div style="font-size: 2rem; margin-bottom: 15px;">${item.icon}</div>
+                            <h3>${lang === 'en' ? item.title_en : item.title_ar}</h3>
+                            <p>${lang === 'en' ? 'Learn More' : 'اقرأ المزيد'}</p>
+                        </a>
+                    `;
+                });
+
+                // Localize Dashboard Strings
+                if (lang === 'ar') {
+                    document.getElementById('ui-hero-sub').innerText = "التميز في الحركة";
+                    document.getElementById('ui-hero-main').innerText = "جراحة العظام والقدم والكاحل";
+                    document.getElementById('ui-prof-title').innerText = "السيرة الذاتية";
+                    document.getElementById('ui-prof-desc').innerText = "استشاري جراحة العظام متخصص في ترميم القدم والكاحل والجراحات طفيفة التوغل.";
+                    document.getElementById('label-protocols').innerText = "بروتوكولات الجراحة";
+                    document.getElementById('label-education').innerText = "تثقيف المرضى";
+                }
             } catch (error) {
-                console.error("Data Load Error:", error);
-                area.innerHTML = `<p style="color:red; text-align:center;">Error loading content. Please refresh.</p>`;
+                console.error("Dashboard Render Error:", error);
             }
         }
 
-        function renderContent() {
-            const area = document.getElementById('content-area');
-            const t = translations[currentLang];
-            area.innerHTML = '';
-
-            // Handle Social Tab (Static Buttons)
-            if (activeTab === 'social') {
-                area.innerHTML = `
-                    <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="list-btn" target="_blank" rel="noopener noreferrer" style="background:var(--primary-green); color:white; border:none;">${t.reviewBtn}</a>
-                    <a href="https://instagram.com/walkwellmd" class="list-btn" target="_blank" rel="noopener noreferrer">${t.instaBtn}</a>
-                `;
-                return;
-            }
-
-            // Filter Logic: 
-            // 'education' tab shows items with "education" tag.
-            // 'protocols' tab shows everything else (post-op).
-            const filtered = allData.filter(item => {
-                const isEducation = item.tags && item.tags.includes('education');
-                return activeTab === 'education' ? isEducation : !isEducation;
-            });
-
-            if (filtered.length === 0) {
-                area.innerHTML = `<p style="text-align:center; padding:40px; color:#999;">${t.noContent}</p>`;
-                return;
-            }
-
-            // Generate Content Buttons
-            filtered.forEach(item => {
-                const btn = document.createElement('a');
-                btn.className = 'list-btn';
-                btn.href = item.url;
-                // Switch button text based on active language
-                btn.innerText = "📋 " + (currentLang === 'en' ? item.title_en : item.title_ar);
-                area.appendChild(btn);
-            });
-        }
-
-        // Run fetch on initial load
-        window.onload = fetchData;
+        window.addEventListener('DOMContentLoaded', renderDashboard);
     </script>
 </body>
 </html>
