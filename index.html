@@ -21,9 +21,9 @@
 
         <main class="main-grid">
             
-            <!-- Surgeon Profile (Primary Card) -->
+            <!-- Surgeon Profile Card (Targeted by app.js for Headshot/Name) -->
             <div class="glass-card profile-card">
-                <img src="AA headshot.jpg" alt="Dr. ALHADDAD" class="profile-img">
+                <img src="" alt="Dr. ALHADDAD" class="profile-img">
                 <div class="profile-bio">
                     <h2 id="ui-prof-title">Surgeon Profile</h2>
                     <p id="ui-prof-desc">Consultant Orthopedic Surgeon specializing in advanced Foot and Ankle reconstruction and minimally invasive surgery.</p>
@@ -48,45 +48,49 @@
     <!-- Placeholder for Global Action Bar & Lang Toggle (Injected by app.js) -->
     <div id="global-action-bar"></div>
 
-    <!-- Scripts -->
+    <!-- Global Logic -->
     <script src="app.js"></script>
     <script>
         /**
-         * Dashboard Renderer
-         * Fetches data.json and builds the cards based on current language
+         * Dashboard Content Renderer
+         * This script runs specifically on the index page to build the card lists.
          */
-        async function renderDashboard() {
+        async function renderDashboardContent() {
             try {
-                const response = await fetch('data.json');
+                const response = await fetch('/data.json');
                 const data = await response.json();
                 const lang = localStorage.getItem('wwmd_lang') || 'en';
 
                 const protoContainer = document.getElementById('protocol-list');
                 const eduContainer = document.getElementById('education-list');
 
-                // Render Surgical Protocols
+                // Clear previous content
+                protoContainer.innerHTML = '';
+                eduContainer.innerHTML = '';
+
+                // 1. Render Surgical Protocols
                 data.protocols.forEach(item => {
                     protoContainer.innerHTML += `
-                        <a href="${item.url}" class="glass-card">
+                        <a href="/${item.url}" class="glass-card">
                             <div style="font-size: 2rem; margin-bottom: 15px;">${item.icon}</div>
                             <h3>${lang === 'en' ? item.title_en : item.title_ar}</h3>
-                            <p>${lang === 'en' ? 'View Protocol' : 'عرض البروتوكول'}</p>
+                            <p style="font-size:0.7rem; opacity:0.6;">${lang === 'en' ? 'VIEW PROTOCOL' : 'عرض البروتوكول'}</p>
                         </a>
                     `;
                 });
 
-                // Render Education Content
+                // 2. Render Education Content
                 data.education.forEach(item => {
                     eduContainer.innerHTML += `
-                        <a href="${item.url}" class="glass-card">
+                        <a href="/${item.url}" class="glass-card">
                             <div style="font-size: 2rem; margin-bottom: 15px;">${item.icon}</div>
                             <h3>${lang === 'en' ? item.title_en : item.title_ar}</h3>
-                            <p>${lang === 'en' ? 'Learn More' : 'اقرأ المزيد'}</p>
+                            <p style="font-size:0.7rem; opacity:0.6;">${lang === 'en' ? 'LEARN MORE' : 'اقرأ المزيد'}</p>
                         </a>
                     `;
                 });
 
-                // Localize Dashboard Strings
+                // 3. Localize Dashboard Static Strings
                 if (lang === 'ar') {
                     document.getElementById('ui-hero-sub').innerText = "التميز في الحركة";
                     document.getElementById('ui-hero-main').innerText = "جراحة العظام والقدم والكاحل";
@@ -96,11 +100,11 @@
                     document.getElementById('label-education').innerText = "تثقيف المرضى";
                 }
             } catch (error) {
-                console.error("Dashboard Render Error:", error);
+                console.error("Dashboard Error:", error);
             }
         }
 
-        window.addEventListener('DOMContentLoaded', renderDashboard);
+        window.addEventListener('DOMContentLoaded', renderDashboardContent);
     </script>
 </body>
 </html>
