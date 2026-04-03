@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Bunions | WalkWellMD</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body id="body-tag">
+
+    <header class="nav-header">
+        <a href="../index.html" id="back-link" style="color:white; text-decoration:none; position:absolute; left:20px;">←</a>
+        <span id="header-title">WalkWellMD</span>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-text">العربية</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="margin-top:20px;">
+        
+        <!-- ENGLISH SECTION -->
+        <div class="protocol-card" id="english-version">
+            <span class="lang-label">Patient Education</span>
+            <h1>Understanding Bunions (Hallux Valgus)</h1>
+            
+            <p>A bunion is more than just a bump on the side of your big toe. It is a progressive structural deformity of the bone and joint.</p>
+            
+            <h3>What Causes Bunions?</h3>
+            <ul>
+                <li><strong>Genetics:</strong> Foot type and structure are inherited.</li>
+                <li><strong>Footwear:</strong> Tight, narrow, or high-heeled shoes can aggravate the deformity.</li>
+                <li><strong>Biomechanics:</strong> Unusual stress on the joint during walking.</li>
+            </ul>
+
+            <h3>Common Symptoms</h3>
+            <ul>
+                <li>Pain or soreness at the big toe joint.</li>
+                <li>Inflammation and redness.</li>
+                <li>Numbness or a burning sensation.</li>
+                <li>Difficulty wearing normal shoes.</li>
+            </ul>
+
+            <div class="emergency-box" style="border-color: var(--primary-green); background: #f0f9f6; color: var(--deep-teal);">
+                💡 CLINICAL NOTE: Surgery is usually only considered when the pain interferes with your daily activities and non-surgical treatments have failed.
+            </div>
+
+            <h3>Non-Surgical Treatments</h3>
+            <p>Before considering surgery, Dr. ALHADDAD may recommend:</p>
+            <ul>
+                <li><strong>Footwear Modification:</strong> Switching to shoes with a wide toe-box (e.g., Hoka, Brooks).</li>
+                <li><strong>Padding/Splinting:</strong> To reduce pressure and friction.</li>
+                <li><strong>Orthotics:</strong> Custom arch supports to stabilize the joint.</li>
+            </ul>
+        </div>
+
+        <!-- ARABIC SECTION -->
+        <div class="protocol-card" id="arabic-version" dir="rtl">
+            <span class="lang-label">تثقيف المرضى</span>
+            <h1>فهم حالة انحراف إبهام القدم (الوكعة)</h1>
+            
+            <p>الوكعة ليست مجرد نتوء بجانب إبهام القدم، بل هي تشوه هيكلي تدريجي في العظام والمفصل.</p>
+            
+            <h3>ما هي أسباب الوكعة؟</h3>
+            <ul>
+                <li><strong>العوامل الوراثية:</strong> شكل وهيكل القدم موروثان.</li>
+                <li><strong>الأحذية:</strong> الأحذية الضيقة أو ذات الكعب العالي تزيد من حدة التشوه.</li>
+                <li><strong>الميكانيكا الحيوية:</strong> ضغط غير طبيعي على المفصل أثناء المشي.</li>
+            </ul>
+
+            <h3>الأعراض الشائعة</h3>
+            <ul>
+                <li>ألم أو حساسية في مفصل إبهام القدم.</li>
+                <li>التهاب واحمرار في المنطقة.</li>
+                <li>تنميل أو شعور بالحرقة.</li>
+                <li>صعوبة في انتعال الأحذية العادية.</li>
+            </ul>
+
+            <div class="emergency-box" style="border-color: var(--primary-green); background: #f0f9f6; color: var(--deep-teal);">
+                💡 ملاحظة طبية: عادة لا يتم النظر في الجراحة إلا عندما يعيق الألم أنشطتك اليومية وبعد فشل العلاجات غير الجراحية.
+            </div>
+
+            <h3>العلاجات غير الجراحية</h3>
+            <p>قبل التفكير في الجراحة، قد يوصي الدكتور الحداد بـ:</p>
+            <ul>
+                <li><strong>تعديل الأحذية:</strong> الانتقال إلى أحذية ذات مقدمة واسعة.</li>
+                <li><strong>الحشوات والدعامات:</strong> لتقليل الضغط والاحتكاك.</li>
+                <li><strong>الفرشات الطبية:</strong> دعامات قوس القدم المخصصة لتثبيت المفصل.</li>
+            </ul>
+        </div>
+
+        <div class="footer-booking" id="footer-text">
+            WalkWellMD © 2024 | Dr. ALHADDAD
+        </div>
+
+    </div>
+
+    <!-- Persistent Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:0127444444" class="bar-btn btn-call">
+            <span id="call-text">Call</span> 📞
+        </a>
+        <a href="https://wa.me/966599124348" class="bar-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            WhatsApp 💬
+        </a>
+        <a href="https://g.page/r/CSnV8ayiP6q5EBI/review" class="bar-btn btn-review" target="_blank" rel="noopener noreferrer">
+            <span id="review-text-short">Review</span> ⭐
+        </a>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+
+        const translations = {
+            en: { toggle: "العربية", call: "Call", review: "Review", back: "←" },
+            ar: { toggle: "English", call: "اتصال", review: "تقييم", back: "→" }
+        };
+
+        function updatePageLanguage() {
+            const t = translations[currentLang];
+            const body = document.getElementById('body-tag');
+            const enSection = document.getElementById('english-version');
+            const arSection = document.getElementById('arabic-version');
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle-text').innerText = t.toggle;
+            document.getElementById('call-text').innerText = t.call;
+            document.getElementById('review-text-short').innerText = t.review;
+            document.getElementById('back-link').innerText = t.back;
+
+            if (currentLang === 'ar') {
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+            } else {
+                enSection.style.display = 'block';
+                arSection.style.display = 'none';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('wwmd_lang', currentLang);
+            updatePageLanguage();
+        }
+
+        window.onload = updatePageLanguage;
+    </script>
+</body>
+</html>
