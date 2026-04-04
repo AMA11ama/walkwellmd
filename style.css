@@ -1,4 +1,4 @@
-/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.3) */
+/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.4) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
@@ -9,7 +9,7 @@
     --gold: #B8860B;
     --white: #FFFFFF;
     --bg-light: #F8FAFC;
-    --glass: rgba(255, 255, 255, 0.9);
+    --glass: rgba(255, 255, 255, 0.95);
     --glass-border: rgba(0, 0, 0, 0.08);
     --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
 }
@@ -30,7 +30,7 @@ body {
     padding-bottom: 120px;
 }
 
-/* Geometric Background */
+/* Subtle Geometric Background */
 body::before {
     content: "";
     position: fixed;
@@ -43,13 +43,13 @@ body::before {
     opacity: 1;
 }
 
-/* Dynamic Header Styles */
+/* Global Header Styling */
 .header {
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--glass);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -120,7 +120,7 @@ body::before {
     .main-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 
-/* Professional Card Components */
+/* Frosted Glass Card Components */
 .glass-card {
     background: var(--white);
     border: 1px solid var(--glass-border);
@@ -142,9 +142,9 @@ body::before {
     box-shadow: 0 15px 35px -5px rgba(45, 138, 108, 0.15);
 }
 
-/* Icon Container Logic - Resolves Text vs Image Issue */
+/* Icon Container - Crucial for Image alignment */
 .icon-container {
-    height: 90px;
+    height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -153,8 +153,8 @@ body::before {
 }
 
 .card-icon-img {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 90px;
+    max-width: 90px;
     object-fit: contain;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
 }
@@ -177,7 +177,7 @@ body::before {
     letter-spacing: 1px;
 }
 
-/* Professional Profile Card */
+/* Professional Profile Section */
 .profile-card {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -231,7 +231,7 @@ body::before {
     color: var(--white);
 }
 
-/* Global Action Bar */
+/* Persistent Action Bar */
 .action-bar {
     position: fixed;
     bottom: 0;
@@ -256,7 +256,7 @@ body::before {
 
 .bar-item i { display: block; margin-bottom: 4px; font-size: 1.1rem; }
 
-/* Internal Protocol Styling */
+/* Internal Content Components */
 .protocol-card { 
     background: var(--white);
     padding: 30px;
@@ -293,10 +293,12 @@ body::before {
     opacity: 0.3;
 }
 
+/* RTL Support */
 [dir="rtl"] { text-align: right; }
 [dir="rtl"] .profile-card { text-align: right; }
 [dir="rtl"] .emergency-box { border-left: none; border-right: 4px solid #E53E3E; }
 
+/* Responsive Overrides */
 @media (max-width: 600px) {
     .profile-card {
         flex-direction: column;
