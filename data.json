@@ -11,8 +11,8 @@
 "phone": "0127444444",
 "whatsapp": "966599124348",
 "reviewUrl": "https://g.page/r/CSnV8ayiP6q5EBI/review",
-"logo": "hospital-logo.png",
-"headshot": "aa-headshot.jpg"
+"logo": "assets/hospital-logo.png",
+"headshot": "assets/aa-headshot.jpg"
 },
 "protocols": [
 {
@@ -20,14 +20,14 @@
 "title_en": "Achilles Tendon Rupture",
 "title_ar": "تمزق وتر أخيل",
 "url": "protocols/achilles-rupture.html",
-"icon": "🦴"
+"icon": "assets/achilles-rupture.jpg"
 },
 {
 "id": "peroneal-repair",
 "title_en": "Peroneal Tendon Repair",
 "title_ar": "إصلاح وتر الشظوي",
 "url": "protocols/peroneal-repair.html",
-"icon": "🦶"
+"icon": "assets/peroneal-repair.png"
 },
 {
 "id": "mortons-neuroma",
@@ -41,7 +41,7 @@
 "title_en": "First MTP Joint Fusion",
 "title_ar": "دمج المفصل المشطي السلامي الأول",
 "url": "protocols/first-mtp-fusion.html",
-"icon": "🔗"
+"icon": "🔩"
 },
 {
 "id": "partial-nail-bed-excision",
@@ -67,7 +67,7 @@
 {
 "id": "hallux-valgus",
 "title_en": "Hallux Valgus Correction",
-"title_ar": "تصحيح إبهام القدم (الوكعة)",
+"title_ar": "تعديل انحراف اصبع القدم",
 "url": "protocols/hallux-valgus.html",
 "icon": "📐"
 },
@@ -76,7 +76,7 @@
 "title_en": "Ankle Fracture ORIF",
 "title_ar": "تثبيت كسر الكاحل",
 "url": "protocols/ankle-fracture-orif.html",
-"icon": "🩹"
+"icon": "🩺"
 },
 {
 "id": "lateral-ligament",
@@ -106,7 +106,7 @@
 "title_en": "Ankle Sprain Care",
 "title_ar": "علاج التواء الكاحل",
 "url": "education/ankle-sprain.html",
-"icon": "🩹"
+"icon": "🧊"
 }
 ],
 "xrays": []
