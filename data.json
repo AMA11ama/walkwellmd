@@ -34,35 +34,35 @@
 "title_en": "Morton’s Neuroma Excision",
 "title_ar": "استئصال ورم مورتون العصبي",
 "url": "protocols/mortons-neuroma.html",
-"icon": "⚡"
+"icon": "assets/Neuroma Excision.png"
 },
 {
 "id": "first-mtp-fusion",
 "title_en": "First MTP Joint Fusion",
 "title_ar": "دمج المفصل المشطي السلامي الأول",
 "url": "protocols/first-mtp-fusion.html",
-"icon": "🔩"
+"icon": "assets/First MTP Joint Fusion.png"
 },
 {
 "id": "partial-nail-bed-excision",
 "title_en": "Partial Nail Bed Excision",
 "title_ar": "استئصال جزئي لسرير الظفر",
 "url": "protocols/partial-nail-bed-excision.html",
-"icon": "✂️"
+"icon": "assets/Partial Nail Bed Excision.png"
 },
 {
 "id": "orif-5th-metatarsal",
 "title_en": "ORIF – 5th Metatarsal Base",
 "title_ar": "تثبيت كسر المشط الخامس",
 "url": "protocols/orif-5th-metatarsal.html",
-"icon": "🔩"
+"icon": "assets/orif-5th-metatarsal.png"
 },
 {
 "id": "flatfoot-reconstruction",
 "title_en": "Flatfoot Reconstruction",
 "title_ar": "تصحيح القدم المسطحة",
 "url": "protocols/flatfoot-reconstruction.html",
-"icon": "👣"
+"icon": "assets/flatfoot-reconstruction.png"
 },
 {
 "id": "hallux-valgus",
