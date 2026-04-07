@@ -1,4 +1,4 @@
-/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.4) */
+/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.5) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
@@ -57,6 +57,33 @@ body::before {
     border-bottom: 1px solid var(--glass-border);
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* New: Back Button Style */
+.back-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emerald);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.back-btn:active {
+    background: var(--emerald-glow);
+    transform: scale(0.9);
+}
+
 .surgeon-brand { display: flex; flex-direction: column; }
 
 .surgeon-name {
@@ -78,6 +105,7 @@ body::before {
     height: 32px;
     width: auto;
     object-fit: contain;
+    display: block; /* Ensures visibility */
 }
 
 .hospital-info {
@@ -85,6 +113,37 @@ body::before {
     line-height: 1.2;
     color: var(--slate);
     font-weight: 500;
+}
+
+/* Tab Navigation Styles */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 30px 0;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    background: var(--white);
+    color: var(--slate);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.tab-btn.active {
+    background: var(--emerald);
+    color: var(--white);
+    border-color: var(--emerald);
+    box-shadow: 0 8px 20px var(--emerald-glow);
 }
 
 /* Dashboard Grid Layout */
@@ -157,6 +216,7 @@ body::before {
     max-width: 90px;
     object-fit: contain;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+    display: block;
 }
 
 .card-icon-emoji {
@@ -196,6 +256,7 @@ body::before {
     padding: 4px;
     background: var(--white);
     box-shadow: 0 5px 15px var(--emerald-glow);
+    display: block;
 }
 
 /* Floating Bilingual Switcher */
