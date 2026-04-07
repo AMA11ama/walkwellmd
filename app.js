@@ -1,306 +1,177 @@
-/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.3) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+/**
+ * WalkWellMD Master Engine (V3.5 - Production Grade)
+ * Features: Tabbed Navigation, Back-Button Injection, Path-Depth Resolution.
+ */
 
-:root {
-    --emerald: #2D8A6C;
-    --emerald-glow: rgba(45, 138, 108, 0.15);
-    --charcoal: #1A1D21;
-    --slate: #4A5568;
-    --gold: #B8860B;
-    --white: #FFFFFF;
-    --bg-light: #F8FAFC;
-    --glass: rgba(255, 255, 255, 0.9);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-}
+let currentLang = localStorage.getItem('wwmd_lang') || 'en';
+let activeTab = 'protocols'; // State for dashboard tabs
 
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
+/**
+ * Main Initialization
+ */
+async function initializeWalkWellMD() {
+    try {
+        // 1. Detect Path Depth (Essential for assets and logos)
+        const isSubfolder = window.location.pathname.includes('/protocols/') || window.location.pathname.includes('/education/');
+        const basePath = isSubfolder ? '../' : './';
+        
+        // 2. Fetch Master Library (data.json)
+        const response = await fetch(basePath + 'data.json');
+        if (!response.ok) throw new Error("Could not load data.json");
+        const data = await response.json();
+        const config = data.branding;
 
-body {
-    background-color: var(--bg-light);
-    color: var(--charcoal);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    line-height: 1.6;
-    padding-bottom: 120px;
-}
+        // 3. Set Global Page Direction
+        document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
-/* Geometric Background */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle at 50% -20%, #e2ece9 0%, var(--bg-light) 60%);
-    opacity: 1;
-}
+        // 4. Inject UI Components
+        injectHeader(config, basePath, isSubfolder);
+        injectActionBar(config);
 
-/* Dynamic Header Styles */
-.header {
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-}
+        // 5. If on Dashboard, Render Tabs and Content
+        if (document.getElementById('protocol-list')) {
+            renderDashboard(data, config, basePath);
+        }
 
-.surgeon-brand { display: flex; flex-direction: column; }
-
-.surgeon-name {
-    font-family: "Playfair Display", serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    color: var(--charcoal);
-}
-
-.hospital-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 4px;
-}
-
-.hospital-logo {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-}
-
-.hospital-info {
-    font-size: 0.72rem;
-    line-height: 1.2;
-    color: var(--slate);
-    font-weight: 500;
-}
-
-/* Dashboard Grid Layout */
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.hero { text-align: center; padding: 40px 20px; }
-.hero h2 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--emerald);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.hero h1 { 
-    font-size: 2rem; 
-    font-weight: 300; 
-    margin: 0; 
-    color: var(--charcoal);
-}
-
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-@media (min-width: 768px) {
-    .main-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-}
-
-/* Professional Card Components */
-.glass-card {
-    background: var(--white);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: var(--card-shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    color: var(--charcoal);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.glass-card:hover, .glass-card:active {
-    border-color: var(--emerald);
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px -5px rgba(45, 138, 108, 0.15);
-}
-
-/* Icon Container Logic - Resolves Text vs Image Issue */
-.icon-container {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.card-icon-img {
-    max-height: 90px;
-    max-width: 90px;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
-}
-
-.card-icon-emoji {
-    font-size: 2.5rem;
-}
-
-.glass-card h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.view-label {
-    font-size: 0.65rem;
-    color: var(--emerald);
-    font-weight: 800;
-    margin-top: 12px;
-    letter-spacing: 1px;
-}
-
-/* Professional Profile Card */
-.profile-card {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: center;
-    gap: 25px;
-    text-align: left;
-    background: linear-gradient(135deg, #f0f7f5, var(--white));
-}
-
-.profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--emerald);
-    padding: 4px;
-    background: var(--white);
-    box-shadow: 0 5px 15px var(--emerald-glow);
-}
-
-/* Floating Bilingual Switcher */
-.floating-lang {
-    position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 5px;
-    border-radius: 40px;
-    display: flex;
-    z-index: 1000;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.lang-switch {
-    padding: 8px 20px;
-    border-radius: 30px;
-    border: none;
-    background: transparent;
-    color: var(--slate);
-    font-weight: 600;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.lang-switch.active {
-    background: var(--emerald);
-    color: var(--white);
-}
-
-/* Global Action Bar */
-.action-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background: var(--white);
-    border-top: 1px solid var(--glass-border);
-    z-index: 999;
-}
-
-.bar-item {
-    padding: 15px 5px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--slate);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.bar-item i { display: block; margin-bottom: 4px; font-size: 1.1rem; }
-
-/* Internal Protocol Styling */
-.protocol-card { 
-    background: var(--white);
-    padding: 30px;
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--card-shadow);
-    margin-bottom: 25px;
-}
-
-.protocol-card h1 { color: var(--emerald); font-family: "Playfair Display", serif; margin-top: 0; }
-
-.lang-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gold);
-    font-weight: 800;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.emergency-box {
-    border-left: 4px solid #E53E3E;
-    background: #FFF5F5;
-    color: #9B2C2C;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 0;
-    font-weight: 500;
-}
-
-.icon-fallback {
-    font-size: 2rem;
-    opacity: 0.3;
-}
-
-[dir="rtl"] { text-align: right; }
-[dir="rtl"] .profile-card { text-align: right; }
-[dir="rtl"] .emergency-box { border-left: none; border-right: 4px solid #E53E3E; }
-
-@media (max-width: 600px) {
-    .profile-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
+    } catch (error) {
+        console.error("WalkWellMD Engine Error:", error);
     }
 }
+
+/**
+ * UI Component: Header (With Conditional Back Button)
+ */
+function injectHeader(config, basePath, isSubfolder) {
+    const header = document.getElementById('global-header');
+    if (!header) return;
+
+    // The Back button appears ONLY on sub-pages
+    const backBtnHtml = isSubfolder ? `
+        <a href="${basePath}index.html" class="back-btn">
+            ${currentLang === 'en' ? '←' : '→'}
+        </a>
+    ` : '';
+
+    header.innerHTML = `
+        <div class="header">
+            <div class="header-left">
+                ${backBtnHtml}
+                <div class="surgeon-brand">
+                    <div class="surgeon-name">${config['surgeon_' + currentLang]}</div>
+                    <div class="hospital-brand">
+                        <img src="${basePath}${config.logo}" alt="Hospital Logo" class="hospital-logo" onerror="this.style.opacity='0'">
+                        <div class="hospital-info">
+                            ${config['hospital_' + currentLang]}<br>
+                            ${config['location_' + currentLang]}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: 1.5rem; color: var(--emerald); cursor:pointer;" onclick="window.location.href='${basePath}index.html'">☰</div>
+        </div>
+    `;
+}
+
+/**
+ * UI Component: Action Bar
+ */
+function injectActionBar(config) {
+    const bar = document.getElementById('global-action-bar');
+    if (!bar) return;
+
+    bar.innerHTML = `
+        <div class="floating-lang">
+            <button class="lang-switch ${currentLang === 'en' ? 'active' : ''}" onclick="setGlobalLanguage('en')">EN</button>
+            <button class="lang-switch ${currentLang === 'ar' ? 'active' : ''}" onclick="setGlobalLanguage('ar')">العربية</button>
+        </div>
+        <nav class="action-bar">
+            <a href="tel:${config.phone}" class="bar-item"><i>📞</i><span>${currentLang === 'en' ? 'Call' : 'اتصال'}</span></a>
+            <a href="https://wa.me/${config.whatsapp}" class="bar-item" style="background: var(--emerald); color: white; border-radius: 12px; margin: 5px; padding: 10px;"><i>💬</i><span>WhatsApp</span></a>
+            <a href="${config.reviewUrl}" class="bar-item" target="_blank"><i>⭐</i><span>${currentLang === 'en' ? 'Review' : 'تقييم'}</span></a>
+        </nav>
+    `;
+}
+
+/**
+ * Robust Icon Helper (Trims spaces, detects assets folder)
+ */
+function getIconHtml(icon, basePath) {
+    if (!icon) return '';
+    const cleanIcon = icon.trim();
+    
+    // Logic: If it contains 'assets/' OR ends in an image extension, render as IMG
+    const isImage = cleanIcon.includes('assets/') || /\.(jpg|jpeg|png|svg|webp)$/i.test(cleanIcon);
+    
+    if (isImage) {
+        // encodeURI handles spaces if any remain
+        return `<img src="${encodeURI(basePath + cleanIcon)}" class="card-icon-img" onerror="this.outerHTML='<div class=\'icon-fallback\'>🦴</div>'">`;
+    }
+    return `<div class="card-icon-emoji">${cleanIcon}</div>`;
+}
+
+/**
+ * Dashboard Logic: Tabs & Grid Rendering
+ */
+function renderDashboard(data, config, basePath) {
+    const container = document.getElementById('protocol-list');
+    const profileImg = document.querySelector('.profile-img');
+    const profileTitle = document.getElementById('ui-prof-title');
+    const profileDesc = document.getElementById('ui-prof-desc');
+
+    // 1. Set Profile Data
+    if (profileImg) profileImg.src = basePath + config.headshot;
+    if (profileTitle) profileTitle.innerText = config['surgeon_' + currentLang];
+    if (profileDesc) profileDesc.innerText = config['profession_' + currentLang];
+
+    // 2. Inject Tabs into the Dashboard
+    const tabContainer = document.querySelector('.tab-container') || document.createElement('div');
+    if (!tabContainer.className) {
+        tabContainer.className = 'tab-container';
+        container.parentNode.insertBefore(tabContainer, container);
+    }
+
+    tabContainer.innerHTML = `
+        <button class="tab-btn ${activeTab === 'protocols' ? 'active' : ''}" onclick="switchDashboardTab('protocols')">
+            ${currentLang === 'en' ? 'Protocols' : 'البروتوكولات'}
+        </button>
+        <button class="tab-btn ${activeTab === 'education' ? 'active' : ''}" onclick="switchDashboardTab('education')">
+            ${currentLang === 'en' ? 'Education' : 'التثقيف'}
+        </button>
+    `;
+
+    // 3. Render Filtered Content
+    const sourceData = activeTab === 'protocols' ? data.protocols : data.education;
+    const label = activeTab === 'protocols' ? (currentLang === 'en' ? 'VIEW PROTOCOL' : 'عرض البروتوكول') : (currentLang === 'en' ? 'LEARN MORE' : 'اقرأ المزيد');
+
+    container.innerHTML = sourceData.map(item => `
+        <a href="${basePath}${item.url}" class="glass-card">
+            <div class="icon-container">${getIconHtml(item.icon, basePath)}</div>
+            <h3>${currentLang === 'en' ? item.title_en : item.title_ar}</h3>
+            <p class="view-label">${label}</p>
+        </a>
+    `).join('');
+
+    // 4. Localize Hero
+    if (currentLang === 'ar') {
+        const sub = document.getElementById('ui-hero-sub');
+        const main = document.getElementById('ui-hero-main');
+        if (sub) sub.innerText = "التميز في الحركة";
+        if (main) main.innerText = "جراحة العظام والقدم والكاحل";
+    }
+}
+
+/**
+ * State Management
+ */
+function switchDashboardTab(tab) {
+    activeTab = tab;
+    initializeWalkWellMD(); // Re-render with new tab state
+}
+
+function setGlobalLanguage(lang) {
+    localStorage.setItem('wwmd_lang', lang);
+    window.location.reload();
+}
+
+// Start the Engine
+window.addEventListener('DOMContentLoaded', initializeWalkWellMD);
