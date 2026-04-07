@@ -124,8 +124,9 @@ function renderDashboard(data, config, basePath) {
     if (profileDesc) profileDesc.innerText = config['profession_' + currentLang];
 
     // 2. Inject Tabs into the Dashboard
-    const tabContainer = document.querySelector('.tab-container') || document.createElement('div');
-    if (!tabContainer.className) {
+    let tabContainer = document.querySelector('.tab-container');
+    if (!tabContainer) {
+        tabContainer = document.createElement('div');
         tabContainer.className = 'tab-container';
         container.parentNode.insertBefore(tabContainer, container);
     }
@@ -163,15 +164,15 @@ function renderDashboard(data, config, basePath) {
 /**
  * State Management
  */
-function switchDashboardTab(tab) {
+window.switchDashboardTab = function(tab) {
     activeTab = tab;
     initializeWalkWellMD(); // Re-render with new tab state
-}
+};
 
-function setGlobalLanguage(lang) {
+window.setGlobalLanguage = function(lang) {
     localStorage.setItem('wwmd_lang', lang);
     window.location.reload();
-}
+};
 
 // Start the Engine
 window.addEventListener('DOMContentLoaded', initializeWalkWellMD);
