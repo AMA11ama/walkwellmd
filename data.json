@@ -30,25 +30,25 @@
 "icon": "assets/peroneal-repair.png"
 },
 {
-"id": "mortons-neuroma",
+"id": "neuroma-excision",
 "title_en": "Morton’s Neuroma Excision",
 "title_ar": "استئصال ورم مورتون العصبي",
 "url": "protocols/mortons-neuroma.html",
-"icon": "assets/Neuroma Excision.png"
+"icon": "assets/neuroma-excision.png"
 },
 {
 "id": "first-mtp-fusion",
 "title_en": "First MTP Joint Fusion",
 "title_ar": "دمج المفصل المشطي السلامي الأول",
 "url": "protocols/first-mtp-fusion.html",
-"icon": "assets/First MTP Joint Fusion.png"
+"icon": "assets/first-mtp-joint-fusion.png"
 },
 {
 "id": "partial-nail-bed-excision",
 "title_en": "Partial Nail Bed Excision",
 "title_ar": "استئصال جزئي لسرير الظفر",
 "url": "protocols/partial-nail-bed-excision.html",
-"icon": "assets/Partial Nail Bed Excision.png"
+"icon": "assets/partial-nail-bed-excision.png"
 },
 {
 "id": "orif-5th-metatarsal",
@@ -62,7 +62,7 @@
 "title_en": "Flatfoot Reconstruction",
 "title_ar": "تصحيح القدم المسطحة",
 "url": "protocols/flatfoot-reconstruction.html",
-"icon": "assets/flatfoot-reconstruction.png"
+"icon": "👣"
 },
 {
 "id": "hallux-valgus",
@@ -98,16 +98,15 @@
 "id": "edu-bunions",
 "title_en": "Understanding Bunions",
 "title_ar": "فهم حالة الوكعة",
-"url": "education/bunions.html",
+"url": "protocols/edu-bunions.html",
 "icon": "📚"
 },
 {
 "id": "edu-ankle-sprain",
 "title_en": "Ankle Sprain Care",
 "title_ar": "علاج التواء الكاحل",
-"url": "education/ankle-sprain.html",
+"url": "protocols/edu-ankle-sprain.html",
 "icon": "🧊"
 }
-],
-"xrays": []
+]
 }
