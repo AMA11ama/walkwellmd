@@ -1,4 +1,4 @@
-/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V3.5) */
+/* WalkWellMD Luxury Design System - "Light Luxury" Edition (V4.1) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
@@ -30,20 +30,52 @@ body {
     padding-bottom: 120px;
 }
 
-/* Subtle Geometric Background */
-body::before {
-    content: "";
-    position: fixed;
+/* 3D Hero Section & Animation Container */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    background: #fdfdfd;
+    border-radius: 24px;
+    margin: 20px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+#foot-animation {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle at 50% -20%, #e2ece9 0%, var(--bg-light) 60%);
-    opacity: 1;
+    z-index: 1;
 }
 
-/* Global Header Styling */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    padding-top: 60px;
+}
+
+.hero h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--emerald);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; 
+    font-weight: 700; 
+    margin: 0; 
+    color: var(--charcoal);
+}
+
+/* Global Header & Back Button */
 .header {
     padding: 15px 20px;
     display: flex;
@@ -63,10 +95,9 @@ body::before {
     gap: 15px;
 }
 
-/* New: Back Button Style */
 .back-btn {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: var(--bg-light);
     border: 1px solid var(--glass-border);
@@ -75,13 +106,14 @@ body::before {
     justify-content: center;
     color: var(--emerald);
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: 0.3s;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
 }
 
 .back-btn:active {
-    background: var(--emerald-glow);
     transform: scale(0.9);
+    background: var(--emerald-glow);
 }
 
 .surgeon-brand { display: flex; flex-direction: column; }
@@ -91,51 +123,50 @@ body::before {
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: -0.2px;
-    color: var(--charcoal);
 }
 
 .hospital-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 8px;
+    margin-top: 2px;
 }
 
 .hospital-logo {
-    height: 32px;
+    height: 30px;
     width: auto;
     object-fit: contain;
-    display: block; /* Ensures visibility */
 }
 
 .hospital-info {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     line-height: 1.2;
     color: var(--slate);
     font-weight: 500;
 }
 
-/* Tab Navigation Styles */
+/* Segmented Tab Navigation */
 .tab-container {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin: 20px 0 30px 0;
-    padding: 0 20px;
+    gap: 10px;
+    margin: 30px 20px;
 }
 
 .tab-btn {
-    padding: 12px 24px;
+    flex: 1;
+    max-width: 200px;
+    padding: 14px 20px;
     border-radius: 40px;
     border: 1px solid var(--glass-border);
     background: var(--white);
     color: var(--slate);
     font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--card-shadow);
 }
 
@@ -146,47 +177,31 @@ body::before {
     box-shadow: 0 8px 20px var(--emerald-glow);
 }
 
-/* Dashboard Grid Layout */
+/* Main Grid & Card System */
 .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-}
-
-.hero { text-align: center; padding: 40px 20px; }
-.hero h2 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--emerald);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.hero h1 { 
-    font-size: 2rem; 
-    font-weight: 300; 
-    margin: 0; 
-    color: var(--charcoal);
+    padding: 10px;
 }
 
 .main-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
+    padding: 10px;
 }
 
 @media (min-width: 768px) {
     .main-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 
-/* Frosted Glass Card Components */
 .glass-card {
     background: var(--white);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 25px;
     box-shadow: var(--card-shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     text-decoration: none;
     color: var(--charcoal);
     display: flex;
@@ -197,13 +212,13 @@ body::before {
 
 .glass-card:hover, .glass-card:active {
     border-color: var(--emerald);
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow: 0 15px 35px -5px rgba(45, 138, 108, 0.15);
 }
 
-/* Icon Container - Crucial for Image alignment */
+/* Icon Management: Images vs Emojis */
 .icon-container {
-    height: 100px;
+    height: 110px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -212,76 +227,77 @@ body::before {
 }
 
 .card-icon-img {
-    max-height: 90px;
-    max-width: 90px;
+    max-height: 100px;
+    max-width: 100px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
-    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
 }
 
 .card-icon-emoji {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
 }
 
 .glass-card h3 {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .view-label {
     font-size: 0.65rem;
     color: var(--emerald);
     font-weight: 800;
-    margin-top: 12px;
-    letter-spacing: 1px;
+    margin-top: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
-/* Professional Profile Section */
+/* Surgeon Profile Card */
 .profile-card {
     grid-column: 1 / -1;
     flex-direction: row;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     text-align: left;
     background: linear-gradient(135deg, #f0f7f5, var(--white));
+    padding: 35px;
 }
 
 .profile-img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--emerald);
-    padding: 4px;
+    border: 3px solid var(--emerald);
+    padding: 5px;
     background: var(--white);
-    box-shadow: 0 5px 15px var(--emerald-glow);
-    display: block;
+    box-shadow: 0 8px 25px var(--emerald-glow);
 }
 
-/* Floating Bilingual Switcher */
+/* Bilingual Interface Controls */
 .floating-lang {
     position: fixed;
     bottom: 90px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--glass);
+    backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
-    padding: 5px;
-    border-radius: 40px;
+    padding: 6px;
+    border-radius: 50px;
     display: flex;
     z-index: 1000;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .lang-switch {
-    padding: 8px 20px;
-    border-radius: 30px;
+    padding: 8px 22px;
+    border-radius: 40px;
     border: none;
     background: transparent;
     color: var(--slate);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.8rem;
     cursor: pointer;
     transition: 0.3s;
@@ -312,58 +328,60 @@ body::before {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.bar-item i { display: block; margin-bottom: 4px; font-size: 1.1rem; }
+.bar-item i { display: block; margin-bottom: 5px; font-size: 1.2rem; }
 
-/* Internal Content Components */
+/* Internal Protocol Content Styles */
 .protocol-card { 
     background: var(--white);
-    padding: 30px;
-    border-radius: 24px;
+    padding: 35px;
+    border-radius: 28px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--card-shadow);
     margin-bottom: 25px;
 }
 
-.protocol-card h1 { color: var(--emerald); font-family: "Playfair Display", serif; margin-top: 0; }
+.protocol-card h1 { color: var(--emerald); font-family: "Playfair Display", serif; margin: 0 0 20px 0; }
 
 .lang-label {
     font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--gold);
     font-weight: 800;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .emergency-box {
-    border-left: 4px solid #E53E3E;
+    border-left: 5px solid #E53E3E;
     background: #FFF5F5;
     color: #9B2C2C;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 0;
-    font-weight: 500;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px 0;
+    font-weight: 600;
 }
 
 .icon-fallback {
-    font-size: 2rem;
-    opacity: 0.3;
+    font-size: 2.2rem;
+    opacity: 0.2;
 }
 
-/* RTL Support */
+/* RTL Global Support */
 [dir="rtl"] { text-align: right; }
 [dir="rtl"] .profile-card { text-align: right; }
-[dir="rtl"] .emergency-box { border-left: none; border-right: 4px solid #E53E3E; }
+[dir="rtl"] .emergency-box { border-left: none; border-right: 5px solid #E53E3E; }
+[dir="rtl"] .back-btn { font-size: 1.3rem; }
 
-/* Responsive Overrides */
+/* Responsive Mobile Overrides */
 @media (max-width: 600px) {
     .profile-card {
         flex-direction: column;
         text-align: center;
-        padding: 30px 20px;
+        padding: 35px 20px;
     }
+    .hero { height: 300px; }
+    .hero h1 { font-size: 1.8rem; }
 }
