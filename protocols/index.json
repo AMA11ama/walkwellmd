@@ -1,93 +1,65 @@
 [
-{
-"id": "achilles-rupture",
-"title_en": "Achilles Tendon Rupture",
-"title_ar": "تمزق وتر أخيل",
-"url": "protocols/achilles-rupture.html",
-"tags": ["ankle", "rupture"]
-},
-{
-"id": "peroneal-repair",
-"title_en": "Peroneal Tendon Repair",
-"title_ar": "إصلاح وتر الشظوي",
-"url": "protocols/peroneal-repair.html",
-"tags": ["ankle", "tendon"]
-},
-{
-"id": "mortons-neuroma-excision",
-"title_en": "Morton’s Neuroma Excision",
-"title_ar": "استئصال ورم مورتون العصبي",
-"url": "protocols/mortons-neuroma.html",
-"tags": ["forefoot", "neuroma"]
-},
-{
-"id": "first-mtp-fusion",
-"title_en": "First MTP Joint Fusion",
-"title_ar": "دمج المفصل المشطي السلامي الأول",
-"url": "protocols/first-mtp-fusion.html",
-"tags": ["forefoot", "fusion"]
-},
-{
-"id": "partial-nail-bed-excision",
-"title_en": "Partial Nail Bed Excision",
-"title_ar": "استئصال جزئي لسرير الظفر",
-"url": "protocols/partial-nail-bed-excision.html",
-"tags": ["toenail"]
-},
-{
-"id": "orif-5th-metatarsal-base",
-"title_en": "ORIF – 5th Metatarsal Base",
-"title_ar": "تثبيت كسر المشط الخامس",
-"url": "protocols/orif-5th-metatarsal.html",
-"tags": ["foot", "fracture"]
-},
-{
-"id": "flatfoot-reconstruction",
-"title_en": "Flatfoot Reconstruction",
-"title_ar": "تصحيح القدم المسطحة",
-"url": "protocols/flatfoot-reconstruction.html",
-"tags": ["foot", "reconstruction"]
-},
-{
-"id": "hallux-valgus-correction",
-"title_en": "Hallux Valgus Correction",
-"title_ar": "تصحيح إبهام القدم (الوكعة)",
-"url": "protocols/hallux-valgus.html",
-"tags": ["forefoot", "bunion"]
-},
-{
-"id": "ankle-fracture-orif",
-"title_en": "Ankle Fracture ORIF",
-"title_ar": "تثبيت كسر الكاحل",
-"url": "protocols/ankle-fracture-orif.html",
-"tags": ["ankle", "fracture"]
-},
-{
-"id": "lateral-ligament-reconstruction-ankle",
-"title_en": "Lateral Ligament Reconstruction",
-"title_ar": "إعادة بناء الأربطة الجانبية",
-"url": "protocols/lateral-ligament-reconstruction.html",
-"tags": ["ankle", "ligament"]
-},
-{
-"id": "accessory-navicular-tibialis-posterior-rehab",
-"title_en": "Accessory Navicular Excision",
-"title_ar": "استئصال العظم الزورقي الإضافي",
-"url": "protocols/accessory-navicular.html",
-"tags": ["foot", "tendon"]
-},
-{
-"id": "edu-bunion-explained",
-"title_en": "Understanding Bunions (Education)",
-"title_ar": "فهم حالة الوكعة (تثقيف)",
-"url": "#",
-"tags": ["education"]
-},
-{
-"id": "edu-ankle-sprain",
-"title_en": "Ankle Sprain Care (Education)",
-"title_ar": "علاج التواء الكاحل (تثقيف)",
-"url": "#",
-"tags": ["education"]
-}
+  {
+    "id": "MTP-FUSION-001",
+    "title_en": "First MTP Joint Fusion",
+    "title_ar": "دمج المفصل المشطي السلامي الأول",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/mtp_fusion.html",
+    "tags": ["forefoot", "fusion", "heel-weight-bearing", "mtp"],
+    "milestones_en": [
+      "Weeks 0-2: Heel weight-bearing only in post-operative shoe. Do not place weight on the front of your foot.",
+      "Weeks 2-6: Continue walking on your heel. Sutures are usually removed at day 15.",
+      "Weeks 6-8: X-rays taken to assess bone healing. May transition to full weight-bearing if early fusion is seen.",
+      "Months 3-6: Gradual return to full activity. Full fusion usually achieved by 4-6 months."
+    ],
+    "milestones_ar": [
+      "الأسبوع 0-2: المشي على الكعب فقط باستخدام الحذاء العلاجي. يُمنع تمامًا الضغط على مقدمة القدم.",
+      "الأسبوع 2-6: استمر في المشي على الكعب فقط. تتم إزالة الغرز عادة في اليوم 15.",
+      "الأسبوع 6-8: سيتم إجراء أشعة لتقييم التحام العظم. يمكن الانتقال للمشي الكامل إذا ظهرت علامات التحام.",
+      "الأشهر 3-6: العودة التدريجية إلى النشاط الكامل. يكتمل التحام العظم عادة خلال 4-6 أشهر."
+    ]
+  },
+  {
+    "id": "ACHILLES-RPT-002",
+    "title_en": "Achilles Tendon Rupture",
+    "title_ar": "تمزّق وتر أخيل",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/achilles_rupture.html",
+    "tags": ["hindfoot", "tendon", "non-weight-bearing", "achilles"],
+    "milestones_en": [
+      "Weeks 0-2: Plantarflexion cast. Non-weight bearing with crutches.",
+      "Weeks 2-4: Walker boot with 2-4 cm heel lift. Protected weight-bearing.",
+      "Weeks 6-8: 100% weight bearing as tolerated, still in boot. Remove heel wedges in stages.",
+      "Month 12: If ~100% strength is regained, return to running/jumping sports."
+    ],
+    "milestones_ar": [
+      "الأسبوع 0-2: جبيرة في وضعية الثني الأخمصي. بدون تحميل وزن مع العكازات.",
+      "الأسبوع 2-4: بوت مشي مع رافعات كعب بارتفاع 2-4 سم. تحميل وزن تدريجي.",
+      "الأسبوع 6-8: 100% تحميل وزن بحسب التحمّل مع الاستمرار على البوت. إزالة رافعات الكعب تدريجيًا.",
+      "الشهر 12: عند استعادة 100% من القوة يمكن العودة للرياضات التي تتضمن الجري والقفز."
+    ]
+  },
+  {
+    "id": "ANKLE-ORIF-003",
+    "title_en": "Ankle Fracture (ORIF)",
+    "title_ar": "كسر الكاحل (ORIF)",
+    "lang": "bi",
+    "type": "html",
+    "url": "/protocols/ankle_orif.html",
+    "tags": ["ankle", "fracture", "orif", "non-weight-bearing"],
+    "milestones_en": [
+      "Weeks 0-2: Below-knee cast or air boot. No weight-bearing for the first 2 weeks.",
+      "Weeks 2-6: Partial weight-bearing on heel only if permitted by surgeon.",
+      "Weeks 6-8: Progress gradually to full weight-bearing in the boot if healed.",
+      "Months 3-6: Full activity or contact sports after 5-6 months once strength is restored."
+    ],
+    "milestones_ar": [
+      "الأسبوع 0-2: جبس أسفل الركبة أو حذاء هوائي. ممنوع التحميل خلال أول أسبوعين.",
+      "الأسبوع 2-6: ابدأ المشي على الكعب فقط باستخدام العكازات والحذاء الهوائي بإذن الطبيب.",
+      "الأسبوع 6-8: يمكن الانتقال تدريجيًا إلى التحميل الكامل مع الحذاء الهوائي إذا كان الالتحام جيدًا.",
+      "الأشهر 3-6: العودة الكاملة للرياضة العنيفة بعد 5-6 أشهر عند استعادة القوة وثبوت الالتئام."
+    ]
+  }
 ]
