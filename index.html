@@ -1,110 +1,217 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WalkWellMD | د. الحداد</title>
+    <title>WalkWellMD | Foot & Ankle Specialists</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "WalkWellMD",
+      "medicalSpecialty": "Orthopedic Foot and Ankle Surgery",
+      "telephone": "0127444444",
+      "url": "https://www.walkwellmd.com",
+      "availableLanguage": [
+        {"@type": "Language", "name": "English"},
+        {"@type": "Language", "name": "Arabic"}
+      ]
+    }
+    </script>
+
     <style>
         :root {
-            --deep-teal: #02445A;
-            --mint-green: #4CB493;
-            --light-bg: #f4f7f6;
-            --white: #ffffff;
+            --brand-green: #2b7a4b;
+            --brand-green-dark: #1e5c37;
+            --bg-color: #f8faf9;
+            --text-dark: #1a1a1a;
+            --card-bg: #ffffff;
+            --alert-red: #d93838;
         }
-
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light-bg); margin: 0; padding-bottom: 80px; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-color); color: var(--text-dark); margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 768px) { .bilingual-grid { grid-template-columns: 1fr; } }
         
-        /* Navigation & Search */
-        header { background: var(--deep-teal); color: var(--white); padding: 1rem; sticky: top; z-index: 100; }
-        .nav-top { display: flex; justify-content: space-between; align-items: center; }
-        .search-box { width: 100%; margin-top: 1rem; padding: 0.8rem; border-radius: 8px; border: none; }
-
-        /* Grid Layout */
-        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 1.5rem; }
-        .card { background: var(--white); border-radius: 15px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid var(--mint-green); }
-        .card h3 { color: var(--deep-teal); margin-top: 0; }
+        .lang-en { direction: ltr; text-align: left; }
+        .lang-ar { direction: rtl; text-align: right; font-family: 'Tajawal', system-ui, sans-serif; }
         
-        /* Action Bar */
-        .action-dock { position: fixed; bottom: 0; width: 100%; background: var(--white); display: flex; justify-content: space-around; padding: 1rem 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; }
-        .btn-action { text-decoration: none; color: var(--deep-teal); font-weight: bold; font-size: 0.9rem; text-align: center; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; position: relative; z-index: 1; margin-bottom: 20px; }
+        .card::before { content: 'WalkWellMD'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 5rem; font-weight: 800; color: rgba(43, 122, 75, 0.03); pointer-events: none; z-index: -1; }
+        .title-bar { background: var(--brand-green); color: white; padding: 16px 20px; margin: 0; font-size: 1.25rem; }
+        .card-content { padding: 20px; }
         
-        /* Modal for Review Guard */
-        #reviewModal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border-radius: 15px; z-index: 2000; box-shadow: 0 0 20px rgba(0,0,0,0.5); width: 80%; max-width: 400px; text-align: center; }
+        .emergency-box { border-left: 5px solid var(--alert-red); background: #fff5f5; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .lang-ar .emergency-box { border-left: none; border-right: 5px solid var(--alert-red); }
+        .btn-call { display: inline-block; background: var(--brand-green); color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: bold; transition: background 0.3s; }
+        .btn-call:hover { background: var(--brand-green-dark); }
+        
+        /* Interactive Review Widget & Modal */
+        .review-widget { position: fixed; bottom: 20px; left: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 280px; z-index: 1000; border-top: 3px solid #fbbc05; }
+        .stars { color: #fbbc05; letter-spacing: 2px; margin-bottom: 5px;}
+        .review-text { font-size: 0.85rem; color: #555; }
+        .btn-leave-review { margin-top: 10px; width: 100%; background: #f8f9fa; border: 1px solid #ddd; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; color: var(--text-dark); transition: 0.2s; }
+        .btn-leave-review:hover { background: #e2e6ea; }
 
-        /* Utility */
-        .en-only { display: none; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content { background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; transform: translateY(20px); transition: transform 0.3s ease; }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #888; }
+        
+        .interactive-stars { display: flex; justify-content: center; gap: 10px; font-size: 2.5rem; color: #ccc; cursor: pointer; direction: ltr; }
+        .interactive-stars span { transition: color 0.2s; }
+        .btn-submit-feedback { width: 100%; background: var(--brand-green); color: white; border: none; padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="nav-top">
-        <div style="font-size: 1.5rem; font-weight: bold;">WalkWellMD</div>
-        <button id="langToggle" onclick="toggleLanguage()" style="background: var(--mint-green); border: none; padding: 5px 15px; color: white; border-radius: 5px; cursor: pointer;">English</button>
+<div class="container">
+    <header style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+        <h1 style="color: var(--brand-green); margin: 0; font-size: 2.5rem;">WalkWellMD</h1>
+        <p style="margin-top: 5px; color: #555;">Foot & Ankle Specialists</p>
+        <a href="tel:0127444444" class="btn-call">✆ 0127444444</a>
+    </header>
+
+    <div class="bilingual-grid">
+        <div class="lang-en">
+            <div class="emergency-box">
+                <strong>Emergency Alert:</strong> If you experience sudden calf pain, chest pain, or fever above 38°C, head to the nearest ER immediately.
+            </div>
+            <article class="card">
+                <h2 class="title-bar">Post-Operative Timelines</h2>
+                <div class="card-content">
+                    <p>Understanding your recovery is crucial. Our protocols are designed to safely return you to daily activities.</p>
+                    <ul>
+                        <li>Phase 1: Range of Motion</li>
+                        <li>Phase 2: Strengthening</li>
+                        <li>Phase 3: Proprioception</li>
+                    </ul>
+                    <a href="portal.html" style="color: var(--brand-green); font-weight: bold;">Access Patient Portal →</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="lang-ar">
+            <div class="emergency-box" dir="rtl">
+                <strong>تنبيه طارئ:</strong> إذا شعرت بألم مفاجئ في ربلة الساق، ألم في الصدر، أو حمى تتجاوز 38 درجة مئوية، توجه إلى أقرب طوارئ فوراً.
+            </div>
+            <article class="card">
+                <h2 class="title-bar">الجداول الزمنية لما بعد الجراحة</h2>
+                <div class="card-content">
+                    <p>فهم مرحلة التعافي أمر بالغ الأهمية. تم تصميم بروتوكولاتنا لإعادتك بأمان إلى أنشطتك اليومية.</p>
+                    <ul style="padding-right: 20px;">
+                        <li>المرحلة الأولى: المدى الحركي</li>
+                        <li>المرحلة الثانية: التقوية</li>
+                        <li>المرحلة الثالثة: التحسس العميق (التوازن)</li>
+                    </ul>
+                    <a href="portal.html" style="color: var(--brand-green); font-weight: bold;">← الدخول لبوابة المرضى</a>
+                </div>
+            </article>
+        </div>
     </div>
-    <input type="text" class="search-box" id="diseaseSearch" placeholder="ابحث عن الحالة أو البروتوكول..." onkeyup="filterCards()">
-</header>
-
-<main class="bento-grid" id="cardContainer">
-    <div class="card" data-title-ar="انحراف إصبع القدم الكبير" data-title-en="Hallux Valgus Bunion">
-        <h3 class="ar-text">انحراف إصبع القدم (البوكعة)</h3>
-        <h3 class="en-only">Hallux Valgus (Bunion)</h3>
-        <p class="ar-text">تعليمات ما بعد الجراحة وبروتوكولات التأهيل.</p>
-        <p class="en-only">Post-operative instructions and rehab protocols.</p>
-        <button onclick="alert('Link to Protocol')" style="width: 100%; background: var(--deep-teal); color: white; border: none; padding: 10px; border-radius: 5px;">View Protocol</button>
-    </div>
-
-    </main>
-
-<div class="action-dock">
-    <a href="tel:0127444444" class="btn-action">📞<br><span class="ar-text">حجز</span><span class="en-only">Booking</span></a>
-    <a href="https://wa.me/966599124348" class="btn-action">💬<br><span class="ar-text">واتساب</span><span class="en-only">WhatsApp</span></a>
-    <a href="javascript:void(0)" onclick="openReviewModal()" class="btn-action">⭐<br><span class="ar-text">تقييمنا</span><span class="en-only">Rate Us</span></a>
 </div>
 
-<div id="reviewModal">
-    <h2 class="ar-text">ما هو تقييمك لخدمتنا؟</h2>
-    <h2 class="en-only">Rate your experience?</h2>
-    <div style="font-size: 2rem; margin: 1rem 0;">
-        <span onclick="handleRating(1)" style="cursor:pointer">⭐</span>
-        <span onclick="handleRating(2)" style="cursor:pointer">⭐</span>
-        <span onclick="handleRating(3)" style="cursor:pointer">⭐</span>
-        <span onclick="handleRating(4)" style="cursor:pointer">⭐</span>
-        <span onclick="handleRating(5)" style="cursor:pointer">⭐</span>
+<div class="review-widget" id="reviewWidget">
+    <div class="stars">★★★★★</div>
+    <div class="review-text" id="reviewContent">Loading verified review...</div>
+    <button class="btn-leave-review" id="btnOpenReviewModal">Leave a Review</button>
+</div>
+
+<div class="modal-overlay" id="reviewModalOverlay">
+    <div class="modal-content">
+        <span class="close-modal" id="btnCloseModal">&times;</span>
+        
+        <div id="step1StarSelection">
+            <h3 style="margin-top: 0; color: var(--brand-green); text-align: center;">Rate Your Experience</h3>
+            <p style="font-size: 0.9rem; color: #555; text-align: center;">How was your visit to WalkWellMD?</p>
+            <div class="interactive-stars" id="interactiveStars">
+                <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
+            </div>
+        </div>
+
+        <div id="step2InternalFeedback" style="display: none;">
+            <h3 style="margin-top: 0; color: var(--brand-green);">How can we improve?</h3>
+            <p style="font-size: 0.85rem; color: #555;">Your feedback goes directly to our clinic management.</p>
+            <form id="internalFeedbackForm">
+                <textarea rows="4" placeholder="Please share your thoughts..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-family: inherit;"></textarea>
+                <button type="submit" class="btn-submit-feedback">Send Feedback</button>
+            </form>
+        </div>
+
+        <div id="step3ThankYou" style="display: none; text-align: center;">
+            <h3 style="color: var(--brand-green);">Thank You</h3>
+            <p>Your input is highly valued.</p>
+        </div>
     </div>
-    <button onclick="closeModal()" style="background: #ccc; border: none; padding: 5px 10px;">Close</button>
 </div>
 
 <script>
-    function toggleLanguage() {
-        const isAr = document.documentElement.dir === "rtl";
-        document.documentElement.dir = isAr ? "ltr" : "rtl";
-        document.documentElement.lang = isAr ? "en" : "ar";
-        
-        document.querySelectorAll('.ar-text').forEach(el => el.style.display = isAr ? 'none' : 'block');
-        document.querySelectorAll('.en-only').forEach(el => el.style.display = isAr ? 'block' : 'none');
-        document.getElementById('langToggle').innerText = isAr ? "العربية" : "English";
-    }
-
-    function openReviewModal() { document.getElementById('reviewModal').style.display = 'block'; }
-    function closeModal() { document.getElementById('reviewModal').style.display = 'none'; }
-
-    function handleRating(stars) {
-        if (stars >= 4) {
-            window.location.href = "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID";
-        } else {
-            window.location.href = "https://wa.me/966599124348?text=I%20have%20some%20feedback%20regarding%20my%20experience...";
+    // Simulated Reviews
+    const simulatedReviews = [
+        "Exceptional care. Dr. ALHADDAD explained the MIS bunion procedure perfectly. - S.A.",
+        "Smooth recovery from Achilles repair. The protocols are incredibly clear. - M.K.",
+        "Highly professional clinic. The bilingual materials made everything easy to understand. - R.N."
+    ];
+    let revIndex = 0;
+    setInterval(() => {
+        const content = document.getElementById('reviewContent');
+        if(content) {
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.innerText = simulatedReviews[revIndex];
+                content.style.opacity = 1;
+                revIndex = (revIndex + 1) % simulatedReviews.length;
+            }, 500);
         }
-    }
+    }, 6000);
+    document.getElementById('reviewContent').innerText = simulatedReviews[0];
 
-    function filterCards() {
-        let input = document.getElementById('diseaseSearch').value.toLowerCase();
-        let cards = document.getElementsByClassName('card');
-        for (let card of cards) {
-            let title = card.getAttribute('data-title-ar') + card.getAttribute('data-title-en');
-            card.style.display = title.toLowerCase().includes(input) ? "" : "none";
-        }
-    }
+    // Review Routing Logic
+    const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"; // UPDATE THIS
+
+    const modalOverlay = document.getElementById('reviewModalOverlay');
+    const step1 = document.getElementById('step1StarSelection');
+    const step2 = document.getElementById('step2InternalFeedback');
+    const step3 = document.getElementById('step3ThankYou');
+    const stars = document.querySelectorAll('.interactive-stars span');
+
+    document.getElementById('btnOpenReviewModal').addEventListener('click', () => {
+        modalOverlay.classList.add('active');
+        step1.style.display = 'block';
+        step2.style.display = 'none';
+        step3.style.display = 'none';
+        stars.forEach(s => s.style.color = '#ccc');
+    });
+    
+    document.getElementById('btnCloseModal').addEventListener('click', () => { modalOverlay.classList.remove('active'); });
+
+    stars.forEach(star => {
+        star.addEventListener('mouseover', function() {
+            let val = this.getAttribute('data-value');
+            stars.forEach(s => { s.style.color = s.getAttribute('data-value') <= val ? '#fbbc05' : '#ccc'; });
+        });
+        star.addEventListener('mouseout', function() { stars.forEach(s => s.style.color = '#ccc'); });
+
+        star.addEventListener('click', function() {
+            let rating = parseInt(this.getAttribute('data-value'));
+            if (rating === 5) {
+                window.open(GOOGLE_REVIEW_URL, '_blank');
+                modalOverlay.classList.remove('active');
+            } else {
+                step1.style.display = 'none';
+                step2.style.display = 'block';
+            }
+        });
+    });
+
+    document.getElementById('internalFeedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        step2.style.display = 'none';
+        step3.style.display = 'block';
+        setTimeout(() => { modalOverlay.classList.remove('active'); }, 3000);
+    });
 </script>
 
 </body>
